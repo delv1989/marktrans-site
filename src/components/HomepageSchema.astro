@@ -1,0 +1,97 @@
+---
+// JSON-LD структуровані дані для головної:
+// - LocalBusiness — вже в BaseLayout
+// - ItemList (каталог матеріалів) — для Product rich snippets
+// - BreadcrumbList
+// - Organization
+
+import { materials, equipment, works } from '../data/content';
+
+const siteUrl = Astro.site?.toString() ?? 'https://marktrans.com.ua';
+
+// ItemList для матеріалів
+const materialsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Сипучі будівельні матеріали',
+  description: 'Каталог сипучих матеріалів з доставкою по Києву та області',
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  numberOfItems: materials.length,
+  itemListElement: materials.map((m, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: m.title.replace(/\n/g, ' '),
+      image: m.image,
+      url: new URL(m.href, siteUrl).toString(),
+      brand: { '@type': 'Brand', name: 'MARKTRANS' },
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'UAH',
+        lowPrice: '150',
+        availability: 'https://schema.org/InStock',
+        seller: { '@type': 'Organization', name: 'MARKTRANS' },
+      },
+    },
+  })),
+};
+
+// ItemList для техніки
+const equipmentSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Оренда спецтехніки',
+  description: 'Оренда будівельної техніки з водієм та ПММ',
+  numberOfItems: equipment.length,
+  itemListElement: equipment.map((e, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: e.title.replace(/\n/g, ' '),
+      image: e.image,
+      url: new URL(e.href, siteUrl).toString(),
+      provider: { '@id': 'https://marktrans.com.ua/#business' },
+      areaServed: { '@type': 'City', name: 'Київ' },
+    },
+  })),
+};
+
+// ItemList для робіт
+const worksSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Будівельні роботи',
+  description: 'Повний цикл будівельних робіт',
+  numberOfItems: works.length,
+  itemListElement: works.map((w, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: w.title.replace(/\n/g, ' '),
+      image: w.image,
+      url: new URL(w.href, siteUrl).toString(),
+      provider: { '@id': 'https://marktrans.com.ua/#business' },
+      areaServed: { '@type': 'AdministrativeArea', name: 'Київська область' },
+    },
+  })),
+};
+
+// WebSite з sitelinks search
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://marktrans.com.ua/#website',
+  url: 'https://marktrans.com.ua/',
+  name: 'MARKTRANS',
+  inLanguage: 'uk-UA',
+  publisher: { '@id': 'https://marktrans.com.ua/#business' },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(materialsSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(equipmentSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(worksSchema)} />

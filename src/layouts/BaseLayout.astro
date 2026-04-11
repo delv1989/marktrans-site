@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = '/og-default.jpg',
+  noindex = false,
+} = Astro.props;
+
+const locale = Astro.currentLocale ?? 'uk';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// hreflang — генеруємо альтернативні мови для всіх локалей
+const localesConfig = ['uk', 'ru'] as const;
+const pathWithoutLocale = Astro.url.pathname.replace(/^\/(uk|ru)/, '') || '/';
+const hreflangs = localesConfig.map((loc) => ({
+  lang: loc,
+  href: new URL(`/${loc}${pathWithoutLocale}`, Astro.site).toString(),
+}));
+const xDefault = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
+
+// Schema.org LocalBusiness (всіх сторінок) — GEO optimization
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://marktrans.com.ua/#business',
+  name: 'MARKTRANS',
+  image: 'https://marktrans.com.ua/logo.png',
+  telephone: '+380504204229',
+  email: 'service@marktrans.com.ua',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'вул. Жилянська, 101',
+    addressLocality: 'Київ',
+    postalCode: '01135',
+    addressCountry: 'UA',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '50.4361',
+    longitude: '30.5047',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '08:00',
+      closes: '20:00',
+    },
+  ],
+  areaServed: [
+    { '@type': 'City', name: 'Київ' },
+    { '@type': 'AdministrativeArea', name: 'Київська область' },
+  ],
+  priceRange: '₴₴',
+};
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      hreflangs.map((h) => (
+        <link rel="alternate" hreflang={h.lang} href={h.href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    <meta property="og:locale" content={locale === 'uk' ? 'uk_UA' : 'ru_RU'} />
+    <meta property="og:site_name" content="MARKTRANS" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
+
+    <!-- Preconnect для швидкості -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Schema.org LocalBusiness — GEO -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  </head>
+  <body>
+    <!-- Skip link for accessibility -->
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-mt-accent focus:text-mt-accent-contrast focus:px-6 focus:py-3 focus:font-display focus:font-black focus:text-sm focus:uppercase focus:tracking-widest focus:rounded-xs"
+    >
+      Перейти до контенту
+    </a>
+    <slot />
+  </body>
+</html>

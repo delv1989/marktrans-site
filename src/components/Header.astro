@@ -1,0 +1,100 @@
+---
+import Logo from './Logo.astro';
+import { navItems } from '../data/navigation';
+
+const locale = (Astro.currentLocale ?? 'uk') as 'uk' | 'ru';
+const items = navItems[locale];
+const ctaLabel = locale === 'uk' ? 'Замовити →' : 'Заказать →';
+---
+
+<header class="sticky top-0 z-50 bg-mt-bg/95 backdrop-blur-md border-b border-mt-divider">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+    <div class="flex items-center justify-between h-16 md:h-20 gap-6">
+      <Logo class="max-md:text-lg" />
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex flex-1 justify-center">
+        <ul class="flex gap-7 list-none">
+          {items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="relative py-2 font-display font-medium text-xs uppercase tracking-widest text-mt-secondary hover:text-mt-accent transition-colors duration-150 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-mt-accent after:transition-all hover:after:w-full"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- CTA button -->
+      <a
+        href={`/${locale}/kontakty/`}
+        class="hidden sm:inline-flex px-5 md:px-7 py-3 md:py-3.5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[11px] md:text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors rounded-xs"
+      >
+        {ctaLabel}
+      </a>
+
+      <!-- Mobile menu toggle -->
+      <button
+        id="menu-toggle"
+        aria-label="Відкрити меню"
+        aria-expanded="false"
+        class="lg:hidden w-10 h-10 flex items-center justify-center text-mt-text"
+      >
+        <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6"  x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <nav
+    id="mobile-nav"
+    class="hidden lg:hidden border-t border-mt-divider bg-mt-bg"
+    aria-label="Мобільне меню"
+  >
+    <ul class="list-none px-6 py-4">
+      {items.map((item) => (
+        <li class="border-b border-mt-divider last:border-b-0">
+          <a
+            href={item.href}
+            class="block py-4 font-display font-bold text-sm uppercase tracking-wider text-mt-text hover:text-mt-accent transition-colors"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="px-6 py-4 border-t border-mt-divider">
+      <a
+        href={`/${locale}/kontakty/`}
+        class="block w-full text-center py-4 bg-mt-accent text-mt-accent-contrast font-display font-black text-sm uppercase tracking-widest rounded-xs"
+      >
+        {ctaLabel}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('mobile-nav');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    iconOpen?.classList.toggle('hidden', isOpen);
+    iconClose?.classList.toggle('hidden', !isOpen);
+  });
+</script>

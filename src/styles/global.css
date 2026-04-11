@@ -1,1 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700;900&family=Space+Grotesk:wght@500;700;900&display=swap');
 @import "tailwindcss";
+
+/* =============================================================
+   MARKTRANS Industrial Brutal · Design Tokens (Tailwind v4)
+   Реєструємо токени через @theme — Tailwind генерує utility-класи:
+   bg-mt-bg, text-mt-text, font-display, text-display-1, etc.
+   ============================================================= */
+@theme {
+  /* Colors */
+  --color-mt-bg:              #0F0F0F;
+  --color-mt-bg-1:            #1A1A1A;
+  --color-mt-bg-2:            #252525;
+  --color-mt-text:            #FFFFFF;
+  --color-mt-secondary:       #999999;
+  --color-mt-tertiary:        #5C5C5C;
+  --color-mt-accent:          #FFD700;
+  --color-mt-accent-hover:    #FFE033;
+  --color-mt-accent-dim:      #CCAD00;
+  --color-mt-accent-contrast: #000000;
+  --color-mt-divider:         #262626;
+  --color-mt-success:         #22C55E;
+  --color-mt-warning:         #F59E0B;
+  --color-mt-error:           #EF4444;
+
+  /* Fonts */
+  --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-sans:    "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", monospace;
+
+  /* Font sizes — responsive clamp for display */
+  --text-display-1: clamp(3.5rem, 8vw, 8.75rem);
+  --text-display-1--line-height: 0.88;
+  --text-display-1--letter-spacing: -0.03em;
+  --text-display-2: clamp(2.5rem, 5vw, 4.5rem);
+  --text-display-2--line-height: 0.9;
+  --text-display-2--letter-spacing: -0.03em;
+
+  /* Radius */
+  --radius-none: 0;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+}
+
+/* =============================================================
+   Base reset + body styles
+   ============================================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-mt-bg);
+    color: var(--color-mt-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-mt-accent);
+    color: var(--color-mt-accent-contrast);
+  }
+}
+
+/* =============================================================
+   Reusable component classes (optional — можна замінити на utility)
+   ============================================================= */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-3 bg-mt-accent text-mt-accent-contrast
+           px-11 py-5 font-display font-black text-base uppercase
+           tracking-wider transition-colors duration-150 rounded-xs;
+  }
+  .btn-primary:hover {
+    background: var(--color-mt-accent-hover);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-3 bg-transparent text-mt-text
+           px-11 py-5 font-display font-bold text-base uppercase
+           tracking-wider border-2 border-white/20 rounded-xs
+           transition-all duration-150;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-mt-accent);
+    color: var(--color-mt-accent);
+  }
+
+  .accent-line {
+    @apply block w-10 h-0.5 bg-mt-accent;
+  }
+}
+
+/* =============================================================
+   Fonts — Google CDN зараз, self-host через @fontsource пізніше
+   (import url(...) винесено на самий верх файлу)
+   ============================================================= */

@@ -1,0 +1,32 @@
+# robots.txt · marktrans.com.ua
+# Open access for humans + AI crawlers
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://marktrans.com.ua/sitemap-index.xml
+
+# AI crawlers — explicit allow (Google AI Overviews, ChatGPT Search, Perplexity, etc.)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
