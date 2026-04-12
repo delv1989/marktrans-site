@@ -1,0 +1,46 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CategoryGrid from '../../components/CategoryGrid.astro';
+import { materials, equipment, works } from '../../data/content';
+
+const title = 'MARKTRANS — Доставка сыпучих стройматериалов в Киеве';
+const description = 'Гранитный щебень, песок, асфальт, бетон — собственным автопарком с карьера к вам в день заказа. Киев и Киевская область с 2015 года.';
+---
+
+<PageLayout title={title} description={description}>
+  <Hero
+    eyebrow="Киев · Киевская область · С 2015 года"
+    titleLine1="КРЕПКИЙ ФУНДАМЕНТ"
+    titleLine2="НАЧИНАЕТСЯ С"
+    titleAccent="КАЧЕСТВЕННОГО МАТЕРИАЛА"
+    lead="Гранитный щебень, песок, асфальт, бетон — собственным автопарком с карьера к вам в день заказа. Работаем по всей Киевской области с 2015 года. Честные цены, гарантированный объём, оплата после приёмки."
+    ctaPrimary="Заказать доставку →"
+    ctaSecondary="Рассчитать стоимость"
+    ctaPrimaryHref="#contacts"
+    ctaSecondaryHref="#materials"
+    bgImage="https://picsum.photos/seed/marktrans-actros-gravel/1920/1080"
+  />
+
+  <section id="materials" class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow="01 / КАТАЛОГ" titleLine1="СЫПУЧИЕ" titleAccent="МАТЕРИАЛЫ" meta={['09 КАТЕГОРИЙ', 'ОБНОВЛЕНО СЕГОДНЯ', 'ОТ 150 ₴/ТОННА']} />
+      <CategoryGrid items={materials} columns={3} />
+    </div>
+  </section>
+
+  <section id="equipment" class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow="02 / ТЕХНИКА" titleLine1="АРЕНДА" titleAccent="СПЕЦТЕХНИКИ" meta={['04 ПОЗИЦИИ', 'ВОДИТЕЛЬ + ГСМ', 'ОТ 1200 ₴/ЧАС']} />
+      <CategoryGrid items={equipment} columns={2} />
+    </div>
+  </section>
+
+  <section id="services" class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow="03 / УСЛУГИ" titleLine1="СТРОИТЕЛЬНЫЕ" titleAccent="РАБОТЫ" meta={['08 НАПРАВЛЕНИЙ', 'ПОЛНЫЙ ЦИКЛ', 'ДОГОВОР С ЮРЛИЦОМ']} />
+      <CategoryGrid items={works} columns={4} />
+    </div>
+  </section>
+</PageLayout>

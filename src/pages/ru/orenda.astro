@@ -1,0 +1,87 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const title = 'Аренда спецтехники Киев — самосвал ACTROS от 1200 ₴/час · MARKTRANS';
+const description = 'Аренда самосвалов ACTROS 25 тонн, бульдозеров, погрузчиков, гидромолотов. Водитель + ГСМ включено.';
+
+const fleet = [
+  { name: 'Mercedes ACTROS 4141K', capacity: '25 тонн', volume: '18 м³', year: '2019', price: 'от 1200 ₴/час', image: 'https://picsum.photos/seed/marktrans-tipper/1200/800' },
+  { name: 'Mercedes ACTROS 3341',  capacity: '20 тонн', volume: '14 м³', year: '2017', price: 'от 1100 ₴/час', image: 'https://picsum.photos/seed/marktrans-bulldozer/1200/800' },
+  { name: 'Mercedes ACTROS 3236',  capacity: '18 тонн', volume: '12 м³', year: '2015', price: 'от 1000 ₴/час', image: 'https://picsum.photos/seed/marktrans-loader/1200/800' },
+];
+
+const pricing = [
+  { service: 'Почасовая аренда (от 4 ч)', price: '1200 ₴/час' },
+  { service: 'Смена 8 часов', price: '8500 ₴' },
+  { service: 'Сутки (12+ часов)', price: '12000 ₴' },
+  { service: 'Тонно-километр (17-40 км)', price: '220 ₴/км' },
+  { service: 'Тонно-километр (41-200 км)', price: '200 ₴/км' },
+  { service: 'Базовый выезд до 16 км', price: '3500 ₴' },
+];
+
+const faq = [
+  { question: 'Какая минимальная продолжительность аренды?', answer: 'Минимальный заказ — 4 часа почасовой аренды или 1 полный рейс.' },
+  { question: 'Работаете ли в выходные?', answer: 'Да, работаем 7 дней в неделю, включая выходные и праздники.' },
+  { question: 'Что включено в стоимость?', answer: 'Водитель-оператор, топливо (ГСМ), техническое обслуживание и страхование.' },
+  { question: 'Подписываете договор с юрлицами?', answer: 'Да, работаем с ООО и ФЛП по договору. Счёт-фактура, акт выполненных работ.' },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Главная', href: '/ru/' }, { label: 'Аренда спецтехники' }]} />
+
+  <section class="relative min-h-[60vh] flex items-center py-20 md:py-32 overflow-hidden" style="background: linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.5) 100%), url('https://picsum.photos/seed/marktrans-tipper/1920/1080') center/cover;">
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full">
+      <div class="flex items-center gap-3 mb-6"><span class="block w-8 h-0.5 bg-mt-accent"></span><span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— Услуга 01</span></div>
+      <h1 class="font-display font-black uppercase mb-8" style="font-size: clamp(48px, 9vw, 120px); line-height: 0.88; letter-spacing: -0.03em;">АРЕНДА<br/><span class="text-mt-accent">СПЕЦТЕХНИКИ</span></h1>
+      <p class="text-base md:text-lg text-[#DDD] max-w-[640px] leading-relaxed mb-10">Собственный парк самосвалов ACTROS 25 тонн. Почасово или по тонно-километражу. Оператор + ГСМ включены.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/ru/kontakty/" class="btn-primary justify-center sm:justify-start">Заказать технику →</a>
+        <a href="#pricing" class="btn-secondary justify-center sm:justify-start">Тарифы</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-mt-divider"><div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4">
+    {[{ v:'5', l:'Самосвалов ACTROS' },{ v:'25 Т', l:'Грузоподъёмность' },{ v:'200 КМ', l:'Радиус работы' },{ v:'2015', l:'Год основания' }].map((s)=>(
+      <div class="px-6 py-10 border-r border-b border-mt-divider last:border-r-0"><div class="font-mono font-black text-3xl md:text-4xl text-mt-accent leading-none mb-2">{s.v}</div><div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">{s.l}</div></div>
+    ))}
+  </div></section>
+
+  <section class="py-16 md:py-24 border-b border-mt-divider"><div class="max-w-[1440px] mx-auto px-6 md:px-12">
+    <h2 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight mb-12">Наша техника</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-mt-divider border border-mt-divider">
+      {fleet.map((truck)=>(
+        <div class="bg-mt-bg-1">
+          <img src={truck.image} alt={truck.name} loading="lazy" class="w-full h-56 md:h-64 object-cover brightness-75 grayscale-[30%]" />
+          <div class="p-6 md:p-8">
+            <div class="font-mono text-[10px] text-mt-accent uppercase tracking-widest mb-2">Доступна</div>
+            <h3 class="font-display font-black text-lg uppercase tracking-tight mb-4">{truck.name}</h3>
+            <div class="grid grid-cols-2 gap-y-2 text-sm font-mono mb-6">
+              <span class="text-mt-tertiary">Грузоп.</span><span class="font-bold">{truck.capacity}</span>
+              <span class="text-mt-tertiary">Объём</span><span class="font-bold">{truck.volume}</span>
+              <span class="text-mt-tertiary">Год</span><span class="font-bold">{truck.year}</span>
+            </div>
+            <div class="border-t border-mt-divider pt-4 flex items-baseline justify-between">
+              <span class="font-mono font-black text-xl text-mt-accent">{truck.price}</span>
+              <a href="/ru/kontakty/" class="font-display font-bold text-xs uppercase tracking-wider text-mt-accent hover:text-mt-accent-hover transition-colors">Заказать →</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div></section>
+
+  <section id="pricing" class="py-16 md:py-24 border-b border-mt-divider"><div class="max-w-[1440px] mx-auto px-6 md:px-12">
+    <h2 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight mb-12">Тарифы</h2>
+    <div class="border border-mt-divider divide-y divide-mt-divider">
+      {pricing.map((r)=>(<div class="flex items-center justify-between px-6 py-5 hover:bg-mt-bg-1 transition-colors"><span class="text-sm md:text-base">{r.service}</span><span class="font-mono font-black text-lg md:text-xl text-mt-accent shrink-0 ml-4">{r.price}</span></div>))}
+    </div>
+  </div></section>
+
+  <FAQ items={faq} title="Вопросы об аренде" />
+  <CTABanner title="Нужна техника сегодня?" subtitle="Позвоните — подберём машину." buttonText="Позвонить →" buttonHref="tel:+380504204229" />
+</PageLayout>
