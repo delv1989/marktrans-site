@@ -18,14 +18,16 @@ const {
 const locale = Astro.currentLocale ?? 'uk';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
-// hreflang — генеруємо альтернативні мови для всіх локалей
-const localesConfig = ['uk', 'ru'] as const;
+// Preview protection — noindex on vercel.app, indexable on marktrans.com.ua
+const currentHost = Astro.url.hostname;
+const isPreview = currentHost.includes('vercel.app') || currentHost === 'localhost';
+
+// hreflang — тільки uk + x-default поки /ru/ не повністю готова
 const pathWithoutLocale = Astro.url.pathname.replace(/^\/(uk|ru)/, '') || '/';
-const hreflangs = localesConfig.map((loc) => ({
-  lang: loc,
-  href: new URL(`/${loc}${pathWithoutLocale}`, Astro.site).toString(),
-}));
+const hreflangUk = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
 const xDefault = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
+// TODO: розкоментувати після створення повної /ru/ локалі (Phase 6)
+// const hreflangRu = new URL(`/ru${pathWithoutLocale}`, Astro.site).toString();
 
 // Schema.org LocalBusiness (всіх сторінок) — GEO optimization
 const localBusinessSchema = {
@@ -82,15 +84,14 @@ const localBusinessSchema = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {/* Preview noindex — blocks Google from indexing vercel.app before cutover */}
+    {(noindex || isPreview) && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Canonical & hreflang -->
     <link rel="canonical" href={canonicalUrl} />
-    {
-      hreflangs.map((h) => (
-        <link rel="alternate" hreflang={h.lang} href={h.href} />
-      ))
-    }
+    <link rel="alternate" hreflang="uk" href={hreflangUk} />
+    {/* TODO: розкоментувати після створення повної /ru/ локалі (Phase 6)
+    <link rel="alternate" hreflang="ru" href={hreflangRu} /> */}
     <link rel="alternate" hreflang="x-default" href={xDefault} />
 
     <!-- Open Graph -->
