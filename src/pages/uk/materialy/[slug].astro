@@ -34,8 +34,11 @@ const description = type === 'product'
   ? `${name}${product!.fraction ? ` фракції ${product!.fraction}` : ''}. Ціна ${priceFrom} ₴/${unit}. Доставка самоскидом ACTROS у день замовлення.`
   : material!.description;
 const faq = type === 'product' ? faqShcheben.slice(0, 4) : material!.faq;
-const parentLabel = type === 'product' ? 'Щебінь' : 'Матеріали';
-const parentHref = type === 'product' ? '/uk/materialy/shcheben/' : '/uk/materialy/';
+// For shcheben products: Головна / Матеріали / Щебінь / {name}
+// For other materials: Головна / Матеріали / {name} (no intermediate category)
+const showParent = type === 'product';
+const parentLabel = 'Щебінь';
+const parentHref = '/uk/materialy/shcheben/';
 const title = `${name} — від ${priceFrom} ₴/${unit} з доставкою · MARKTRANS`;
 const metaDesc = description.slice(0, 160);
 
@@ -48,7 +51,7 @@ const related = type === 'product'
   <Breadcrumbs items={[
     { label: 'Головна', href: '/uk/' },
     { label: 'Матеріали', href: '/uk/materialy/' },
-    { label: parentLabel, href: parentHref },
+    ...(showParent ? [{ label: parentLabel, href: parentHref }] : []),
     { label: name }
   ]} />
 

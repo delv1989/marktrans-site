@@ -34,10 +34,10 @@ export const materials: ContentCard[] = [
   },
   {
     num: '04',
-    title: 'Підсипка',
+    title: 'Підсипка\nпіщана',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop&q=80',
     href: '/uk/materialy/pidsypka/',
-    alt: 'Підсипка',
+    alt: 'Підсипка піщана',
   },
   {
     num: '05',
@@ -62,7 +62,7 @@ export const materials: ContentCard[] = [
   },
   {
     num: '08',
-    title: 'Підсипка',
+    title: 'Підсипка\nщебенева',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=600&fit=crop&q=80&sat=-50',
     href: '/uk/materialy/pidsypka-shchebeneva/',
     alt: 'Підсипка щебенева',
