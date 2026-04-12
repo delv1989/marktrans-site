@@ -1,0 +1,61 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CategoryGrid from '../../components/CategoryGrid.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import { works } from '../../data/content';
+
+const title = 'Будівельні роботи Київ — асфальтування, земляні роботи, демонтаж · MARKTRANS';
+const description = 'Повний цикл будівельних робіт: асфальтування, планування території, вивіз ґрунту, будівництво доріг, демонтаж, розробка котлованів. Київ і Київська область.';
+
+const faq = [
+  { question: 'Чи працюєте з юридичними особами?', answer: 'Так, підписуємо договір підряду з ТОВ та ФОП. Акти виконаних робіт, рахунки-фактури, кошториси.' },
+  { question: 'Який мінімальний обсяг робіт?', answer: 'Залежить від типу. Асфальтування — від 100 м². Земляні роботи — від 1 зміни (8 годин). Вивіз ґрунту — від 1 машини (20 тонн).' },
+  { question: 'Скільки часу займає планування ділянки?', answer: 'Стандартна ділянка 10-15 соток — 1-2 дні. Більші об\'єкти — оцінюємо після виїзду на місце.' },
+  { question: 'Чи надаєте кошторис?', answer: 'Так, безкоштовний попередній кошторис після огляду об\'єкта. Точний — після геодезичних замірів.' },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Головна', href: '/uk/' },
+    { label: 'Будівельні роботи' }
+  ]} />
+
+  <!-- Hero -->
+  <section class="py-16 md:py-24 lg:py-32 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="block w-8 h-0.5 bg-mt-accent"></span>
+        <span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— Послуги</span>
+      </div>
+      <h1
+        class="font-display font-black uppercase mb-6"
+        style="font-size: clamp(48px, 10vw, 120px); line-height: 0.88; letter-spacing: -0.03em;"
+      >
+        БУДІВЕЛЬНІ<br/><span class="text-mt-accent">РОБОТИ</span>
+      </h1>
+      <p class="text-base md:text-lg text-mt-secondary max-w-[720px] leading-relaxed">
+        Повний цикл будівельних робіт власною технікою: від підготовки майданчика до здачі об'єкта.
+        Асфальтування, земляні роботи, демонтаж, вивіз ґрунту та сміття. Працюємо по Києву та Київській області.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services grid -->
+  <section class="border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
+      <CategoryGrid items={works} columns={4} />
+    </div>
+  </section>
+
+  <FAQ items={faq} title="Запитання про роботи" />
+
+  <CTABanner
+    title="Потрібні будівельні роботи?"
+    subtitle="Безкоштовний кошторис після огляду об'єкта."
+    buttonText="Замовити огляд →"
+    buttonHref="/uk/kontakty/"
+  />
+</PageLayout>

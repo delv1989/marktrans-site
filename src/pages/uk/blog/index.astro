@@ -1,0 +1,75 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+
+const title = 'Блог MARKTRANS — статті про будматеріали та логістику';
+const description = 'Практичні статті для будівельників: як обрати щебінь, розрахувати об\'єм, оптимізувати доставку. Оновлюється щотижня.';
+
+const articles = [
+  { slug: 'yakyi-shcheben-dlya-fundamentu', title: 'Який щебінь обрати для фундаменту: повний гайд', category: 'Матеріали', date: '10.04.2026', time: '12 хв' },
+  { slug: 'skilky-tonn-v-kubometri', title: 'Скільки тонн щебеню в кубометрі: таблиця та розрахунок', category: 'Матеріали', date: '05.04.2026', time: '5 хв' },
+  { slug: 'granitnyi-vs-vapnyakovyi', title: 'Гранітний vs вапняковий щебінь: що краще?', category: 'Технології', date: '01.04.2026', time: '7 хв' },
+  { slug: 'yak-zamovyty-dostavku', title: 'Як замовити доставку щебеню правильно', category: 'Логістика', date: '28.03.2026', time: '6 хв' },
+  { slug: 'beton-m200-vs-m400', title: 'Бетон М200 або М400: на якій марці зупинитися?', category: 'Технології', date: '20.03.2026', time: '10 хв' },
+  { slug: 'vydy-pisku', title: 'Види піску для будівництва: річковий, яружний, мітий', category: 'Матеріали', date: '15.03.2026', time: '9 хв' },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Головна', href: '/uk/' },
+    { label: 'Блог' }
+  ]} />
+
+  <!-- Header -->
+  <section class="py-16 md:py-24 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="block w-8 h-0.5 bg-mt-accent"></span>
+        <span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— Знання для будівельників</span>
+      </div>
+      <h1
+        class="font-display font-black uppercase mb-4"
+        style="font-size: clamp(80px, 18vw, 240px); line-height: 0.8; letter-spacing: -0.04em;"
+      >
+        БЛОГ
+      </h1>
+      <div class="font-mono text-xs text-mt-tertiary uppercase tracking-widest">
+        {articles.length} статей · Оновлюється щотижня
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles list -->
+  <section class="border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto">
+      <div class="divide-y divide-mt-divider border-t border-mt-divider">
+        {articles.map((article) => (
+          <a
+            href={`/uk/blog/${article.slug}/`}
+            class="group flex flex-col md:flex-row md:items-center justify-between gap-4 px-6 md:px-12 py-8 md:py-10 hover:bg-mt-bg-1 transition-colors"
+          >
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="font-mono text-[10px] text-mt-accent uppercase tracking-widest">{article.category}</span>
+                <span class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">{article.date} · {article.time}</span>
+              </div>
+              <h2 class="font-display font-black text-lg md:text-2xl uppercase tracking-tight group-hover:text-mt-accent transition-colors">
+                {article.title}
+              </h2>
+            </div>
+            <span class="font-mono font-black text-mt-accent text-xl group-hover:translate-x-2 transition-transform shrink-0">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Нова стаття раз на тиждень"
+    subtitle="Підписуйтесь на Telegram — отримуйте повідомлення про нові матеріали."
+    buttonText="Підписатись →"
+    buttonHref="https://t.me/marktrans_bot"
+  />
+</PageLayout>

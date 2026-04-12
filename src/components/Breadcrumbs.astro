@@ -1,0 +1,47 @@
+---
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, Astro.site).toString() } : {}),
+  })),
+};
+---
+
+<nav
+  class="h-10 md:h-12 flex items-center border-b border-mt-divider bg-mt-bg"
+  aria-label="Навігаційний ланцюг"
+>
+  <div class="max-w-[1440px] mx-auto px-6 md:px-12 w-full">
+    <ol class="flex items-center gap-2 list-none font-mono text-[10px] md:text-[11px] uppercase tracking-widest">
+      {items.map((item, i) => (
+        <li class="flex items-center gap-2">
+          {i > 0 && <span class="text-mt-tertiary" aria-hidden="true">/</span>}
+          {item.href ? (
+            <a href={item.href} class="text-mt-tertiary hover:text-mt-accent transition-colors">
+              {item.label}
+            </a>
+          ) : (
+            <span class="text-mt-accent">{item.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

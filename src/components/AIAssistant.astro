@@ -1,0 +1,191 @@
+---
+// AI Quick-Actions Assistant — static FAQ panel
+// Fixed bottom-left, opens as floating card (desktop) or bottom sheet (mobile)
+
+const faqData = [
+  { id: 'fraction-foundation', question: 'Яку фракцію щебеню обрати для фундаменту?', answer: [
+    { t: 'Для несучих фундаментів використовується ' }, { b: 'гранітний щебінь фракції 20-40 мм' },
+    { t: ' — він має оптимальну несучу здатність. Для підготовчої подушки підходить ' }, { b: 'фракція 20-40 або 40-70 мм' },
+    { t: ' товщиною 10-15 см. Для бетону самостійно — ' }, { b: '5-20 мм' }, { t: '.' }
+  ]},
+  { id: 'sand-tons-cubic', question: 'Скільки тонн в кубометрі піску?', answer: [
+    { t: 'Вага залежить від типу:' }, { br: true }, { br: true },
+    { t: '• ' }, { b: 'Річковий' }, { t: ' — 1.5-1.6 т/м³' }, { br: true },
+    { t: '• ' }, { b: "Кар'єрний" }, { t: ' — 1.4-1.5 т/м³' }, { br: true },
+    { t: '• ' }, { b: 'Вологий' }, { t: ' — до 1.8 т/м³' }, { br: true }, { br: true },
+    { t: 'Середнє значення для розрахунків — ' }, { b: '1.5 т/м³' }, { t: '.' }
+  ]},
+  { id: 'delivery-speed', question: 'Як швидко ви доставляєте матеріал?', answer: [
+    { b: 'По Києву' }, { t: ' — у день замовлення, 4-8 годин. ' },
+    { b: 'По області' }, { t: ' — у день або наступного дня. ' },
+    { b: 'Терміново' }, { t: ' — від 2 годин. Працюємо 7/7, диспетчер 24/7.' }
+  ]},
+  { id: 'volume-calculation', question: "Як розрахувати об'єм щебеню для дороги?", answer: [
+    { t: 'Формула: ' }, { b: 'довжина × ширина × товщина шару' }, { t: '.' }, { br: true }, { br: true },
+    { b: 'Приклад:' }, { t: ' дорога 20м × 4м × 0.2м = 16 м³ = ' }, { b: '24 тонни' },
+    { t: " (1 ACTROS). Не впевнені — запитайте в Telegram, розрахуємо під ваш об'єкт." }
+  ]},
+  { id: 'payment', question: 'Чи можна оплатити після доставки?', answer: [
+    { t: 'Так. ' }, { b: 'Оплата після приймання' },
+    { t: ' та контролю ваги. Готівка та безготівка (рахунок для ТОВ/ФОП). Постійним — ' },
+    { b: 'відстрочка до 14 днів' }, { t: '.' }
+  ]},
+  { id: 'min-order', question: "Який мінімальний об'єм замовлення?", answer: [
+    { t: 'Стандартний мінімум — ' }, { b: '1 повна машина (20 тонн ACTROS)' },
+    { t: '. Це найвигідніший варіант.' }, { br: true }, { br: true },
+    { t: "Менші об'єми (від 5 тонн) можливі за домовленістю. Звертайтеся в Telegram." }
+  ]}
+];
+---
+
+<div class="fixed left-6 max-md:left-4 z-[200]" style="bottom: calc(24px + env(safe-area-inset-bottom, 0px))" id="aiAssistant" data-open="false">
+  <!-- Toggle button -->
+  <button
+    class="relative z-[206] inline-flex items-center gap-2.5 px-6 py-3.5 bg-mt-accent text-mt-accent-contrast border-none font-display font-black text-[13px] uppercase tracking-wider rounded-sm shadow-lg max-md:rounded-full max-md:w-14 max-md:h-14 max-md:p-0 max-md:justify-center"
+    style="touch-action:manipulation; -webkit-tap-highlight-color:transparent; transition: background 150ms"
+    type="button"
+    id="aiToggle"
+    aria-expanded="false"
+    aria-label="Відкрити AI-помічник"
+  >
+    <span class="text-base leading-none" aria-hidden="true">🤖</span>
+    <span class="max-md:hidden">Питання AI</span>
+  </button>
+
+  <!-- Backdrop -->
+  <div class="hidden fixed inset-0 bg-black/60 z-[205]" id="aiBackdrop" aria-hidden="true"></div>
+
+  <!-- Panel -->
+  <div
+    class="ai-panel fixed left-6 w-[380px] max-h-[70vh] bg-mt-bg border border-mt-divider rounded-sm z-[210] flex flex-col shadow-2xl opacity-0 invisible translate-y-4 scale-[0.98] pointer-events-none max-md:left-0 max-md:right-0 max-md:w-full max-md:max-h-[85vh] max-md:rounded-t-lg max-md:rounded-b-none max-md:border-x-0 max-md:border-b-0"
+    style="bottom: calc(90px + env(safe-area-inset-bottom, 0px)); transition: opacity 200ms ease-out, transform 200ms ease-out, visibility 0s linear 200ms"
+    id="aiPanel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="aiTitle"
+  >
+    <!-- Mobile handle -->
+    <div class="hidden max-md:block w-10 h-1 bg-mt-divider rounded-full mx-auto mt-2.5"></div>
+
+    <!-- Header -->
+    <div class="flex items-start justify-between gap-4 px-6 pt-5 pb-4 border-b-2 border-mt-accent">
+      <div>
+        <div class="font-display font-black text-sm uppercase tracking-wider text-mt-text mb-1" id="aiTitle">AI-помічник MARKTRANS</div>
+        <div class="text-xs text-mt-secondary">Відповідає на типові питання</div>
+      </div>
+      <button class="w-8 h-8 flex items-center justify-center border border-mt-divider text-mt-secondary rounded-xs hover:border-mt-accent hover:text-mt-accent shrink-0" style="transition: all 150ms" type="button" id="aiClose" aria-label="Закрити">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="flex-1 overflow-y-auto">
+      <!-- List view -->
+      <div id="aiListView" data-active="true">
+        <div class="font-mono text-[10px] text-mt-accent uppercase tracking-[0.15em] px-6 pt-4 pb-2.5">— Швидкі питання</div>
+        <div id="aiQuestions" role="list"></div>
+      </div>
+      <!-- Answer view -->
+      <div id="aiAnswerView" class="hidden">
+        <button class="inline-flex items-center gap-2 mx-6 mt-4 mb-2 px-3.5 py-2 border border-mt-divider text-mt-secondary font-display font-bold text-[11px] uppercase tracking-widest rounded-xs hover:border-mt-accent hover:text-mt-accent" style="transition:all 150ms" type="button" id="aiBack" aria-label="Повернутися">← Повернутися</button>
+        <h3 class="font-display font-black text-lg uppercase tracking-tight leading-tight text-mt-text px-6 py-1" id="aiAnswerQ"></h3>
+        <div class="text-sm leading-relaxed text-mt-secondary px-6 pb-5 border-b border-mt-divider" id="aiAnswerT"></div>
+        <div class="flex flex-col gap-2 p-6">
+          <a href="https://t.me/marktrans_bot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-3.5 px-5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[13px] uppercase tracking-wider rounded-xs border-2 border-mt-accent hover:bg-mt-accent-hover hover:border-mt-accent-hover" style="transition:all 150ms">Продовжити в Telegram →</a>
+          <a href="tel:+380504204229" class="flex items-center justify-center gap-2 py-3.5 px-5 bg-transparent text-mt-text font-display font-black text-[13px] uppercase tracking-wider rounded-xs border-2 border-mt-divider hover:border-mt-accent hover:text-mt-accent" style="transition:all 150ms">Подзвонити</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="border-t border-mt-divider py-3 px-6 font-mono text-[10px] text-mt-tertiary text-center tracking-wide">⚡ AI на основі нашої бази знань</div>
+  </div>
+</div>
+
+<style>
+  [data-open="true"] .ai-panel {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+    transition: opacity 200ms ease-out, transform 200ms ease-out, visibility 0s linear 0s !important;
+  }
+  [data-open="true"] #aiBackdrop { display: block !important; }
+  @media (max-width: 767px) {
+    .ai-panel { bottom: 0 !important; transform: translateY(100%) !important; }
+    [data-open="true"] .ai-panel { transform: translateY(0) !important; }
+  }
+  #aiAnswerView[data-active="true"] { display: block !important; }
+  #aiListView[data-active="false"] { display: none !important; }
+  .ai-q { display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; background:transparent; border:none; border-top:1px solid var(--color-mt-divider); color:var(--color-mt-text); font-family:var(--font-sans); font-size:14px; padding:16px 24px; text-align:left; cursor:pointer; transition:background 150ms; }
+  .ai-q:last-child { border-bottom:1px solid var(--color-mt-divider); }
+  .ai-q:hover { background:var(--color-mt-bg-2); }
+  .ai-q:hover .ai-arrow { transform:translateX(4px); }
+  .ai-arrow { font-family:var(--font-mono); font-weight:900; color:var(--color-mt-accent); flex-shrink:0; transition:transform 150ms; }
+  #aiAnswerT strong { color:var(--color-mt-accent); font-weight:700; }
+</style>
+
+<script define:vars={{ faqData }}>
+  (function() {
+    const root = document.getElementById('aiAssistant');
+    const toggle = document.getElementById('aiToggle');
+    const panel = document.getElementById('aiPanel');
+    const close = document.getElementById('aiClose');
+    const backdrop = document.getElementById('aiBackdrop');
+    const listView = document.getElementById('aiListView');
+    const answerView = document.getElementById('aiAnswerView');
+    const questions = document.getElementById('aiQuestions');
+    const back = document.getElementById('aiBack');
+    const answerQ = document.getElementById('aiAnswerQ');
+    const answerT = document.getElementById('aiAnswerT');
+    if (!root || !toggle || !panel) return;
+    let lastFocused = null;
+
+    function renderParts(el, parts) {
+      while (el.firstChild) el.removeChild(el.firstChild);
+      parts.forEach(p => {
+        if (p.br) el.appendChild(document.createElement('br'));
+        else if (p.b) { const s = document.createElement('strong'); s.textContent = p.b; el.appendChild(s); }
+        else if (p.t) el.appendChild(document.createTextNode(p.t));
+      });
+    }
+
+    faqData.forEach(faq => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'ai-q'; btn.setAttribute('role','listitem');
+      const txt = document.createElement('span'); txt.textContent = faq.question;
+      const arr = document.createElement('span'); arr.className = 'ai-arrow'; arr.textContent = '→'; arr.setAttribute('aria-hidden','true');
+      btn.appendChild(txt); btn.appendChild(arr);
+      btn.addEventListener('click', () => {
+        answerQ.textContent = faq.question;
+        renderParts(answerT, faq.answer);
+        listView.setAttribute('data-active','false'); answerView.setAttribute('data-active','true');
+        requestAnimationFrame(() => back.focus());
+        if (window.umami) window.umami.track('ai-question-click', { id: faq.id });
+      });
+      questions.appendChild(btn);
+    });
+
+    function showList() {
+      answerView.setAttribute('data-active','false'); listView.setAttribute('data-active','true');
+      const first = questions.querySelector('.ai-q');
+      if (first) requestAnimationFrame(() => first.focus());
+    }
+    function openPanel() { lastFocused=document.activeElement; root.dataset.open='true'; toggle.setAttribute('aria-expanded','true'); requestAnimationFrame(()=>close.focus()); }
+    function closePanel() { root.dataset.open='false'; toggle.setAttribute('aria-expanded','false'); setTimeout(showList,220); (lastFocused||toggle).focus(); }
+
+    toggle.addEventListener('click', e => { e.stopPropagation(); root.dataset.open==='true' ? closePanel() : openPanel(); });
+    close.addEventListener('click', closePanel);
+    backdrop.addEventListener('click', closePanel);
+    back.addEventListener('click', showList);
+    document.addEventListener('keydown', e => { if (e.key==='Escape' && root.dataset.open==='true') { e.preventDefault(); closePanel(); } });
+
+    panel.addEventListener('keydown', e => {
+      if (e.key!=='Tab' || root.dataset.open!=='true') return;
+      const els = Array.from(panel.querySelectorAll('button,a[href],[tabindex]:not([tabindex="-1"])')).filter(el=>el.offsetParent!==null);
+      if (!els.length) return;
+      if (e.shiftKey && document.activeElement===els[0]) { e.preventDefault(); els[els.length-1].focus(); }
+      else if (!e.shiftKey && document.activeElement===els[els.length-1]) { e.preventDefault(); els[0].focus(); }
+    });
+  })();
+</script>

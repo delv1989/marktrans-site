@@ -1,0 +1,117 @@
+---
+// Messenger FAB — Telegram / Viber / Phone
+// Fixed bottom-right, expands on click
+import { contacts } from '../data/navigation';
+
+const channels = [
+  {
+    id: 'telegram',
+    label: 'Telegram',
+    href: 'https://t.me/marktrans_bot',
+    color: '#229ED9',
+    target: '_blank',
+    icon: 'M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z',
+  },
+  {
+    id: 'viber',
+    label: 'Viber',
+    href: `viber://chat?number=%2B${contacts.phonesRaw[0].replace('+', '')}`,
+    color: '#7360F2',
+    icon: 'M11.4 0C9.47.03 5.34.33 3.03 2.45 1.3 4.17.7 6.68.62 9.8c-.06 3.11-.14 8.95 5.49 10.54h.01l-.01 2.42s-.03.98.61 1.18c.79.24 1.24-.51 1.99-1.31.41-.44.98-1.09 1.4-1.58 3.85.32 6.81-.42 7.15-.53.78-.25 5.2-.82 5.92-6.68.74-6.05-.36-9.87-2.33-11.6l-.01-.01C20.25.68 17.26.07 13.92.02c0 0-.05-.01-.16-.01h-.02c-.13 0-.7-.01-2.34 0z',
+  },
+  {
+    id: 'phone',
+    label: 'Подзвонити',
+    href: `tel:${contacts.phonesRaw[0]}`,
+    color: '#25D366',
+    icon: 'M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.07 15.07 0 0 1-6.58-6.58l2.2-2.21c.27-.27.35-.66.24-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z',
+  },
+];
+---
+
+<div class="fixed right-6 max-md:right-4 z-[200] flex flex-col items-end gap-3" style="bottom: calc(24px + env(safe-area-inset-bottom, 0px))" id="messengerFab" data-open="false">
+  <div class="flex flex-col gap-2.5 items-end pointer-events-none" role="group" aria-label="Контактні канали">
+    {channels.map((ch, i) => (
+      <a
+        class="fab-item w-[52px] h-[52px] max-md:w-12 max-md:h-12 rounded-full flex items-center justify-center text-white no-underline border-none shadow-lg opacity-0 translate-y-2 scale-[0.85] pointer-events-none relative"
+        style={`background:${ch.color}; transition: opacity 200ms ease-out ${i * 40}ms, transform 200ms ease-out ${i * 40}ms, filter 150ms; touch-action:manipulation; -webkit-tap-highlight-color:transparent;`}
+        data-channel={ch.id}
+        href={ch.href}
+        target={ch.target ?? '_self'}
+        rel={ch.target ? 'noopener noreferrer' : undefined}
+        aria-label={ch.label}
+        tabindex="-1"
+      >
+        <svg class="w-6 h-6 max-md:w-[22px] max-md:h-[22px] fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d={ch.icon}/>
+        </svg>
+        <span class="absolute right-[calc(100%+12px)] top-1/2 -translate-y-1/2 bg-mt-bg border border-mt-accent text-mt-text font-mono text-[11px] font-bold uppercase tracking-widest px-3 py-2 whitespace-nowrap opacity-0 pointer-events-none rounded-xs fab-tooltip" style="transition: opacity 150ms">
+          {ch.label}
+        </span>
+      </a>
+    ))}
+  </div>
+
+  <button
+    class="w-[60px] h-[60px] max-md:w-14 max-md:h-14 rounded-full bg-mt-accent text-mt-accent-contrast border-none flex items-center justify-center shadow-lg relative"
+    style="touch-action:manipulation; -webkit-tap-highlight-color:transparent; transition: background 150ms"
+    type="button"
+    id="messengerFabToggle"
+    aria-expanded="false"
+    aria-label="Відкрити контактні канали"
+  >
+    <svg class="w-7 h-7 max-md:w-6 max-md:h-6 fill-current" style="transition: transform 200ms ease-out" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+    </svg>
+  </button>
+</div>
+
+<style>
+  [data-open="true"] .fab-item {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
+  }
+  [data-open="true"] > div:first-child { pointer-events: auto; }
+  [data-open="true"] button svg { transform: rotate(45deg); }
+  @media (hover: hover) { .fab-item:hover .fab-tooltip { opacity: 1 !important; } }
+  .fab-item:focus-visible .fab-tooltip { opacity: 1 !important; }
+  .fab-item:hover { filter: brightness(1.1); transform: translateY(0) scale(1.08) !important; }
+  button:hover { background: var(--color-mt-accent-hover) !important; }
+</style>
+
+<script>
+  (function() {
+    const fab = document.getElementById('messengerFab');
+    const toggle = document.getElementById('messengerFabToggle');
+    if (!fab || !toggle) return;
+    const items = fab.querySelectorAll('.fab-item');
+    let lastInteraction = Date.now();
+
+    function setOpen(open) {
+      fab.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Закрити контактні канали' : 'Відкрити контактні канали');
+      items.forEach(item => item.setAttribute('tabindex', open ? '0' : '-1'));
+      lastInteraction = Date.now();
+    }
+
+    toggle.addEventListener('click', e => { e.stopPropagation(); setOpen(fab.dataset.open !== 'true'); });
+    document.addEventListener('click', e => { if (fab.dataset.open === 'true' && !fab.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && fab.dataset.open === 'true') { setOpen(false); toggle.focus(); } });
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        lastInteraction = Date.now();
+        if (window.umami) window.umami.track('messenger-click', { channel: item.dataset.channel });
+      });
+    });
+
+    setInterval(() => {
+      if (fab.dataset.open !== 'true' && Date.now() - lastInteraction >= 30000) {
+        fab.style.setProperty('--pulse', '1');
+        setTimeout(() => fab.style.removeProperty('--pulse'), 2100);
+      }
+    }, 30000);
+  })();
+</script>

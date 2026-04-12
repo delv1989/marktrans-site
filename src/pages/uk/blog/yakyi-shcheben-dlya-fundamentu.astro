@@ -1,0 +1,131 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+
+const title = 'Який щебінь обрати для фундаменту: повний гайд · MARKTRANS';
+const description = 'Для стрічкового фундаменту — гранітний 20-40 мм. Для плитного — 5-20 мм. Морозостійкість F300+, марка М1200. Таблиця фракцій, формула розрахунку, типові помилки.';
+
+const faq = [
+  { question: 'Скільки щебеню на 10 м³ бетону?', answer: 'На 1 м³ бетону М200-М300 потрібно близько 1.1-1.2 тонни щебеню фракції 5-20 мм. На 10 м³ — приблизно 11-12 тонн.' },
+  { question: 'Чи можна замішувати різні фракції?', answer: 'Так, комбінація 5-20 і 20-40 дає кращу щільність заповнення. Але для стандартних фундаментів достатньо однієї фракції.' },
+  { question: 'Чи доставляєте в Бровари / Ірпінь?', answer: 'Так, Бровари, Ірпінь, Вишгород, Васильків — стандартні маршрути. Доставка у день замовлення.' },
+  { question: 'Скільки коштує доставка?', answer: 'Базовий виїзд до 16 км — 3500 ₴. 17-40 км — +220 ₴/км. 41-200 км — +200 ₴/км.' },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Головна', href: '/uk/' },
+    { label: 'Блог', href: '/uk/blog/' },
+    { label: 'Матеріали', href: '/uk/blog/' },
+    { label: 'Який щебінь для фундаменту' }
+  ]} />
+
+  <!-- Article header -->
+  <article class="py-16 md:py-24">
+    <div class="max-w-[720px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-mt-accent/10 border border-mt-accent text-mt-accent font-mono text-[10px] uppercase tracking-widest rounded-xs">Матеріали</span>
+        <span class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">10.04.2026 · 12 хв</span>
+      </div>
+
+      <h1 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight leading-none mb-6">
+        Який щебінь обрати для фундаменту: повний гайд
+      </h1>
+
+      <p class="text-lg text-mt-secondary leading-relaxed mb-4">
+        Фракція, міцність, ДСТУ — все що потрібно знати перед замовленням.
+      </p>
+
+      <div class="flex items-center gap-3 font-mono text-xs text-mt-tertiary uppercase tracking-widest mb-12">
+        Андрій Бойко · Головний диспетчер
+      </div>
+
+      <!-- Direct answer — GEO critical -->
+      <div class="border-l-4 border-mt-accent pl-6 mb-12">
+        <p class="text-lg font-medium text-mt-text leading-relaxed">
+          Для стрічкового фундаменту приватного будинку оптимальна фракція щебеню — <strong class="text-mt-accent">20-40 мм гранітний</strong>.
+          Для плитного — <strong class="text-mt-accent">5-20 мм</strong>. Морозостійкість не нижче F300, марка міцності М1000-М1200.
+        </p>
+      </div>
+
+      <!-- Article body -->
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Чому фракція критично важлива</h2>
+      <p class="text-mt-secondary leading-relaxed mb-8">
+        Фракція щебеню безпосередньо впливає на міцність бетону, щільність заповнення та здатність
+        фундаменту витримувати навантаження. Неправильний вибір фракції — це тріщини через 2-3 роки.
+        Правильний — десятиліття без проблем.
+      </p>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Таблиця: яка фракція для якого фундаменту</h2>
+      <div class="border border-mt-divider divide-y divide-mt-divider mb-8 text-sm">
+        {[
+          ['Стрічковий', '20-40 мм', 'Оптимальне співвідношення міцності й ваги'],
+          ['Плитний', '5-20 мм', 'Рівномірне заповнення тонких шарів'],
+          ['Палевий', '20-40 мм', 'Щільне ущільнення між палями'],
+          ['Стовпчастий', '5-20 мм', 'Дрібна фракція для локальних точок'],
+        ].map(([type, fraction, reason]) => (
+          <div class="flex">
+            <div class="w-1/3 px-4 py-3 font-bold border-r border-mt-divider">{type}</div>
+            <div class="w-1/3 px-4 py-3 font-mono text-mt-accent font-bold border-r border-mt-divider">{fraction}</div>
+            <div class="w-1/3 px-4 py-3 text-mt-secondary">{reason}</div>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Як розрахувати потрібний об'єм</h2>
+      <div class="bg-mt-bg-1 border border-mt-divider border-l-4 border-l-mt-accent p-6 font-mono text-sm mb-8">
+        <div class="text-mt-accent font-bold mb-2">Формула:</div>
+        <div class="text-mt-text">Об'єм = Довжина × Ширина × Товщина × 1.1</div>
+        <div class="text-mt-text">Маса (т) = Об'єм (м³) × 1.4</div>
+      </div>
+      <p class="text-mt-secondary leading-relaxed mb-8">
+        <strong class="text-mt-text">Приклад:</strong> Фундамент 10м × 8м × 0.15м = 12 м³ × 1.4 = <strong class="text-mt-accent">16.8 тонн</strong> щебеню.
+        Це менше 1 повної машини ACTROS (20-25 тонн).
+      </p>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Висновки</h2>
+      <ol class="space-y-3 text-sm text-mt-secondary list-decimal list-inside mb-12">
+        <li>Для стрічкового фундаменту — <strong class="text-mt-accent">гранітний 20-40 мм</strong></li>
+        <li>Для плитного — <strong class="text-mt-accent">5-20 мм</strong></li>
+        <li>Морозостійкість — не нижче <strong class="text-mt-accent">F300</strong></li>
+        <li>Марка міцності — <strong class="text-mt-accent">М1000-М1200</strong></li>
+        <li>Лещадність — не більше <strong class="text-mt-accent">15%</strong></li>
+      </ol>
+    </div>
+  </article>
+
+  <!-- Key stats bar -->
+  <section class="border-y border-mt-divider">
+    <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4">
+      {[
+        { v: '1400', l: 'КГ/М³ ЩІЛЬНІСТЬ' },
+        { v: 'М1200', l: 'МАРКА МІЦНОСТІ' },
+        { v: 'F300', l: 'МОРОЗОСТІЙКІСТЬ' },
+        { v: '265 ₴', l: 'ЦІНА 5-10/Т' },
+      ].map((s) => (
+        <div class="px-6 py-8 border-r border-mt-divider last:border-r-0 text-center">
+          <div class="font-mono font-black text-2xl md:text-3xl text-mt-accent leading-none mb-2">{s.v}</div>
+          <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- In-article CTA -->
+  <section class="bg-mt-accent py-12 md:py-16">
+    <div class="max-w-[720px] mx-auto px-6 md:px-12 text-center">
+      <h2 class="font-display font-black text-2xl md:text-3xl text-mt-accent-contrast uppercase tracking-tight mb-4">
+        Потрібен гранітний щебінь 20-40 мм?
+      </h2>
+      <p class="text-mt-accent-contrast/80 mb-8">Доставка по Києву — від 245 ₴/тонна</p>
+      <a href="/uk/kontakty/" class="inline-flex items-center gap-3 px-10 py-4 bg-mt-bg text-mt-text font-display font-black uppercase tracking-wider rounded-xs hover:bg-mt-bg-2 transition-colors">
+        Замовити →
+      </a>
+    </div>
+  </section>
+
+  <FAQ items={faq} title="Запитання до статті" />
+</PageLayout>

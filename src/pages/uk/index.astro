@@ -1,98 +1,49 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../../components/Hero.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CategoryGrid from '../../components/CategoryGrid.astro';
 import HomepageSchema from '../../components/HomepageSchema.astro';
-import StickyMobileCTA from '../../components/StickyMobileCTA.astro';
 import { materials, equipment, works } from '../../data/content';
 
 const title = 'MARKTRANS — Доставка сипучих будматеріалів у Києві';
-const description =
-  'Гранітний щебінь, пісок, асфальт, бетон — власним автопарком з кар\u2019єру до вас у день замовлення. Київ і Київська область з 2015 року.';
+const description = 'Гранітний щебінь, пісок, асфальт, бетон — власним автопарком з кар\u2019єру до вас у день замовлення. Київ і Київська область з 2015 року.';
 ---
 
-<BaseLayout title={title} description={description}>
+<PageLayout title={title} description={description}>
   <HomepageSchema />
-  <Header />
 
-  <main id="main">
-    <Hero
-      eyebrow="Київ · Київська область · З 2015 року"
-      titleLine1="МІЦНИЙ ФУНДАМЕНТ"
-      titleLine2="ПОЧИНАЄТЬСЯ З"
-      titleAccent="ЯКІСНОГО МАТЕРІАЛУ"
-      lead="Гранітний щебінь, пісок, асфальт, бетон — власним автопарком з кар'єру до вас у день замовлення. Працюємо по всій Київській області з 2015 року. Чесні ціни, гарантований об'єм, оплата після приймання."
-      ctaPrimary="Замовити доставку →"
-      ctaSecondary="Розрахувати вартість"
-      ctaPrimaryHref="#contacts"
-      ctaSecondaryHref="#materials"
-      bgImage="https://picsum.photos/seed/marktrans-actros-gravel/1920/1080"
-    />
+  <Hero
+    eyebrow="Київ · Київська область · З 2015 року"
+    titleLine1="МІЦНИЙ ФУНДАМЕНТ"
+    titleLine2="ПОЧИНАЄТЬСЯ З"
+    titleAccent="ЯКІСНОГО МАТЕРІАЛУ"
+    lead="Гранітний щебінь, пісок, асфальт, бетон — власним автопарком з кар'єру до вас у день замовлення. Працюємо по всій Київській області з 2015 року. Чесні ціни, гарантований об'єм, оплата після приймання."
+    ctaPrimary="Замовити доставку →"
+    ctaSecondary="Розрахувати вартість"
+    ctaPrimaryHref="#contacts"
+    ctaSecondaryHref="#materials"
+    bgImage="https://picsum.photos/seed/marktrans-actros-gravel/1920/1080"
+  />
 
-    <!-- МАТЕРІАЛИ -->
-    <section
-      id="materials"
-      class="py-20 md:py-32 lg:py-40 border-b border-mt-divider"
-    >
-      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-        <SectionHeader
-          eyebrow="01 / КАТАЛОГ"
-          titleLine1="СИПУЧІ"
-          titleAccent="МАТЕРІАЛИ"
-          meta={[
-            '09 КАТЕГОРІЙ',
-            'ОНОВЛЕНО СЬОГОДНІ',
-            'ВІД 150 ₴/ТОННА',
-          ]}
-        />
-        <CategoryGrid items={materials} columns={3} />
-      </div>
-    </section>
+  <section id="materials" class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow="01 / КАТАЛОГ" titleLine1="СИПУЧІ" titleAccent="МАТЕРІАЛИ" meta={['09 КАТЕГОРІЙ', 'ОНОВЛЕНО СЬОГОДНІ', 'ВІД 150 ₴/ТОННА']} />
+      <CategoryGrid items={materials} columns={3} />
+    </div>
+  </section>
 
-    <!-- ОРЕНДА СПЕЦТЕХНІКИ -->
-    <section
-      id="equipment"
-      class="py-20 md:py-32 lg:py-40 border-b border-mt-divider"
-    >
-      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-        <SectionHeader
-          eyebrow="02 / ТЕХНІКА"
-          titleLine1="ОРЕНДА"
-          titleAccent="СПЕЦТЕХНІКИ"
-          meta={[
-            '04 ПОЗИЦІЇ',
-            'ВОДІЙ + ПММ',
-            'ВІД 1200 ₴/ГОД',
-          ]}
-        />
-        <CategoryGrid items={equipment} columns={2} />
-      </div>
-    </section>
+  <section id="equipment" class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow="02 / ТЕХНІКА" titleLine1="ОРЕНДА" titleAccent="СПЕЦТЕХНІКИ" meta={['04 ПОЗИЦІЇ', 'ВОДІЙ + ПММ', 'ВІД 1200 ₴/ГОД']} />
+      <CategoryGrid items={equipment} columns={2} />
+    </div>
+  </section>
 
-    <!-- БУДІВЕЛЬНІ РОБОТИ -->
-    <section
-      id="services"
-      class="py-20 md:py-32 lg:py-40 border-b border-mt-divider"
-    >
-      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-        <SectionHeader
-          eyebrow="03 / ПОСЛУГИ"
-          titleLine1="БУДІВЕЛЬНІ"
-          titleAccent="РОБОТИ"
-          meta={[
-            '08 НАПРЯМКІВ',
-            'ПОВНИЙ ЦИКЛ',
-            'ДОГОВІР З ЮРОСОБОЮ',
-          ]}
-        />
-        <CategoryGrid items={works} columns={4} />
-      </div>
-    </section>
-  </main>
-
-  <Footer />
-  <StickyMobileCTA />
-</BaseLayout>
+  <section id="services" class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow="03 / ПОСЛУГИ" titleLine1="БУДІВЕЛЬНІ" titleAccent="РОБОТИ" meta={['08 НАПРЯМКІВ', 'ПОВНИЙ ЦИКЛ', 'ДОГОВІР З ЮРОСОБОЮ']} />
+      <CategoryGrid items={works} columns={4} />
+    </div>
+  </section>
+</PageLayout>
