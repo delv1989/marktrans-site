@@ -1,0 +1,64 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+import { shchebenProducts } from '../../../data/products';
+import { materials } from '../../../data/content';
+
+const title = 'Строительные материалы с доставкой по Киеву — MARKTRANS';
+const description = 'Щебень, песок, асфальт, бетон, ЩПС — от 150 ₴/тонна. Доставка самосвалом ACTROS в день заказа.';
+
+const faq = [
+  { question: 'Какая минимальная партия?', answer: 'Стандартный минимум — 1 полная машина (20 тонн ACTROS).' },
+  { question: 'Доставляете по выходным?', answer: 'Да, работаем 7 дней в неделю, диспетчер 24/7.' },
+  { question: 'Какие формы оплаты?', answer: 'Наличные, безнал (счёт-фактура для ООО/ФЛП), отсрочка до 14 дней постоянным клиентам.' },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Главная', href: '/ru/' }, { label: 'Материалы' }]} />
+
+  <section class="py-16 md:py-24 lg:py-32 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6"><span class="block w-8 h-0.5 bg-mt-accent"></span><span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— Каталог</span></div>
+      <h1 class="font-display font-black uppercase mb-6" style="font-size: clamp(56px, 12vw, 144px); line-height: 0.85; letter-spacing: -0.04em;">СТРОИТЕЛЬНЫЕ<br/><span class="text-mt-accent">МАТЕРИАЛЫ</span></h1>
+      <p class="text-base md:text-lg text-mt-secondary max-w-[800px] leading-relaxed">Щебень, песок, асфальт, бетон, ЩПС, грунт, техническая соль. Цена от 150 ₴/тонна. Доставка собственным автопарком ACTROS.</p>
+    </div>
+  </section>
+
+  <section class="border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
+      <SectionHeader eyebrow="КАТАЛОГ" titleLine1="КАТЕГОРИИ" titleAccent="МАТЕРИАЛОВ" meta={[`${materials.length} КАТЕГОРИЙ`]} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {materials.map((m) => (
+          <a href={m.href.replace('/uk/', '/ru/')} class="group block aspect-[4/3] relative overflow-hidden bg-mt-bg-1 border-r border-b border-mt-divider">
+            <img src={m.image} alt={m.alt} loading="lazy" class="absolute inset-0 w-full h-full object-cover brightness-75 contrast-[1.15] grayscale-[35%] transition-transform duration-700 group-hover:scale-[1.06]" />
+            <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8" style="background: linear-gradient(180deg, transparent 0%, rgba(15,15,15,0.35) 45%, rgba(15,15,15,0.96) 100%);">
+              <div class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.15em] mb-3">{m.num}</div>
+              <h3 class="font-display font-black text-xl md:text-2xl uppercase tracking-tight mb-4">{m.title.split('\n').map((l: string, i: number) => <>{i > 0 && <br/>}{l}</>)}</h3>
+              <div class="font-display font-black text-[13px] text-mt-accent uppercase tracking-widest">Подробнее →</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
+      <SectionHeader eyebrow="ПОПУЛЯРНОЕ" titleLine1="ФРАКЦИИ" titleAccent="ЩЕБНЯ" meta={[`${shchebenProducts.length} ПОЗИЦИЙ`]} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {shchebenProducts.slice(0, 6).map((p) => <ProductCard product={p} />)}
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/ru/materialy/shcheben/" class="inline-flex items-center gap-3 px-8 py-4 border-2 border-mt-divider font-display font-black text-sm uppercase tracking-wider hover:border-mt-accent hover:text-mt-accent transition-all rounded-xs">Все фракции щебня →</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faq} title="Частые вопросы" />
+  <CTABanner title="Нужен материал?" subtitle="Позвоните или напишите в Telegram." buttonText="Заказать доставку →" buttonHref="/ru/kontakty/" />
+</PageLayout>

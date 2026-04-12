@@ -138,11 +138,11 @@ const mapSrc = `https://maps.google.com/maps?q=${mapQuery}&t=&z=15&ie=UTF8&iwloc
     <div class="pt-8 border-t border-mt-divider flex flex-wrap justify-between items-center gap-4 font-mono text-[11px] text-mt-tertiary uppercase tracking-widest">
       <div>{labels.rights}</div>
       <div class="flex gap-4">
-        <a href="#" class="hover:text-mt-accent transition-colors">Privacy</a>
+        <a href={`/${locale}/privacy/`} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Конфіденційність' : 'Конфиденциальность'}</a>
         <span>·</span>
-        <a href="#" class="hover:text-mt-accent transition-colors">Terms</a>
+        <a href={`/${locale}/terms/`} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Умови' : 'Условия'}</a>
         <span>·</span>
-        <a href="#" class="hover:text-mt-accent transition-colors">Sitemap</a>
+        <a href="/sitemap-index.xml" class="hover:text-mt-accent transition-colors">Sitemap</a>
       </div>
     </div>
   </div>
