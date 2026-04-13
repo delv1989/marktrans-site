@@ -11,12 +11,15 @@ interface Props {
   description: string;
   image?: string;
   noindex?: boolean;
+  alternateUk?: string;
+  alternateRu?: string;
+  ogImage?: string;
 }
 
-const { title, description, image, noindex } = Astro.props;
+const { title, description, image, noindex, alternateUk, alternateRu, ogImage } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} image={image} noindex={noindex}>
+<BaseLayout title={title} description={description} image={image} noindex={noindex} alternateUk={alternateUk} alternateRu={alternateRu} ogImage={ogImage}>
   <Header />
   <main id="main">
     <slot />

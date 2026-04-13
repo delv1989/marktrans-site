@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { getHreflangAlternatesByConcept } from '../../lib/hreflang';
 import PageLayout from '../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTABanner from '../../components/CTABanner.astro';
@@ -16,9 +17,11 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const locale = entry.data.locale;
 const isUk = locale === 'uk';
+const alternates = await getHreflangAlternatesByConcept(entry.data.conceptId, 'info');
+const ogPath = `/og/${locale}/${entry.data.slug}.jpg`;
 ---
 
-<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription}>
+<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath}>
   <Breadcrumbs items={[
     { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },
     { label: entry.data.title },

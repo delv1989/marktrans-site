@@ -1,11 +1,15 @@
 ---
 import '../styles/global.css';
+import { getHreflangAlternatesStatic } from '../lib/hreflang';
 
 interface Props {
   title: string;
   description: string;
   image?: string;
   noindex?: boolean;
+  alternateUk?: string;
+  alternateRu?: string;
+  ogImage?: string;
 }
 
 const {
@@ -13,20 +17,32 @@ const {
   description,
   image = '/og-default.jpg',
   noindex = false,
+  alternateUk,
+  alternateRu,
+  ogImage,
 } = Astro.props;
 
 const locale = Astro.currentLocale ?? 'uk';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
-// Preview protection — noindex on vercel.app, indexable on marktrans.com.ua
+// Preview protection
 const currentHost = Astro.url.hostname;
 const isPreview = currentHost.includes('vercel.app') || currentHost === 'localhost';
 
-// hreflang — обидві локалі активні (146 ru-сторінок з міграції)
-const pathWithoutLocale = Astro.url.pathname.replace(/^\/(uk|ru)/, '') || '/';
-const hreflangUk = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
-const hreflangRu = new URL(`/ru${pathWithoutLocale}`, Astro.site).toString();
-const xDefault = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
+// hreflang — conceptId-based if alternates provided, static swap fallback
+// If alternateUk passed (even without alternateRu) — use explicit values
+// If neither passed — fall back to static swap (for hub pages)
+const hasExplicitAlternates = alternateUk !== undefined;
+const fallback = hasExplicitAlternates
+  ? { uk: alternateUk, ru: alternateRu }
+  : getHreflangAlternatesStatic(Astro.url.pathname);
+
+const hreflangUk = fallback.uk ? new URL(fallback.uk, Astro.site).toString() : undefined;
+const hreflangRu = fallback.ru ? new URL(fallback.ru, Astro.site).toString() : undefined;
+const xDefault = hreflangUk;
+
+// og:image — per-page if provided, fallback to default
+const ogImageUrl = new URL(ogImage || image, Astro.site).toString();
 
 // Schema.org LocalBusiness (всіх сторінок) — GEO optimization
 const localBusinessSchema = {
@@ -88,16 +104,18 @@ const localBusinessSchema = {
 
     <!-- Canonical & hreflang -->
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="uk" href={hreflangUk} />
-    <link rel="alternate" hreflang="ru" href={hreflangRu} />
-    <link rel="alternate" hreflang="x-default" href={xDefault} />
+    {hreflangUk && <link rel="alternate" hreflang="uk" href={hreflangUk} />}
+    {hreflangRu && <link rel="alternate" hreflang="ru" href={hreflangRu} />}
+    {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={locale === 'uk' ? 'uk_UA' : 'ru_RU'} />
     <meta property="og:site_name" content="MARKTRANS" />
 
@@ -105,9 +123,15 @@ const localBusinessSchema = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.site).toString()} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <!-- Preconnect для швидкості -->
+    <!-- PWA + favicons -->
+    <meta name="theme-color" content="#0F0F0F" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
