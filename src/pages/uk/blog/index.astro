@@ -6,13 +6,9 @@ import CTABanner from '../../../components/CTABanner.astro';
 const title = 'Блог MARKTRANS — статті про будматеріали та логістику';
 const description = 'Практичні статті для будівельників: як обрати щебінь, розрахувати об\'єм, оптимізувати доставку. Оновлюється щотижня.';
 
+// Only articles that have actual .astro pages — rest will be added in Phase 7 (blog migration)
 const articles = [
   { slug: 'yakyi-shcheben-dlya-fundamentu', title: 'Який щебінь обрати для фундаменту: повний гайд', category: 'Матеріали', date: '10.04.2026', time: '12 хв' },
-  { slug: 'skilky-tonn-v-kubometri', title: 'Скільки тонн щебеню в кубометрі: таблиця та розрахунок', category: 'Матеріали', date: '05.04.2026', time: '5 хв' },
-  { slug: 'granitnyi-vs-vapnyakovyi', title: 'Гранітний vs вапняковий щебінь: що краще?', category: 'Технології', date: '01.04.2026', time: '7 хв' },
-  { slug: 'yak-zamovyty-dostavku', title: 'Як замовити доставку щебеню правильно', category: 'Логістика', date: '28.03.2026', time: '6 хв' },
-  { slug: 'beton-m200-vs-m400', title: 'Бетон М200 або М400: на якій марці зупинитися?', category: 'Технології', date: '20.03.2026', time: '10 хв' },
-  { slug: 'vydy-pisku', title: 'Види піску для будівництва: річковий, яружний, мітий', category: 'Матеріали', date: '15.03.2026', time: '9 хв' },
 ];
 ---
 
