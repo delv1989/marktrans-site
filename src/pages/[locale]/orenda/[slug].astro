@@ -16,9 +16,44 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const locale = entry.data.locale;
 const isUk = locale === 'uk';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: isUk ? 'Оренда спецтехніки' : 'Аренда спецтехники',
+  name: entry.data.title,
+  description: entry.data.metaDescription,
+  image: entry.data.image ? new URL(entry.data.image, Astro.site).toString() : undefined,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': new URL('/#localbusiness', Astro.site).toString(),
+    name: 'MARKTRANS',
+    telephone: '+380504204229',
+  },
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: { '@type': 'GeoCoordinates', latitude: 50.4501, longitude: 30.5234 },
+    geoRadius: '200000',
+  },
+  ...(entry.data.priceFrom ? {
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'UAH',
+      price: String(entry.data.priceFrom),
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: String(entry.data.priceFrom),
+        priceCurrency: 'UAH',
+        unitText: isUk ? 'год' : 'час',
+      },
+    },
+  } : {}),
+  inLanguage: isUk ? 'uk-UA' : 'ru-UA',
+};
 ---
 
 <PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <Breadcrumbs items={[
     { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },
     { label: isUk ? 'Оренда' : 'Аренда', href: `/${locale}/orenda/` },

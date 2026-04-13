@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: 'uk' } },
+    { params: { locale: 'ru' } },
+  ];
+}
+
+const { locale } = Astro.params as { locale: 'uk' | 'ru' };
+const isUk = locale === 'uk';
+
+const materials = await getCollection('materials', ({ data }) => data.locale === locale);
+const equipment = await getCollection('equipment', ({ data }) => data.locale === locale);
+const works = await getCollection('works', ({ data }) => data.locale === locale);
+
+const t = isUk ? {
+  title: 'MARKTRANS — Доставка сипучих будматеріалів у Києві',
+  description: 'Доставка щебеню, піску, ЩПС, бетону по Києву та області. Оренда спецтехніки 50+ моделей. Будівельні роботи. З 2015 року.',
+  heroEyebrow: 'Київ · Київська область · З 2015 року',
+  heroLine1: 'МІЦНИЙ ФУНДАМЕНТ', heroLine2: 'ПОЧИНАЄТЬСЯ З', heroAccent: 'ЯКІСНОГО МАТЕРІАЛУ',
+  heroLead: "Гранітний щебінь, пісок, асфальт, бетон — власним автопарком з кар\u2019єру до вас у день замовлення. Працюємо по всій Київській області з 2015 року. Чесні ціни, гарантований об\u2019єм, оплата після приймання.",
+  ctaPrimary: 'Замовити доставку →', ctaSecondary: 'Розрахувати вартість',
+  sec1Eye: '01 / КАТАЛОГ', sec1T1: 'СИПУЧІ', sec1Acc: 'МАТЕРІАЛИ',
+  sec2Eye: '02 / ТЕХНІКА', sec2T1: 'ОРЕНДА', sec2Acc: 'СПЕЦТЕХНІКИ',
+  sec3Eye: '03 / ПОСЛУГИ', sec3T1: 'БУДІВЕЛЬНІ', sec3Acc: 'РОБОТИ',
+  allMaterials: 'Всі матеріали →', allEquipment: 'Вся техніка →', allWorks: 'Всі послуги →',
+  details: 'Детальніше →',
+} : {
+  title: 'MARKTRANS — Доставка сыпучих стройматериалов в Киеве',
+  description: 'Доставка щебня, песка, ЩПС, бетона по Киеву и области. Аренда спецтехники 50+ моделей. Строительные работы. С 2015 года.',
+  heroEyebrow: 'Киев · Киевская область · С 2015 года',
+  heroLine1: 'КРЕПКИЙ ФУНДАМЕНТ', heroLine2: 'НАЧИНАЕТСЯ С', heroAccent: 'КАЧЕСТВЕННОГО МАТЕРИАЛА',
+  heroLead: 'Гранитный щебень, песок, асфальт, бетон — собственным автопарком с карьера к вам в день заказа. Работаем по всей Киевской области с 2015 года. Честные цены, гарантированный объём, оплата после приёмки.',
+  ctaPrimary: 'Заказать доставку →', ctaSecondary: 'Рассчитать стоимость',
+  sec1Eye: '01 / КАТАЛОГ', sec1T1: 'СЫПУЧИЕ', sec1Acc: 'МАТЕРИАЛЫ',
+  sec2Eye: '02 / ТЕХНИКА', sec2T1: 'АРЕНДА', sec2Acc: 'СПЕЦТЕХНИКИ',
+  sec3Eye: '03 / УСЛУГИ', sec3T1: 'СТРОИТЕЛЬНЫЕ', sec3Acc: 'РАБОТЫ',
+  allMaterials: 'Все материалы →', allEquipment: 'Вся техника →', allWorks: 'Все услуги →',
+  details: 'Подробнее →',
+};
+---
+
+<PageLayout title={t.title} description={t.description}>
+  <Hero
+    eyebrow={t.heroEyebrow}
+    titleLine1={t.heroLine1}
+    titleLine2={t.heroLine2}
+    titleAccent={t.heroAccent}
+    lead={t.heroLead}
+    ctaPrimary={t.ctaPrimary}
+    ctaSecondary={t.ctaSecondary}
+    ctaPrimaryHref={`/${locale}/kontakty/`}
+    ctaSecondaryHref={`/${locale}/materialy/`}
+    bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop&q=80"
+  />
+
+  <!-- Materials -->
+  <section class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow={t.sec1Eye} titleLine1={t.sec1T1} titleAccent={t.sec1Acc} meta={[`${materials.length} ${isUk ? 'ПОЗИЦІЙ' : 'ПОЗИЦИЙ'}`, isUk ? 'ВІД 100 ₴/ТОННА' : 'ОТ 100 ₴/ТОННА']} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {materials.slice(0, 9).map((entry) => (
+          <a href={`/${locale}/materialy/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">
+            {entry.data.image && (<div class="h-40 md:h-48 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06]" /></div>)}
+            <div class="p-5 md:p-6">
+              <h3 class="font-display font-black text-base md:text-lg uppercase tracking-tight mb-1">{entry.data.title}</h3>
+              {entry.data.priceFrom && (<span class="font-mono font-black text-xl text-mt-accent">{entry.data.priceFrom} ₴</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href={`/${locale}/materialy/`} class="inline-flex items-center gap-3 px-8 py-4 border-2 border-mt-divider font-display font-black text-sm uppercase tracking-wider hover:border-mt-accent hover:text-mt-accent transition-all rounded-xs">{t.allMaterials}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment -->
+  <section class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow={t.sec2Eye} titleLine1={t.sec2T1} titleAccent={t.sec2Acc} meta={[`${equipment.length} ${isUk ? 'ПОЗИЦІЙ' : 'ПОЗИЦИЙ'}`]} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {equipment.slice(0, 6).map((entry) => (
+          <a href={`/${locale}/orenda/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">
+            {entry.data.image && (<div class="h-40 md:h-48 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06]" /></div>)}
+            <div class="p-5 md:p-6">
+              <h3 class="font-display font-black text-base md:text-lg uppercase tracking-tight mb-1">{entry.data.title}</h3>
+              {entry.data.priceFrom && (<span class="font-mono font-black text-xl text-mt-accent">{entry.data.priceFrom} ₴</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href={`/${locale}/orenda/`} class="inline-flex items-center gap-3 px-8 py-4 border-2 border-mt-divider font-display font-black text-sm uppercase tracking-wider hover:border-mt-accent hover:text-mt-accent transition-all rounded-xs">{t.allEquipment}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section class="py-20 md:py-32 lg:py-40 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <SectionHeader eyebrow={t.sec3Eye} titleLine1={t.sec3T1} titleAccent={t.sec3Acc} meta={[`${works.length} ${isUk ? 'НАПРЯМКІВ' : 'НАПРАВЛЕНИЙ'}`]} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-mt-divider">
+        {works.map((entry) => (
+          <a href={`/${locale}/roboty/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">
+            {entry.data.image && (<div class="h-36 md:h-44 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06]" /></div>)}
+            <div class="p-5 md:p-6">
+              <h3 class="font-display font-black text-sm md:text-base uppercase tracking-tight">{entry.data.title}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title={isUk ? 'Потрібен матеріал або техніка?' : 'Нужен материал или техника?'}
+    subtitle={isUk ? 'Подзвоніть або напишіть в Telegram — розрахуємо вартість за 5 хвилин.' : 'Позвоните или напишите в Telegram — рассчитаем стоимость за 5 минут.'}
+    buttonText={isUk ? 'Замовити →' : 'Заказать →'}
+    buttonHref={`/${locale}/kontakty/`}
+  />
+</PageLayout>

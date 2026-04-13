@@ -1020,5 +1020,26 @@
     "type": "works",
     "locale": "uk",
     "conceptId": "vyvoz-grunta"
+  },
+  {
+    "old": "/sypuchie-materialy/sol-tehnicheskaja/",
+    "new": "/ru/materialy/sol-tehnicheskaja/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "sol-tehnicheskaya"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-man/man-tgs-prod/",
+    "new": "/ru/orenda/man-tgs/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "man-tgs"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-man/man-tgs/",
+    "new": "/ru/orenda/man-tgs/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "man-tgs"
   }
 ]

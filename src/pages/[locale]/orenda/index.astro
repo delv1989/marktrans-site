@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import FAQ from '../../../components/FAQ.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+
+export async function getStaticPaths() {
+  return [{ params: { locale: 'uk' } }, { params: { locale: 'ru' } }];
+}
+
+const { locale } = Astro.params as { locale: 'uk' | 'ru' };
+const isUk = locale === 'uk';
+const entries = await getCollection('equipment', ({ data }) => data.locale === locale);
+const sorted = entries.sort((a, b) => a.data.title.localeCompare(b.data.title, locale));
+
+const title = isUk ? 'Оренда спецтехніки Київ — самоскид, бульдозер, екскаватор · MARKTRANS' : 'Аренда спецтехники Киев — самосвал, бульдозер, экскаватор · MARKTRANS';
+const description = isUk ? 'Оренда самоскидів, бульдозерів, навантажувачів, екскаваторів, гідромолотів. Водій + ПММ включено.' : 'Аренда самосвалов, бульдозеров, погрузчиков, экскаваторов, гидромолотов. Водитель + ГСМ включено.';
+
+const faq = isUk ? [
+  { question: 'Яка мінімальна тривалість оренди?', answer: 'Мінімальне замовлення — 4 години погодинної оренди або 1 повний рейс.' },
+  { question: 'Що включено у вартість?', answer: 'Водій-оператор, паливо (ПММ), технічне обслуговування, страхування.' },
+  { question: 'Чи працюєте у вихідні?', answer: 'Так, працюємо 7 днів на тиждень. Диспетчер доступний 24/7.' },
+] : [
+  { question: 'Какая минимальная продолжительность аренды?', answer: 'Минимальный заказ — 4 часа почасовой аренды или 1 полный рейс.' },
+  { question: 'Что включено в стоимость?', answer: 'Водитель-оператор, топливо (ГСМ), техобслуживание, страхование.' },
+  { question: 'Работаете по выходным?', answer: 'Да, работаем 7 дней в неделю. Диспетчер 24/7.' },
+];
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` }, { label: isUk ? 'Оренда спецтехніки' : 'Аренда спецтехники' }]} />
+
+  <section class="py-16 md:py-24 lg:py-32 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6"><span class="block w-8 h-0.5 bg-mt-accent"></span><span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— {isUk ? 'Техніка' : 'Техника'}</span></div>
+      <h1 class="font-display font-black uppercase mb-6" style="font-size: clamp(48px, 10vw, 120px); line-height: 0.88; letter-spacing: -0.03em;">{isUk ? 'ОРЕНДА' : 'АРЕНДА'}<br/><span class="text-mt-accent">{isUk ? 'СПЕЦТЕХНІКИ' : 'СПЕЦТЕХНИКИ'}</span></h1>
+      <p class="text-base md:text-lg text-mt-secondary max-w-[720px] leading-relaxed">{description}</p>
+    </div>
+  </section>
+
+  <section class="border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
+      <SectionHeader eyebrow={isUk ? 'ТЕХНІКА' : 'ТЕХНИКА'} titleLine1={isUk ? 'КАТАЛОГ' : 'КАТАЛОГ'} titleAccent={isUk ? 'ТЕХНІКИ' : 'ТЕХНИКИ'} meta={[`${sorted.length} ${isUk ? 'ПОЗИЦІЙ' : 'ПОЗИЦИЙ'}`]} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {sorted.map((entry) => (
+          <a href={`/${locale}/orenda/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">
+            {entry.data.image && (<div class="h-48 md:h-56 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06]" /></div>)}
+            <div class="p-6 md:p-8">
+              <h3 class="font-display font-black text-lg uppercase tracking-tight mb-2">{entry.data.title}</h3>
+              {entry.data.priceFrom && (<span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom} ₴</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faq} title={isUk ? 'Запитання про оренду' : 'Вопросы об аренде'} />
+  <CTABanner title={isUk ? 'Потрібна техніка?' : 'Нужна техника?'} subtitle={isUk ? 'Подзвоніть — підберемо машину.' : 'Позвоните — подберём машину.'} buttonText={isUk ? 'Подзвонити →' : 'Позвонить →'} buttonHref="tel:+380504204229" />
+</PageLayout>

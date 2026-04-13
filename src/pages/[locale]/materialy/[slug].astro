@@ -16,9 +16,33 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const locale = entry.data.locale;
 const isUk = locale === 'uk';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: entry.data.title,
+  description: entry.data.metaDescription,
+  image: entry.data.image ? new URL(entry.data.image, Astro.site).toString() : new URL('/og-default.jpg', Astro.site).toString(),
+  brand: { '@type': 'Brand', name: 'MARKTRANS' },
+  category: isUk ? 'Будівельні матеріали' : 'Строительные материалы',
+  ...(entry.data.priceFrom ? {
+    offers: {
+      '@type': 'Offer',
+      url: new URL(`/${locale}/materialy/${entry.data.slug}/`, Astro.site).toString(),
+      priceCurrency: 'UAH',
+      price: String(entry.data.priceFrom),
+      priceValidUntil: '2026-12-31',
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@type': 'Organization', name: 'MARKTRANS', telephone: '+380504204229' },
+    },
+  } : {}),
+  inLanguage: isUk ? 'uk-UA' : 'ru-UA',
+};
 ---
 
 <PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <Breadcrumbs items={[
     { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },
     { label: isUk ? 'Матеріали' : 'Материалы', href: `/${locale}/materialy/` },

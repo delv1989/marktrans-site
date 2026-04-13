@@ -13,6 +13,31 @@
   ],
   "redirects": [
     {
+      "source": "/ru/terms/",
+      "destination": "/uk/terms/",
+      "permanent": false
+    },
+    {
+      "source": "/ru/privacy/",
+      "destination": "/uk/privacy/",
+      "permanent": false
+    },
+    {
+      "source": "/ru/pro-kompaniyu/",
+      "destination": "/uk/pro-kompaniyu/",
+      "permanent": false
+    },
+    {
+      "source": "/ru/kontakty/",
+      "destination": "/uk/kontakty/",
+      "permanent": false
+    },
+    {
+      "source": "/ru/blog/:path*",
+      "destination": "/uk/blog/:path*",
+      "permanent": false
+    },
+    {
       "source": "/arenda-spetstehniki/arenda-samosvala-daf/daf-cf450-cf480-prod/",
       "destination": "/ru/orenda/daf-cf450-cf480-prod/",
       "permanent": true
@@ -740,6 +765,21 @@
     {
       "source": "/zemlyani-roboty/vyviz-gruntu/",
       "destination": "/uk/roboty/vyviz-gruntu/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/sol-tehnicheskaja/",
+      "destination": "/ru/materialy/sol-tehnicheskaja/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-man/man-tgs-prod/",
+      "destination": "/ru/orenda/man-tgs/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-man/man-tgs/",
+      "destination": "/ru/orenda/man-tgs/",
       "permanent": true
     },
     {
