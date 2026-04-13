@@ -13,6 +13,11 @@
   ],
   "redirects": [
     {
+      "source": "/ru/blog/",
+      "destination": "/uk/blog/",
+      "permanent": false
+    },
+    {
       "source": "/ru/terms/",
       "destination": "/uk/terms/",
       "permanent": false
