@@ -16,18 +16,24 @@ const productSchema = z.object({
   gallery: z.array(z.string()).optional(),
 });
 
+// generateId includes locale prefix to avoid uk/ru filename collisions
+// e.g., uk/man-tgs.md → "uk/man-tgs", ru/man-tgs.md → "ru/man-tgs"
+const generateId = ({ entry }: { entry: string }) => {
+  return entry.replace(/\.md$/, '');
+};
+
 const materials = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/materials' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/materials', generateId }),
   schema: productSchema,
 });
 
 const equipment = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/equipment' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/equipment', generateId }),
   schema: productSchema,
 });
 
 const works = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/works' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/works', generateId }),
   schema: productSchema,
 });
 
