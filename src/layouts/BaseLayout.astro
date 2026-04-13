@@ -22,12 +22,11 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const currentHost = Astro.url.hostname;
 const isPreview = currentHost.includes('vercel.app') || currentHost === 'localhost';
 
-// hreflang — тільки uk + x-default поки /ru/ не повністю готова
+// hreflang — обидві локалі активні (146 ru-сторінок з міграції)
 const pathWithoutLocale = Astro.url.pathname.replace(/^\/(uk|ru)/, '') || '/';
 const hreflangUk = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
+const hreflangRu = new URL(`/ru${pathWithoutLocale}`, Astro.site).toString();
 const xDefault = new URL(`/uk${pathWithoutLocale}`, Astro.site).toString();
-// TODO: розкоментувати після створення повної /ru/ локалі (Phase 6)
-// const hreflangRu = new URL(`/ru${pathWithoutLocale}`, Astro.site).toString();
 
 // Schema.org LocalBusiness (всіх сторінок) — GEO optimization
 const localBusinessSchema = {
@@ -90,8 +89,7 @@ const localBusinessSchema = {
     <!-- Canonical & hreflang -->
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="uk" href={hreflangUk} />
-    {/* TODO: розкоментувати після створення повної /ru/ локалі (Phase 6)
-    <link rel="alternate" hreflang="ru" href={hreflangRu} /> */}
+    <link rel="alternate" hreflang="ru" href={hreflangRu} />
     <link rel="alternate" hreflang="x-default" href={xDefault} />
 
     <!-- Open Graph -->

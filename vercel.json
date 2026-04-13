@@ -10,5 +10,797 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-daf/daf-cf450-cf480-prod/",
+      "destination": "/ru/orenda/daf-cf450-cf480-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-daf/daf-lf-prod/",
+      "destination": "/ru/orenda/daf-lf-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-daf/daf-xf-530-prod/",
+      "destination": "/ru/orenda/daf-xf-530-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-daf/daf-xg-prod/",
+      "destination": "/ru/orenda/daf-xg-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-eurocargo-prod/",
+      "destination": "/ru/orenda/iveco-eurocargo-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-s-way-prod/",
+      "destination": "/ru/orenda/iveco-s-way-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-stralis/",
+      "destination": "/ru/orenda/iveco-stralis/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-t-way-prod/",
+      "destination": "/ru/orenda/iveco-t-way-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-trakker-410-450-500-prod/",
+      "destination": "/ru/orenda/iveco-trakker-410-450-500-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-man/man-tga-product/",
+      "destination": "/ru/orenda/man-tga-product/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-man/man-tgm-prod/",
+      "destination": "/ru/orenda/man-tgm-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-man/man-tgx-product/",
+      "destination": "/ru/orenda/man-tgx-product/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-actros-3340-prod/",
+      "destination": "/ru/orenda/mercedes-actros-3340-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-actros-4141/",
+      "destination": "/ru/orenda/mercedes-actros-4141/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-actros-4444-prod/",
+      "destination": "/ru/orenda/mercedes-actros-4444-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-arcos-3245-prod/",
+      "destination": "/ru/orenda/mercedes-arcos-3245-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-arocs-4145-prod/",
+      "destination": "/ru/orenda/mercedes-arocs-4145-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-benz-actros-1841/",
+      "destination": "/ru/orenda/mercedes-benz-actros-1841/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-benz-axor-prod/",
+      "destination": "/ru/orenda/mercedes-benz-axor-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-renault/renault-c440-c480-prod/",
+      "destination": "/ru/orenda/renault-c440-c480-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-renault/renault-k430-k480-k520-prod/",
+      "destination": "/ru/orenda/renault-k430-k480-k520-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-renault/renault-t-high-prod/",
+      "destination": "/ru/orenda/renault-t-high-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-scania/scania-g410-g450-g500-prod/",
+      "destination": "/ru/orenda/scania-g410-g450-g500-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-scania/scania-p410-p450-prod/",
+      "destination": "/ru/orenda/scania-p410-p450-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-scania/scania-r500-r560-prod/",
+      "destination": "/ru/orenda/scania-r500-r560-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fe-prod/",
+      "destination": "/ru/orenda/volvo-fe-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fh16-prod/",
+      "destination": "/ru/orenda/volvo-fh16-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fl-prod/",
+      "destination": "/ru/orenda/volvo-fl-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fmx-prod/",
+      "destination": "/ru/orenda/volvo-fmx-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/drugaja-speztechnika/buldozer-caterpillar-d5/",
+      "destination": "/ru/orenda/buldozer-caterpillar-d5/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/drugaja-speztechnika/buldozer-caterpillar-d6/",
+      "destination": "/ru/orenda/buldozer-caterpillar-d6/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/drugaja-speztechnika/gidromolot/",
+      "destination": "/ru/orenda/gidromolot/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/drugaja-speztechnika/jekskavator-caterpillar-d320/",
+      "destination": "/ru/orenda/jekskavator-caterpillar-d320/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/drugaja-speztechnika/traktor-jcb-3cx-prod/",
+      "destination": "/ru/orenda/traktor-jcb-3cx-prod/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgs/",
+      "destination": "/ru/orenda/man-tgs/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/asfaltobetonnije-smesi/asfaltobetonnaja-smes-k1/",
+      "destination": "/ru/materialy/asfaltobetonnaja-smes-k1/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/asfaltobetonnije-smesi/asfaltobetonnaja-smes-selenizza/",
+      "destination": "/ru/materialy/asfaltobetonnaja-smes-selenizza/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/asfaltobetonnije-smesi/asfaltobetonnaja-smes-wetfix/",
+      "destination": "/ru/materialy/asfaltobetonnaja-smes-wetfix/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/asfaltobetonnije-smesi/litaja-asfaltobetonnaja-smes/",
+      "destination": "/ru/materialy/litaja-asfaltobetonnaja-smes/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/asfaltobetonnije-smesi/shchebenevo-mastykovyj-asfaltobeton/",
+      "destination": "/ru/materialy/shchebenevo-mastykovyj-asfaltobeton/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/beton/beton-raznych-marok/",
+      "destination": "/ru/materialy/beton-raznych-marok/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/grunt/grunt-rastitelnyj/",
+      "destination": "/ru/materialy/grunt-rastitelnyj/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/grunt/gruntovaya-smes/",
+      "destination": "/ru/materialy/gruntovaya-smes/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/kamni-but/kamen-but-granitnyj/",
+      "destination": "/ru/materialy/kamen-but-granitnyj/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/kamni-but/kamen-but-kvarcitnyj/",
+      "destination": "/ru/materialy/kamen-but-kvarcitnyj/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/kamni-but/kamen-but/",
+      "destination": "/ru/materialy/kamen-but/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/pesok/pesok-ovrazniy/",
+      "destination": "/ru/materialy/pesok-ovrazniy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/pesok/pesok-rechnoj/",
+      "destination": "/ru/materialy/pesok-rechnoj/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/podsipka/suglinok/",
+      "destination": "/ru/materialy/suglinok/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/podsipka/supisok/",
+      "destination": "/ru/materialy/supisok/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-0-5-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-0-5-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-10-20-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-10-20-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-20-40-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-20-40-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-20-70-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-20-70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-40-70-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-40-70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-5-10-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-5-10-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-5-20-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-5-20-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shcheben-fraktsii-70-mm/",
+      "destination": "/ru/materialy/shcheben-fraktsii-70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shchps/shchps-0-40-mm/",
+      "destination": "/ru/materialy/shchps-0-40-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shchps/shchps-0-70-mm/",
+      "destination": "/ru/materialy/shchps-0-70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/soli/peshchano-solianaja-smes/",
+      "destination": "/ru/materialy/peshchano-solianaja-smes/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/soli/sol-tehnicheskaja/",
+      "destination": "/ru/materialy/sol-tehnicheskaja/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/vtorichnyj-shcheben/asfaltnaya-kroshka/",
+      "destination": "/ru/materialy/asfaltnaya-kroshka/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/vtorichnyj-shcheben/boy-asfalta/",
+      "destination": "/ru/materialy/boy-asfalta/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/vtorichnyj-shcheben/boy-betona/",
+      "destination": "/ru/materialy/boy-betona/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/asfaltirovanie/",
+      "destination": "/ru/roboty/asfaltirovanie/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/demontazh-zdaniy/",
+      "destination": "/ru/roboty/demontazh-zdaniy/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/planirovanie-territorii/",
+      "destination": "/ru/roboty/planirovanie-territorii/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/razrabotka-kotlovanov/",
+      "destination": "/ru/roboty/razrabotka-kotlovanov/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/stroitelstvo-dorog/",
+      "destination": "/ru/roboty/stroitelstvo-dorog/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/ukladka-shchebenochnykh-i-peschanykh-podushek/",
+      "destination": "/ru/roboty/ukladka-shchebenochnykh-i-peschanykh-podushek/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/vyvoz-grunta/",
+      "destination": "/ru/roboty/vyvoz-grunta/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/vyvoz-stroitelnogo-musora/",
+      "destination": "/ru/roboty/vyvoz-stroitelnogo-musora/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/insha-spetstekhnika/caterpillar-d320/",
+      "destination": "/uk/orenda/caterpillar-d320/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/insha-spetstekhnika/caterpillar-d5/",
+      "destination": "/uk/orenda/caterpillar-d5/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/insha-spetstekhnika/caterpillar-d6/",
+      "destination": "/uk/orenda/caterpillar-d6/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/insha-spetstekhnika/jcb-3cx/",
+      "destination": "/uk/orenda/jcb-3cx/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/insha-spetstekhnika/orenda-gidromolotu/",
+      "destination": "/uk/orenda/orenda-gidromolotu/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-daf/daf-cf/",
+      "destination": "/uk/orenda/daf-cf/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-daf/daf-lf/",
+      "destination": "/uk/orenda/daf-lf/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-daf/daf-xg/",
+      "destination": "/uk/orenda/daf-xg/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-daf/orenda-daf-xf-530/",
+      "destination": "/uk/orenda/orenda-daf-xf-530/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-eurocargo/",
+      "destination": "/uk/orenda/iveco-eurocargo/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-s-way/",
+      "destination": "/uk/orenda/iveco-s-way/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-t-way/",
+      "destination": "/uk/orenda/iveco-t-way/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-trakker/",
+      "destination": "/uk/orenda/iveco-trakker/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-iveco/orenda-iveco-stralis/",
+      "destination": "/uk/orenda/orenda-iveco-stralis/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-man/man-tga/",
+      "destination": "/uk/orenda/man-tga/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgm/",
+      "destination": "/uk/orenda/man-tgm/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgs/",
+      "destination": "/uk/orenda/man-tgs/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgx/",
+      "destination": "/uk/orenda/man-tgx/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/mercedes-benz-axor/",
+      "destination": "/uk/orenda/mercedes-benz-axor/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-1841/",
+      "destination": "/uk/orenda/orenda-mercedes-benz-actros-1841/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-3340/",
+      "destination": "/uk/orenda/orenda-mercedes-benz-actros-3340/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-4141/",
+      "destination": "/uk/orenda/orenda-mercedes-benz-actros-4141/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-4444/",
+      "destination": "/uk/orenda/orenda-mercedes-benz-actros-4444/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-arocs-3245/",
+      "destination": "/uk/orenda/orenda-mercedes-benz-arocs-3245/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-arocs-4140/",
+      "destination": "/uk/orenda/orenda-mercedes-benz-arocs-4140/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-renault/renault-c440/",
+      "destination": "/uk/orenda/renault-c440/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-renault/renault-serii-k/",
+      "destination": "/uk/orenda/renault-serii-k/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-renault/renault-t-high/",
+      "destination": "/uk/orenda/renault-t-high/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-scania/scania-g410/",
+      "destination": "/uk/orenda/scania-g410/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-scania/scania-p410/",
+      "destination": "/uk/orenda/scania-p410/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-scania/scania-r500/",
+      "destination": "/uk/orenda/scania-r500/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fe/",
+      "destination": "/uk/orenda/volvo-fe/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fh16/",
+      "destination": "/uk/orenda/volvo-fh16/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fl/",
+      "destination": "/uk/orenda/volvo-fl/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fmx/",
+      "destination": "/uk/orenda/volvo-fmx/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/asfaltobetonni-sumishi/asfaltobetonna-sumish-k1/",
+      "destination": "/uk/materialy/asfaltobetonna-sumish-k1/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/asfaltobetonni-sumishi/asfaltobetonna-sumish-selenizza/",
+      "destination": "/uk/materialy/asfaltobetonna-sumish-selenizza/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/asfaltobetonni-sumishi/asfaltobetonna-sumish-wetfix/",
+      "destination": "/uk/materialy/asfaltobetonna-sumish-wetfix/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/asfaltobetonni-sumishi/lyta-asfaltobetonna-sumish/",
+      "destination": "/uk/materialy/lyta-asfaltobetonna-sumish/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/asfaltobetonni-sumishi/shchebenevo-mastykovyy-asfaltobeton/",
+      "destination": "/uk/materialy/shchebenevo-mastykovyy-asfaltobeton/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/betony/beton-riznykh-marok/",
+      "destination": "/uk/materialy/beton-riznykh-marok/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/grunty/grunt-roslynnyy/",
+      "destination": "/uk/materialy/grunt-roslynnyy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/grunty/gruntova-sumish/",
+      "destination": "/uk/materialy/gruntova-sumish/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/kamin-but/kamin-but-granitnyy/",
+      "destination": "/uk/materialy/kamin-but-granitnyy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/kamin-but/kamin-but-kvartsytnyy/",
+      "destination": "/uk/materialy/kamin-but-kvartsytnyy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/kamin-but/kamin-but-siryy/",
+      "destination": "/uk/materialy/kamin-but-siryy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/pidsypka/suglynok-pidsypka/",
+      "destination": "/uk/materialy/suglynok-pidsypka/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/pidsypka/supisok-pidsypka/",
+      "destination": "/uk/materialy/supisok-pidsypka/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/pisok/pisok-richkovyy/",
+      "destination": "/uk/materialy/pisok-richkovyy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/pisok/pisok-yaruzhnyy/",
+      "destination": "/uk/materialy/pisok-yaruzhnyy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebenevo-pishchana-sumish/shchps-0x40-mm/",
+      "destination": "/uk/materialy/shchps-0x40-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebenevo-pishchana-sumish/shchps-0x70-mm/",
+      "destination": "/uk/materialy/shchps-0x70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-0-5-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-0-5-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-20-40-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-20-40-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-20-70-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-20-70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-40-70-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-40-70-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-5-10-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-5-10-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-5-20-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-5-20-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/shchebin/shchebin-fraktsii-70-plus-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-70-plus-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/sil/pishchano-solyana-sumish/",
+      "destination": "/uk/materialy/pishchano-solyana-sumish/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/sil/sil-tekhnichna/",
+      "destination": "/uk/materialy/sil-tekhnichna/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/vtorynnyi-shchebin/asfaltova-krykhta/",
+      "destination": "/uk/materialy/asfaltova-krykhta/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/vtorynnyi-shchebin/biy-asfaltu/",
+      "destination": "/uk/materialy/biy-asfaltu/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/vtorynnyi-shchebin/biy-betonu/",
+      "destination": "/uk/materialy/biy-betonu/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/shcheben/shchebin-fraktsii-10-20-mm/",
+      "destination": "/uk/materialy/shchebin-fraktsii-10-20-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/asfaltuvannya-dorig/",
+      "destination": "/uk/roboty/asfaltuvannya-dorig/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/budivnytstvo-dorig/",
+      "destination": "/uk/roboty/budivnytstvo-dorig/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/demontazh-budivel-ta-sporud/",
+      "destination": "/uk/roboty/demontazh-budivel-ta-sporud/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/planuvannya-terytorii/",
+      "destination": "/uk/roboty/planuvannya-terytorii/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/rozrobka-kotlovaniv/",
+      "destination": "/uk/roboty/rozrobka-kotlovaniv/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/ukladannya-shchebenevykh-i-pishchanykh-podushok/",
+      "destination": "/uk/roboty/ukladannya-shchebenevykh-i-pishchanykh-podushok/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/vyviz-budivelnogo-smittya/",
+      "destination": "/uk/roboty/vyviz-budivelnogo-smittya/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/vyviz-gruntu/",
+      "destination": "/uk/roboty/vyviz-gruntu/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchie-materialy/",
+      "destination": "/uk/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/sypuchi-materialy/",
+      "destination": "/uk/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/arenda-spetstehniki/",
+      "destination": "/uk/orenda/",
+      "permanent": true
+    },
+    {
+      "source": "/orenda-spetstehniky/",
+      "destination": "/uk/orenda/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyanie-raboti/",
+      "destination": "/uk/roboty/",
+      "permanent": true
+    },
+    {
+      "source": "/zemlyani-roboty/",
+      "destination": "/uk/roboty/",
+      "permanent": true
+    },
+    {
+      "source": "/o-kompanii/",
+      "destination": "/uk/pro-kompaniyu/",
+      "permanent": true
+    },
+    {
+      "source": "/pro-kompaniyu/",
+      "destination": "/uk/pro-kompaniyu/",
+      "permanent": true
+    },
+    {
+      "source": "/kontakti/",
+      "destination": "/uk/kontakty/",
+      "permanent": true
+    },
+    {
+      "source": "/kontakty/",
+      "destination": "/uk/kontakty/",
+      "permanent": true
+    },
+    {
+      "source": "/dostavka-i-oplata/",
+      "destination": "/uk/kontakty/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/uk/blog/",
+      "permanent": true
+    }
   ]
 }

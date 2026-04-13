@@ -33,5 +33,12 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'uk',
+        locales: { uk: 'uk-UA', ru: 'ru-UA' },
+      },
+    }),
+  ],
 });

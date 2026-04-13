@@ -1,133 +1,52 @@
 ---
+import { getCollection } from 'astro:content';
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
 import FAQ from '../../../components/FAQ.astro';
 import CTABanner from '../../../components/CTABanner.astro';
 
-const title = 'Оренда спецтехніки Київ — самоскид ACTROS від 1200 ₴/год · MARKTRANS';
-const description = 'Оренда самоскидів ACTROS 25 тонн, бульдозерів, навантажувачів, гідромолотів. Водій + ПММ включено. Київ і Київська область.';
+const entries = await getCollection('equipment', ({ data }) => data.locale === 'uk');
+const sorted = entries.sort((a, b) => a.data.title.localeCompare(b.data.title, 'uk'));
 
-const fleet = [
-  { name: 'Mercedes ACTROS 4141K', capacity: '25 тонн', volume: '18 м³', year: '2019', price: 'від 1200 ₴/год', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=800&fit=crop&q=80' },
-  { name: 'Mercedes ACTROS 3341',  capacity: '20 тонн', volume: '14 м³', year: '2017', price: 'від 1100 ₴/год', image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=800&fit=crop&q=80' },
-  { name: 'Mercedes ACTROS 3236',  capacity: '18 тонн', volume: '12 м³', year: '2015', price: 'від 1000 ₴/год', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=800&fit=crop&q=80' },
-];
-
-const pricing = [
-  { service: 'Погодинна оренда (від 4 год)', price: '1200 ₴/год' },
-  { service: 'Зміна 8 годин', price: '8500 ₴' },
-  { service: 'Доба (12+ годин)', price: '12000 ₴' },
-  { service: 'Тонно-кілометр (17-40 км)', price: '220 ₴/км' },
-  { service: 'Тонно-кілометр (41-200 км)', price: '200 ₴/км' },
-  { service: 'Базовий виїзд до 16 км', price: '3500 ₴' },
-];
+const title = 'Оренда спецтехніки Київ — самоскид, бульдозер, навантажувач · MARKTRANS';
+const description = 'Оренда самоскидів, бульдозерів, навантажувачів, гідромолотів. Водій + ПММ включено. Київ і Київська область.';
 
 const faq = [
   { question: 'Яка мінімальна тривалість оренди?', answer: 'Мінімальне замовлення — 4 години погодинної оренди або 1 повний рейс.' },
-  { question: 'Чи працюєте у вихідні?', answer: 'Так, працюємо 7 днів на тиждень, включаючи вихідні та свята. Диспетчер доступний 24/7.' },
-  { question: 'Що включено у вартість?', answer: 'Водій-оператор, паливо (ПММ), технічне обслуговування та страхування. Ви платите тільки за годину або тонно-кілометр.' },
-  { question: 'Чи підписуєте договір з юридичними особами?', answer: 'Так, працюємо з ТОВ та ФОП за договором. Рахунок-фактура, акт виконаних робіт.' },
+  { question: 'Що включено у вартість?', answer: 'Водій-оператор, паливо (ПММ), технічне обслуговування, страхування.' },
+  { question: 'Чи працюєте у вихідні?', answer: 'Так, працюємо 7 днів на тиждень. Диспетчер доступний 24/7.' },
 ];
 ---
 
 <PageLayout title={title} description={description}>
-  <Breadcrumbs items={[
-    { label: 'Головна', href: '/uk/' },
-    { label: 'Оренда спецтехніки' }
-  ]} />
+  <Breadcrumbs items={[{ label: 'Головна', href: '/uk/' }, { label: 'Оренда спецтехніки' }]} />
 
-  <!-- Hero -->
-  <section
-    class="relative min-h-[60vh] flex items-center py-20 md:py-32 overflow-hidden"
-    style="background: linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.5) 100%), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop&q=80') center/cover;"
-  >
-    <div class="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 w-full">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="block w-8 h-0.5 bg-mt-accent"></span>
-        <span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— Послуга 01</span>
-      </div>
-      <h1
-        class="font-display font-black uppercase mb-8"
-        style="font-size: clamp(48px, 9vw, 120px); line-height: 0.88; letter-spacing: -0.03em;"
-      >
-        ОРЕНДА<br/><span class="text-mt-accent">СПЕЦТЕХНІКИ</span>
-      </h1>
-      <p class="text-base md:text-lg text-[#DDD] max-w-[640px] leading-relaxed mb-10">
-        Власний парк самоскидів ACTROS 25 тонн. Погодинно або по тонно-кілометражу.
-        Оператор + ПММ включені. Київ і область.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/uk/kontakty/" class="btn-primary justify-center sm:justify-start">Замовити техніку →</a>
-        <a href="#pricing" class="btn-secondary justify-center sm:justify-start">Тарифи</a>
-      </div>
+  <section class="py-16 md:py-24 lg:py-32 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6"><span class="block w-8 h-0.5 bg-mt-accent"></span><span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— Техніка</span></div>
+      <h1 class="font-display font-black uppercase mb-6" style="font-size: clamp(48px, 10vw, 120px); line-height: 0.88; letter-spacing: -0.03em;">ОРЕНДА<br/><span class="text-mt-accent">СПЕЦТЕХНІКИ</span></h1>
+      <p class="text-base md:text-lg text-mt-secondary max-w-[720px] leading-relaxed">Власний парк техніки: самоскиди, бульдозери, навантажувачі, екскаватори, гідромолоти. Водій + ПММ включені.</p>
     </div>
   </section>
 
-  <!-- Fleet stats -->
   <section class="border-b border-mt-divider">
-    <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4">
-      {[
-        { v: '5', l: 'Самоскидів ACTROS' },
-        { v: '25 Т', l: 'Вантажопідйомність' },
-        { v: '200 КМ', l: 'Радіус роботи' },
-        { v: '2015', l: 'Рік заснування' },
-      ].map((s) => (
-        <div class="px-6 py-10 border-r border-b border-mt-divider last:border-r-0">
-          <div class="font-mono font-black text-3xl md:text-4xl text-mt-accent leading-none mb-2">{s.v}</div>
-          <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">{s.l}</div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Fleet cards -->
-  <section class="py-16 md:py-24 border-b border-mt-divider">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-      <h2 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight mb-12">Наша техніка</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-mt-divider border border-mt-divider">
-        {fleet.map((truck) => (
-          <div class="bg-mt-bg-1">
-            <img src={truck.image} alt={truck.name} loading="lazy" class="w-full h-56 md:h-64 object-cover brightness-75 grayscale-[30%]" />
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
+      <SectionHeader eyebrow="ТЕХНІКА" titleLine1="КАТАЛОГ" titleAccent="ТЕХНІКИ" meta={[`${sorted.length} ПОЗИЦІЙ`]} />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {sorted.map((entry) => (
+          <a href={`/uk/orenda/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">
+            {entry.data.image && (<div class="h-48 md:h-56 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06]" /></div>)}
             <div class="p-6 md:p-8">
-              <div class="font-mono text-[10px] text-mt-accent uppercase tracking-widest mb-2">Доступна</div>
-              <h3 class="font-display font-black text-lg uppercase tracking-tight mb-4">{truck.name}</h3>
-              <div class="grid grid-cols-2 gap-y-2 text-sm font-mono mb-6">
-                <span class="text-mt-tertiary">Вантаж</span><span class="text-mt-text font-bold">{truck.capacity}</span>
-                <span class="text-mt-tertiary">Об'єм</span><span class="text-mt-text font-bold">{truck.volume}</span>
-                <span class="text-mt-tertiary">Рік</span><span class="text-mt-text font-bold">{truck.year}</span>
-              </div>
-              <div class="border-t border-mt-divider pt-4 flex items-baseline justify-between">
-                <span class="font-mono font-black text-xl text-mt-accent">{truck.price}</span>
-                <a href="/uk/kontakty/" class="font-display font-bold text-xs uppercase tracking-wider text-mt-accent hover:text-mt-accent-hover transition-colors">Замовити →</a>
-              </div>
+              <h3 class="font-display font-black text-lg uppercase tracking-tight mb-2">{entry.data.title}</h3>
+              {entry.data.priceFrom && (<div class="flex items-baseline gap-2"><span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom} ₴</span><span class="font-mono text-[11px] text-mt-tertiary uppercase tracking-widest">/ год</span></div>)}
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing table -->
-  <section id="pricing" class="py-16 md:py-24 border-b border-mt-divider">
-    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-      <h2 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight mb-12">Тарифи</h2>
-      <div class="border border-mt-divider divide-y divide-mt-divider">
-        {pricing.map((row) => (
-          <div class="flex items-center justify-between px-6 py-5 hover:bg-mt-bg-1 transition-colors">
-            <span class="text-sm md:text-base text-mt-text">{row.service}</span>
-            <span class="font-mono font-black text-lg md:text-xl text-mt-accent shrink-0 ml-4">{row.price}</span>
-          </div>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
   <FAQ items={faq} title="Запитання про оренду" />
-
-  <CTABanner
-    title="Потрібна техніка сьогодні?"
-    subtitle="Подзвоніть — підберемо машину та розрахуємо вартість."
-    buttonText="Подзвонити →"
-    buttonHref="tel:+380504204229"
-  />
+  <CTABanner title="Потрібна техніка?" subtitle="Подзвоніть — підберемо машину." buttonText="Подзвонити →" buttonHref="tel:+380504204229" />
 </PageLayout>

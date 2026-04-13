@@ -1,0 +1,1024 @@
+[
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-daf/daf-cf450-cf480-prod/",
+    "new": "/ru/orenda/daf-cf450-cf480-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "daf-cf"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-daf/daf-lf-prod/",
+    "new": "/ru/orenda/daf-lf-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "daf-lf"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-daf/daf-xf-530-prod/",
+    "new": "/ru/orenda/daf-xf-530-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "daf-xf-530"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-daf/daf-xg-prod/",
+    "new": "/ru/orenda/daf-xg-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "daf-xg"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-eurocargo-prod/",
+    "new": "/ru/orenda/iveco-eurocargo-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "iveco-eurocargo"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-s-way-prod/",
+    "new": "/ru/orenda/iveco-s-way-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "iveco-s-way"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-stralis/",
+    "new": "/ru/orenda/iveco-stralis/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "iveco-stralis"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-t-way-prod/",
+    "new": "/ru/orenda/iveco-t-way-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "iveco-t-way"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-iveco/iveco-trakker-410-450-500-prod/",
+    "new": "/ru/orenda/iveco-trakker-410-450-500-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "iveco-trakker"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-man/man-tga-product/",
+    "new": "/ru/orenda/man-tga-product/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "man-tga"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-man/man-tgm-prod/",
+    "new": "/ru/orenda/man-tgm-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "man-tgm"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-man/man-tgx-product/",
+    "new": "/ru/orenda/man-tgx-product/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "man-tgx"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-actros-3340-prod/",
+    "new": "/ru/orenda/mercedes-actros-3340-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "actros-3340"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-actros-4141/",
+    "new": "/ru/orenda/mercedes-actros-4141/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "actros-4141"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-actros-4444-prod/",
+    "new": "/ru/orenda/mercedes-actros-4444-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "actros-4444"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-arcos-3245-prod/",
+    "new": "/ru/orenda/mercedes-arcos-3245-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "arocs-3245"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-arocs-4145-prod/",
+    "new": "/ru/orenda/mercedes-arocs-4145-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "arocs-4140"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-benz-actros-1841/",
+    "new": "/ru/orenda/mercedes-benz-actros-1841/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "actros-1841"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-mercedes/mercedes-benz-axor-prod/",
+    "new": "/ru/orenda/mercedes-benz-axor-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "axor"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-renault/renault-c440-c480-prod/",
+    "new": "/ru/orenda/renault-c440-c480-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "renault-c440"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-renault/renault-k430-k480-k520-prod/",
+    "new": "/ru/orenda/renault-k430-k480-k520-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "renault-k"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-renault/renault-t-high-prod/",
+    "new": "/ru/orenda/renault-t-high-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "renault-t-high"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-scania/scania-g410-g450-g500-prod/",
+    "new": "/ru/orenda/scania-g410-g450-g500-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "scania-g410"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-scania/scania-p410-p450-prod/",
+    "new": "/ru/orenda/scania-p410-p450-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "scania-p410"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-scania/scania-r500-r560-prod/",
+    "new": "/ru/orenda/scania-r500-r560-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "scania-r500"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fe-prod/",
+    "new": "/ru/orenda/volvo-fe-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "volvo-fe"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fh16-prod/",
+    "new": "/ru/orenda/volvo-fh16-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "volvo-fh16"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fl-prod/",
+    "new": "/ru/orenda/volvo-fl-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "volvo-fl"
+  },
+  {
+    "old": "/arenda-spetstehniki/arenda-samosvala-volvo/volvo-fmx-prod/",
+    "new": "/ru/orenda/volvo-fmx-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "volvo-fmx"
+  },
+  {
+    "old": "/arenda-spetstehniki/drugaja-speztechnika/buldozer-caterpillar-d5/",
+    "new": "/ru/orenda/buldozer-caterpillar-d5/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "cat-d5"
+  },
+  {
+    "old": "/arenda-spetstehniki/drugaja-speztechnika/buldozer-caterpillar-d6/",
+    "new": "/ru/orenda/buldozer-caterpillar-d6/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "cat-d6"
+  },
+  {
+    "old": "/arenda-spetstehniki/drugaja-speztechnika/gidromolot/",
+    "new": "/ru/orenda/gidromolot/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "gidromolot"
+  },
+  {
+    "old": "/arenda-spetstehniki/drugaja-speztechnika/jekskavator-caterpillar-d320/",
+    "new": "/ru/orenda/jekskavator-caterpillar-d320/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "cat-d320"
+  },
+  {
+    "old": "/arenda-spetstehniki/drugaja-speztechnika/traktor-jcb-3cx-prod/",
+    "new": "/ru/orenda/traktor-jcb-3cx-prod/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "jcb-3cx"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgs/",
+    "new": "/ru/orenda/man-tgs/",
+    "type": "equipment",
+    "locale": "ru",
+    "conceptId": "man-tgs"
+  },
+  {
+    "old": "/sypuchie-materialy/asfaltobetonnije-smesi/asfaltobetonnaja-smes-k1/",
+    "new": "/ru/materialy/asfaltobetonnaja-smes-k1/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "ab-k1"
+  },
+  {
+    "old": "/sypuchie-materialy/asfaltobetonnije-smesi/asfaltobetonnaja-smes-selenizza/",
+    "new": "/ru/materialy/asfaltobetonnaja-smes-selenizza/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "ab-selenizza"
+  },
+  {
+    "old": "/sypuchie-materialy/asfaltobetonnije-smesi/asfaltobetonnaja-smes-wetfix/",
+    "new": "/ru/materialy/asfaltobetonnaja-smes-wetfix/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "ab-wetfix"
+  },
+  {
+    "old": "/sypuchie-materialy/asfaltobetonnije-smesi/litaja-asfaltobetonnaja-smes/",
+    "new": "/ru/materialy/litaja-asfaltobetonnaja-smes/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "ab-lityy"
+  },
+  {
+    "old": "/sypuchie-materialy/asfaltobetonnije-smesi/shchebenevo-mastykovyj-asfaltobeton/",
+    "new": "/ru/materialy/shchebenevo-mastykovyj-asfaltobeton/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "ab-schma"
+  },
+  {
+    "old": "/sypuchie-materialy/beton/beton-raznych-marok/",
+    "new": "/ru/materialy/beton-raznych-marok/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "beton"
+  },
+  {
+    "old": "/sypuchie-materialy/grunt/grunt-rastitelnyj/",
+    "new": "/ru/materialy/grunt-rastitelnyj/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "grunt-rastitelnyy"
+  },
+  {
+    "old": "/sypuchie-materialy/grunt/gruntovaya-smes/",
+    "new": "/ru/materialy/gruntovaya-smes/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "gruntovaya-smes"
+  },
+  {
+    "old": "/sypuchie-materialy/kamni-but/kamen-but-granitnyj/",
+    "new": "/ru/materialy/kamen-but-granitnyj/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "kamen-but-granitnyy"
+  },
+  {
+    "old": "/sypuchie-materialy/kamni-but/kamen-but-kvarcitnyj/",
+    "new": "/ru/materialy/kamen-but-kvarcitnyj/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "kamen-but-kvartsitnyy"
+  },
+  {
+    "old": "/sypuchie-materialy/kamni-but/kamen-but/",
+    "new": "/ru/materialy/kamen-but/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "kamen-but-seryy"
+  },
+  {
+    "old": "/sypuchie-materialy/pesok/pesok-ovrazniy/",
+    "new": "/ru/materialy/pesok-ovrazniy/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "pesok-ovrazhnyy"
+  },
+  {
+    "old": "/sypuchie-materialy/pesok/pesok-rechnoj/",
+    "new": "/ru/materialy/pesok-rechnoj/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "pesok-rechnoy"
+  },
+  {
+    "old": "/sypuchie-materialy/podsipka/suglinok/",
+    "new": "/ru/materialy/suglinok/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "suglinok"
+  },
+  {
+    "old": "/sypuchie-materialy/podsipka/supisok/",
+    "new": "/ru/materialy/supisok/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "supesok"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-0-5-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-0-5-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-0-5"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-10-20-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-10-20-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-10-20"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-20-40-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-20-40-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-20-40"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-20-70-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-20-70-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-20-70"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-40-70-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-40-70-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-40-70"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-5-10-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-5-10-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-5-10"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-5-20-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-5-20-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-5-20"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shcheben-fraktsii-70-mm/",
+    "new": "/ru/materialy/shcheben-fraktsii-70-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shcheben-70-plus"
+  },
+  {
+    "old": "/sypuchie-materialy/shchps/shchps-0-40-mm/",
+    "new": "/ru/materialy/shchps-0-40-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shchps-0-40"
+  },
+  {
+    "old": "/sypuchie-materialy/shchps/shchps-0-70-mm/",
+    "new": "/ru/materialy/shchps-0-70-mm/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "shchps-0-70"
+  },
+  {
+    "old": "/sypuchie-materialy/soli/peshchano-solianaja-smes/",
+    "new": "/ru/materialy/peshchano-solianaja-smes/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "pss"
+  },
+  {
+    "old": "/sypuchie-materialy/soli/sol-tehnicheskaja/",
+    "new": "/ru/materialy/sol-tehnicheskaja/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "sol-tehnicheskaya"
+  },
+  {
+    "old": "/sypuchie-materialy/vtorichnyj-shcheben/asfaltnaya-kroshka/",
+    "new": "/ru/materialy/asfaltnaya-kroshka/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "asfaltnaya-kroshka"
+  },
+  {
+    "old": "/sypuchie-materialy/vtorichnyj-shcheben/boy-asfalta/",
+    "new": "/ru/materialy/boy-asfalta/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "boy-asfalta"
+  },
+  {
+    "old": "/sypuchie-materialy/vtorichnyj-shcheben/boy-betona/",
+    "new": "/ru/materialy/boy-betona/",
+    "type": "materials",
+    "locale": "ru",
+    "conceptId": "boy-betona"
+  },
+  {
+    "old": "/zemlyanie-raboti/asfaltirovanie/",
+    "new": "/ru/roboty/asfaltirovanie/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "asfaltirovanie"
+  },
+  {
+    "old": "/zemlyanie-raboti/demontazh-zdaniy/",
+    "new": "/ru/roboty/demontazh-zdaniy/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "demontazh"
+  },
+  {
+    "old": "/zemlyanie-raboti/planirovanie-territorii/",
+    "new": "/ru/roboty/planirovanie-territorii/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "planirovanie"
+  },
+  {
+    "old": "/zemlyanie-raboti/razrabotka-kotlovanov/",
+    "new": "/ru/roboty/razrabotka-kotlovanov/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "razrabotka-kotlovanov"
+  },
+  {
+    "old": "/zemlyanie-raboti/stroitelstvo-dorog/",
+    "new": "/ru/roboty/stroitelstvo-dorog/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "stroitelstvo-dorog"
+  },
+  {
+    "old": "/zemlyanie-raboti/ukladka-shchebenochnykh-i-peschanykh-podushek/",
+    "new": "/ru/roboty/ukladka-shchebenochnykh-i-peschanykh-podushek/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "podushki"
+  },
+  {
+    "old": "/zemlyanie-raboti/vyvoz-grunta/",
+    "new": "/ru/roboty/vyvoz-grunta/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "vyvoz-grunta"
+  },
+  {
+    "old": "/zemlyanie-raboti/vyvoz-stroitelnogo-musora/",
+    "new": "/ru/roboty/vyvoz-stroitelnogo-musora/",
+    "type": "works",
+    "locale": "ru",
+    "conceptId": "vyvoz-musora"
+  },
+  {
+    "old": "/orenda-spetstehniky/insha-spetstekhnika/caterpillar-d320/",
+    "new": "/uk/orenda/caterpillar-d320/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "cat-d320"
+  },
+  {
+    "old": "/orenda-spetstehniky/insha-spetstekhnika/caterpillar-d5/",
+    "new": "/uk/orenda/caterpillar-d5/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "cat-d5"
+  },
+  {
+    "old": "/orenda-spetstehniky/insha-spetstekhnika/caterpillar-d6/",
+    "new": "/uk/orenda/caterpillar-d6/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "cat-d6"
+  },
+  {
+    "old": "/orenda-spetstehniky/insha-spetstekhnika/jcb-3cx/",
+    "new": "/uk/orenda/jcb-3cx/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "jcb-3cx"
+  },
+  {
+    "old": "/orenda-spetstehniky/insha-spetstekhnika/orenda-gidromolotu/",
+    "new": "/uk/orenda/orenda-gidromolotu/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "gidromolot"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-daf/daf-cf/",
+    "new": "/uk/orenda/daf-cf/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "daf-cf"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-daf/daf-lf/",
+    "new": "/uk/orenda/daf-lf/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "daf-lf"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-daf/daf-xg/",
+    "new": "/uk/orenda/daf-xg/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "daf-xg"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-daf/orenda-daf-xf-530/",
+    "new": "/uk/orenda/orenda-daf-xf-530/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "daf-xf-530"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-eurocargo/",
+    "new": "/uk/orenda/iveco-eurocargo/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "iveco-eurocargo"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-s-way/",
+    "new": "/uk/orenda/iveco-s-way/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "iveco-s-way"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-t-way/",
+    "new": "/uk/orenda/iveco-t-way/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "iveco-t-way"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-iveco/iveco-trakker/",
+    "new": "/uk/orenda/iveco-trakker/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "iveco-trakker"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-iveco/orenda-iveco-stralis/",
+    "new": "/uk/orenda/orenda-iveco-stralis/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "iveco-stralis"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-man/man-tga/",
+    "new": "/uk/orenda/man-tga/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "man-tga"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgm/",
+    "new": "/uk/orenda/man-tgm/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "man-tgm"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgs/",
+    "new": "/uk/orenda/man-tgs/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "man-tgs"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-man/man-tgx/",
+    "new": "/uk/orenda/man-tgx/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "man-tgx"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/mercedes-benz-axor/",
+    "new": "/uk/orenda/mercedes-benz-axor/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "axor"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-1841/",
+    "new": "/uk/orenda/orenda-mercedes-benz-actros-1841/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "actros-1841"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-3340/",
+    "new": "/uk/orenda/orenda-mercedes-benz-actros-3340/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "actros-3340"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-4141/",
+    "new": "/uk/orenda/orenda-mercedes-benz-actros-4141/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "actros-4141"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-actros-4444/",
+    "new": "/uk/orenda/orenda-mercedes-benz-actros-4444/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "actros-4444"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-arocs-3245/",
+    "new": "/uk/orenda/orenda-mercedes-benz-arocs-3245/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "arocs-3245"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-mercedes/orenda-mercedes-benz-arocs-4140/",
+    "new": "/uk/orenda/orenda-mercedes-benz-arocs-4140/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "arocs-4140"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-renault/renault-c440/",
+    "new": "/uk/orenda/renault-c440/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "renault-c440"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-renault/renault-serii-k/",
+    "new": "/uk/orenda/renault-serii-k/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "renault-k"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-renault/renault-t-high/",
+    "new": "/uk/orenda/renault-t-high/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "renault-t-high"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-scania/scania-g410/",
+    "new": "/uk/orenda/scania-g410/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "scania-g410"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-scania/scania-p410/",
+    "new": "/uk/orenda/scania-p410/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "scania-p410"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-scania/scania-r500/",
+    "new": "/uk/orenda/scania-r500/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "scania-r500"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fe/",
+    "new": "/uk/orenda/volvo-fe/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "volvo-fe"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fh16/",
+    "new": "/uk/orenda/volvo-fh16/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "volvo-fh16"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fl/",
+    "new": "/uk/orenda/volvo-fl/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "volvo-fl"
+  },
+  {
+    "old": "/orenda-spetstehniky/orenda-samoskyda-volvo/volvo-fmx/",
+    "new": "/uk/orenda/volvo-fmx/",
+    "type": "equipment",
+    "locale": "uk",
+    "conceptId": "volvo-fmx"
+  },
+  {
+    "old": "/sypuchi-materialy/asfaltobetonni-sumishi/asfaltobetonna-sumish-k1/",
+    "new": "/uk/materialy/asfaltobetonna-sumish-k1/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "ab-k1"
+  },
+  {
+    "old": "/sypuchi-materialy/asfaltobetonni-sumishi/asfaltobetonna-sumish-selenizza/",
+    "new": "/uk/materialy/asfaltobetonna-sumish-selenizza/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "ab-selenizza"
+  },
+  {
+    "old": "/sypuchi-materialy/asfaltobetonni-sumishi/asfaltobetonna-sumish-wetfix/",
+    "new": "/uk/materialy/asfaltobetonna-sumish-wetfix/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "ab-wetfix"
+  },
+  {
+    "old": "/sypuchi-materialy/asfaltobetonni-sumishi/lyta-asfaltobetonna-sumish/",
+    "new": "/uk/materialy/lyta-asfaltobetonna-sumish/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "ab-lityy"
+  },
+  {
+    "old": "/sypuchi-materialy/asfaltobetonni-sumishi/shchebenevo-mastykovyy-asfaltobeton/",
+    "new": "/uk/materialy/shchebenevo-mastykovyy-asfaltobeton/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "ab-schma"
+  },
+  {
+    "old": "/sypuchi-materialy/betony/beton-riznykh-marok/",
+    "new": "/uk/materialy/beton-riznykh-marok/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "beton"
+  },
+  {
+    "old": "/sypuchi-materialy/grunty/grunt-roslynnyy/",
+    "new": "/uk/materialy/grunt-roslynnyy/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "grunt-rastitelnyy"
+  },
+  {
+    "old": "/sypuchi-materialy/grunty/gruntova-sumish/",
+    "new": "/uk/materialy/gruntova-sumish/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "gruntovaya-smes"
+  },
+  {
+    "old": "/sypuchi-materialy/kamin-but/kamin-but-granitnyy/",
+    "new": "/uk/materialy/kamin-but-granitnyy/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "kamen-but-granitnyy"
+  },
+  {
+    "old": "/sypuchi-materialy/kamin-but/kamin-but-kvartsytnyy/",
+    "new": "/uk/materialy/kamin-but-kvartsytnyy/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "kamen-but-kvartsitnyy"
+  },
+  {
+    "old": "/sypuchi-materialy/kamin-but/kamin-but-siryy/",
+    "new": "/uk/materialy/kamin-but-siryy/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "kamen-but-seryy"
+  },
+  {
+    "old": "/sypuchi-materialy/pidsypka/suglynok-pidsypka/",
+    "new": "/uk/materialy/suglynok-pidsypka/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "suglinok"
+  },
+  {
+    "old": "/sypuchi-materialy/pidsypka/supisok-pidsypka/",
+    "new": "/uk/materialy/supisok-pidsypka/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "supesok"
+  },
+  {
+    "old": "/sypuchi-materialy/pisok/pisok-richkovyy/",
+    "new": "/uk/materialy/pisok-richkovyy/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "pesok-rechnoy"
+  },
+  {
+    "old": "/sypuchi-materialy/pisok/pisok-yaruzhnyy/",
+    "new": "/uk/materialy/pisok-yaruzhnyy/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "pesok-ovrazhnyy"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebenevo-pishchana-sumish/shchps-0x40-mm/",
+    "new": "/uk/materialy/shchps-0x40-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shchps-0-40"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebenevo-pishchana-sumish/shchps-0x70-mm/",
+    "new": "/uk/materialy/shchps-0x70-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shchps-0-70"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-0-5-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-0-5-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-0-5"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-20-40-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-20-40-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-20-40"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-20-70-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-20-70-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-20-70"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-40-70-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-40-70-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-40-70"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-5-10-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-5-10-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-5-10"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-5-20-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-5-20-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-5-20"
+  },
+  {
+    "old": "/sypuchi-materialy/shchebin/shchebin-fraktsii-70-plus-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-70-plus-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-70-plus"
+  },
+  {
+    "old": "/sypuchi-materialy/sil/pishchano-solyana-sumish/",
+    "new": "/uk/materialy/pishchano-solyana-sumish/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "pss"
+  },
+  {
+    "old": "/sypuchi-materialy/sil/sil-tekhnichna/",
+    "new": "/uk/materialy/sil-tekhnichna/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "sol-tehnicheskaya"
+  },
+  {
+    "old": "/sypuchi-materialy/vtorynnyi-shchebin/asfaltova-krykhta/",
+    "new": "/uk/materialy/asfaltova-krykhta/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "asfaltnaya-kroshka"
+  },
+  {
+    "old": "/sypuchi-materialy/vtorynnyi-shchebin/biy-asfaltu/",
+    "new": "/uk/materialy/biy-asfaltu/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "boy-asfalta"
+  },
+  {
+    "old": "/sypuchi-materialy/vtorynnyi-shchebin/biy-betonu/",
+    "new": "/uk/materialy/biy-betonu/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "boy-betona"
+  },
+  {
+    "old": "/sypuchie-materialy/shcheben/shchebin-fraktsii-10-20-mm/",
+    "new": "/uk/materialy/shchebin-fraktsii-10-20-mm/",
+    "type": "materials",
+    "locale": "uk",
+    "conceptId": "shcheben-10-20"
+  },
+  {
+    "old": "/zemlyani-roboty/asfaltuvannya-dorig/",
+    "new": "/uk/roboty/asfaltuvannya-dorig/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "asfaltirovanie"
+  },
+  {
+    "old": "/zemlyani-roboty/budivnytstvo-dorig/",
+    "new": "/uk/roboty/budivnytstvo-dorig/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "stroitelstvo-dorog"
+  },
+  {
+    "old": "/zemlyani-roboty/demontazh-budivel-ta-sporud/",
+    "new": "/uk/roboty/demontazh-budivel-ta-sporud/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "demontazh"
+  },
+  {
+    "old": "/zemlyani-roboty/planuvannya-terytorii/",
+    "new": "/uk/roboty/planuvannya-terytorii/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "planirovanie"
+  },
+  {
+    "old": "/zemlyani-roboty/rozrobka-kotlovaniv/",
+    "new": "/uk/roboty/rozrobka-kotlovaniv/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "razrabotka-kotlovanov"
+  },
+  {
+    "old": "/zemlyani-roboty/ukladannya-shchebenevykh-i-pishchanykh-podushok/",
+    "new": "/uk/roboty/ukladannya-shchebenevykh-i-pishchanykh-podushok/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "podushki"
+  },
+  {
+    "old": "/zemlyani-roboty/vyviz-budivelnogo-smittya/",
+    "new": "/uk/roboty/vyviz-budivelnogo-smittya/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "vyvoz-musora"
+  },
+  {
+    "old": "/zemlyani-roboty/vyviz-gruntu/",
+    "new": "/uk/roboty/vyviz-gruntu/",
+    "type": "works",
+    "locale": "uk",
+    "conceptId": "vyvoz-grunta"
+  }
+]
