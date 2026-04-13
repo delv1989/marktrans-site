@@ -37,8 +37,26 @@ const works = defineCollection({
   schema: productSchema,
 });
 
+const infoSchema = z.object({
+  title: z.string(),
+  h1: z.string(),
+  metaTitle: z.string(),
+  metaDescription: z.string(),
+  locale: z.enum(['uk', 'ru']),
+  slug: z.string(),
+  conceptId: z.string(),
+  oldUrl: z.string(),
+  order: z.number().optional(),
+});
+
+const info = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/info', generateId }),
+  schema: infoSchema,
+});
+
 export const collections = {
   materials,
   equipment,
   works,
+  info,
 };

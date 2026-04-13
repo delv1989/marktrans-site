@@ -846,6 +846,171 @@
       "source": "/blog/",
       "destination": "/uk/blog/",
       "permanent": true
+    },
+    {
+      "source": "/blog/vse-o-butovom-kamne/",
+      "destination": "/uk/blog/vse-pro-butovyy-kamin/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/raschet_objem_samosvala/",
+      "destination": "/ru/blog/raschet-obiema-samosvala/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/sil-tekhnichna-dlia-bud/",
+      "destination": "/uk/blog/sil-tehnichna-dlia-bud/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/marki-betona/",
+      "destination": "/ru/blog/marki-betona/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/asfaltnaya-kroshka-blog/",
+      "destination": "/ru/blog/asfaltnaya-kroshka/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/technical-salt-against-ice/",
+      "destination": "/uk/blog/sil-proty-oholedytsi/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/chornozem-or-grunt/",
+      "destination": "/uk/blog/chornozem-vs-grunt/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/acfalt2-blog/",
+      "destination": "/uk/blog/novi-tehnologiyi-asfaltuvannya/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/ab-vs-asfalt/",
+      "destination": "/uk/blog/ab-vs-asfalt/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/pisok-holovni-vidminnosti/",
+      "destination": "/uk/blog/pisok-holovni-vidminnosti/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/shtrafi_za_musor_kiev/",
+      "destination": "/uk/blog/shtrafy-za-musor-kyiv/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/samosval_na_stroitelnoj_ploshhadke/",
+      "destination": "/ru/orenda/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kak-snesti-zdanie/",
+      "destination": "/ru/roboty/demontazh-zdaniy/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/razrabotka-kotlovana-serdce-strojki/",
+      "destination": "/ru/roboty/razrabotka-kotlovanov/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/vybiraem-pravilno-shheben-i-pesok-dlja-strojki/",
+      "destination": "/ru/materialy/shcheben-fraktsii-20-40-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shheben-tipy-i-xarakteristika/",
+      "destination": "/ru/materialy/shcheben-fraktsii-20-40-mm/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/asfaltirovanie-dorog-jetapy-i-preimushhestva/",
+      "destination": "/ru/roboty/asfaltirovanie/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pesok-rechnoj-idealnyj-material-dlja-stroitelnyh-rabot/",
+      "destination": "/ru/materialy/pesok-rechnoj/",
+      "permanent": true
+    },
+    {
+      "source": "/planter/",
+      "destination": "/ru/roboty/planirovanie-territorii/",
+      "permanent": true
+    },
+    {
+      "source": "/shcheben/",
+      "destination": "/ru/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/demzdan/",
+      "destination": "/ru/roboty/demontazh-zdaniy/",
+      "permanent": true
+    },
+    {
+      "source": "/kamen-but/",
+      "destination": "/ru/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/razkot/",
+      "destination": "/ru/roboty/razrabotka-kotlovanov/",
+      "permanent": true
+    },
+    {
+      "source": "/stroidorog/",
+      "destination": "/ru/roboty/stroitelstvo-dorog/",
+      "permanent": true
+    },
+    {
+      "source": "/asfaltobetonnije-smesi/",
+      "destination": "/ru/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/grunt/",
+      "destination": "/ru/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/vtorichnyj-shcheben/",
+      "destination": "/ru/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/beton/",
+      "destination": "/ru/materialy/beton-raznych-marok/",
+      "permanent": true
+    },
+    {
+      "source": "/shchps-2/",
+      "destination": "/ru/materialy/",
+      "permanent": true
+    },
+    {
+      "source": "/razrabotka-kotlovanov",
+      "destination": "/ru/roboty/razrabotka-kotlovanov/",
+      "permanent": true
+    },
+    {
+      "source": "/stroitelstvo-dorog/",
+      "destination": "/ru/roboty/stroitelstvo-dorog/",
+      "permanent": true
+    },
+    {
+      "source": "/pesok-rechnoy-i-ovrazniy/",
+      "destination": "/ru/materialy/pesok-rechnoj/",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap/",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
     }
   ]
 }
