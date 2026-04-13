@@ -1,0 +1,64 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+
+const title = 'Як замовити доставку щебеню правильно · MARKTRANS';
+const description = 'Покроковий гайд з замовлення доставки: як розрахувати об\u2019єм, обрати фракцію, підготувати об\u2019єкт, що перевірити при приймці. Поради від MARKTRANS.';
+---
+
+<PageLayout title={title} description={description} alternateUk="/uk/blog/yak-zamovyty-dostavku/">
+  <Breadcrumbs items={[{ label: 'Головна', href: '/uk/' }, { label: 'Блог', href: '/uk/blog/' }, { label: 'Як замовити доставку' }]} />
+
+  <article class="py-16 md:py-24">
+    <div class="max-w-[720px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-mt-accent/10 border border-mt-accent text-mt-accent font-mono text-[10px] uppercase tracking-widest rounded-xs">Логістика</span>
+        <span class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">28.03.2026 · 6 хв</span>
+      </div>
+      <h1 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight leading-none mb-6">Як замовити доставку щебеню правильно</h1>
+      <div class="font-mono text-xs text-mt-tertiary uppercase tracking-widest mb-12">MARKTRANS · Логістичний відділ</div>
+
+      <div class="border-l-4 border-mt-accent pl-6 mb-12">
+        <p class="text-lg font-medium text-mt-text leading-relaxed">5 кроків до успішного замовлення: <strong class="text-mt-accent">розрахувати об'єм → обрати фракцію → підготувати під'їзд → замовити → перевірити при приймці</strong>. Кожен крок заощадить вам час і гроші.</p>
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Крок 1: Розрахуйте потрібний об'єм</h2>
+      <p class="text-mt-secondary leading-relaxed mb-4">Формула проста: <strong class="text-mt-text">довжина × ширина × товщина шару × 1.1</strong> (10% на ущільнення). Результат у кубометрах множте на 1.4 (для щебеню 5-20) або 1.35 (для 20-40) — отримаєте тонни.</p>
+      <p class="text-mt-secondary leading-relaxed mb-8"><strong class="text-mt-text">Приклад:</strong> дорога 30м × 4м × 0.15м × 1.1 = 19.8 м³ × 1.4 = <strong class="text-mt-accent">27.7 тонн</strong>. Замовляйте 28-30 тонн з запасом.</p>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Крок 2: Оберіть правильну фракцію</h2>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Фундамент:</strong> 20-40 мм гранітний</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Бетон для стяжки:</strong> 5-20 мм</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Дорога під транспорт:</strong> 20-40 мм + відсів 0-5 зверху</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Тротуар / дренаж:</strong> 5-10 мм</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Не впевнені?</strong> Зателефонуйте нашому диспетчеру — підкажемо безкоштовно</span></li>
+      </ul>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Крок 3: Підготуйте об'єкт</h2>
+      <p class="text-mt-secondary leading-relaxed mb-4">Перед приїздом самоскида ACTROS (довжина ~10 м, ширина ~2.5 м, маса з вантажем ~40 тонн) переконайтесь:</p>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Під'їзд шириною мінімум 3 метри, тверде покриття</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Немає низьких ліній електропередач (кузов піднімається на 5+ метрів)</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Місце розвантаження рівне, без нахилу >5°</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Якщо ворота — переконайтесь що висота >4 метри</span></li>
+      </ul>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Крок 4: Оформіть замовлення</h2>
+      <p class="text-mt-secondary leading-relaxed mb-4">Три способи замовити:</p>
+      <ol class="space-y-3 text-sm text-mt-secondary list-decimal list-inside mb-8">
+        <li><strong class="text-mt-text">Телефон:</strong> <a href="tel:+380504204229" class="text-mt-accent">+38 050 420 42 29</a> — диспетчер 24/7</li>
+        <li><strong class="text-mt-text">Telegram:</strong> <a href="https://t.me/marktrans_bot" class="text-mt-accent">@marktrans_bot</a> — миттєво</li>
+        <li><strong class="text-mt-text">На сайті:</strong> залиште заявку на <a href="/uk/kontakty/" class="text-mt-accent">сторінці контактів</a></li>
+      </ol>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Крок 5: Перевірте при приймці</h2>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Об'єм:</strong> візуально оцініть купу — 1 тонна щебеню ≈ 0.7 м³ (піраміда висотою ~0.8 м)</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Фракція:</strong> порівняйте з замовленим (5-20 не повинен мати каменів >25 мм)</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Чистота:</strong> мінімум домішок глини, землі, органіки</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span><strong class="text-mt-text">Документи:</strong> попросіть паспорт якості (ми надаємо на кожну партію)</span></li>
+      </ul>
+    </div>
+  </article>
+</PageLayout>

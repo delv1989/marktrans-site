@@ -1,0 +1,77 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+const title = 'Бетон М200 або М400: на якій марці зупинитися? · MARKTRANS';
+const description = 'Порівняння бетону М200 і М400: міцність, застосування, ціна, склад. Коли обирати М200, коли М400. Таблиця характеристик. Формула підбору щебеню.';
+
+const faq = [
+  { question: 'Чи можна використовувати М200 для фундаменту будинку?', answer: 'Для одноповерхового будинку на стабільному ґрунті — так. Для 2+ поверхів або при високому рівні ґрунтових вод — рекомендуємо М300 або М400.' },
+  { question: 'Яку фракцію щебеню додавати в бетон?', answer: 'Для М200 — щебінь 5-20 мм. Для М400 — щебінь 5-10 або 5-20 мм з міцністю М1200+.' },
+  { question: 'Скільки щебеню потрібно на 1 м³ бетону?', answer: 'На 1 м³ бетону М200-М400 потрібно приблизно 1.1-1.2 тонни щебеню + 0.6 тонни піску + 0.3 тонни цементу.' },
+];
+---
+
+<PageLayout title={title} description={description} alternateUk="/uk/blog/beton-m200-vs-m400/">
+  <Breadcrumbs items={[{ label: 'Головна', href: '/uk/' }, { label: 'Блог', href: '/uk/blog/' }, { label: 'Бетон М200 vs М400' }]} />
+
+  <article class="py-16 md:py-24">
+    <div class="max-w-[720px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-mt-accent/10 border border-mt-accent text-mt-accent font-mono text-[10px] uppercase tracking-widest rounded-xs">Технології</span>
+        <span class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">20.03.2026 · 10 хв</span>
+      </div>
+      <h1 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight leading-none mb-6">Бетон М200 або М400: на якій марці зупинитися?</h1>
+      <div class="font-mono text-xs text-mt-tertiary uppercase tracking-widest mb-12">MARKTRANS · Технічний відділ</div>
+
+      <div class="border-l-4 border-mt-accent pl-6 mb-12">
+        <p class="text-lg font-medium text-mt-text leading-relaxed"><strong class="text-mt-accent">М200</strong> — для стяжок, відмосток, легких фундаментів. <strong class="text-mt-accent">М400</strong> — для несучих фундаментів, перекриттів, мостів. Різниця у міцності вдвічі, у ціні — на 25-30%.</p>
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Порівняльна таблиця</h2>
+      <div class="border border-mt-divider divide-y divide-mt-divider mb-8 text-sm">
+        {[
+          ['Параметр', 'М200 (В15)', 'М400 (В30)'],
+          ['Міцність на стиск', '196 кгс/см²', '393 кгс/см²'],
+          ['Водонепроникність', 'W4-W6', 'W8-W12'],
+          ['Морозостійкість', 'F100-F150', 'F200-F300'],
+          ['Рухливість', 'П2-П4', 'П3-П5'],
+          ['Щебінь фракція', '5-20 мм', '5-10, 5-20 мм'],
+          ['Щебінь марка', 'М800+', 'М1200+'],
+          ['Пропорції Ц:П:Щ', '1:2.8:4.8', '1:1.2:2.7'],
+          ['Ціна (орієнтовно)', 'Від 2500 ₴/м³', 'Від 3200 ₴/м³'],
+        ].map(([a, b, c], i) => (
+          <div class={`flex ${i === 0 ? 'font-bold bg-mt-bg-2' : ''}`}>
+            <div class="w-1/3 px-4 py-3 border-r border-mt-divider">{a}</div>
+            <div class="w-1/3 px-4 py-3 font-mono border-r border-mt-divider">{b}</div>
+            <div class="w-1/3 px-4 py-3 font-mono text-mt-accent">{c}</div>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Коли обирати М200</h2>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Стяжка підлоги у квартирі або будинку</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Відмостка навколо будинку</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Фундамент для паркану або альтанки</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Підготовчий шар під основний фундамент</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Бетонні доріжки на ділянці</span></li>
+      </ul>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Коли потрібен М400</h2>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Стрічковий або плитний фундамент будинку 2+ поверхи</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Монолітні перекриття</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Басейни та резервуари (водонепроникність W8+)</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Промислові підлоги під навантаження</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Мостові конструкції та підпірні стіни</span></li>
+      </ul>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Роль щебеню в міцності бетону</h2>
+      <p class="text-mt-secondary leading-relaxed mb-8">Щебінь — це каркас бетону. Для М400 критично використовувати <strong class="text-mt-accent">гранітний щебінь М1200+</strong> з лещадністю ≤15%. Використання слабкого щебеню (М800) у бетоні М400 зведе реальну міцність до рівня М250-М300 — ви заплатите за М400, а отримаєте М300. MARKTRANS постачає тільки щебінь з паспортом якості ДСТУ.</p>
+    </div>
+  </article>
+
+  <FAQ items={faq} title="Запитання" />
+</PageLayout>

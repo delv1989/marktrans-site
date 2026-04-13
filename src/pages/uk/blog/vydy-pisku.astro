@@ -1,0 +1,68 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+const title = 'Види піску для будівництва: річковий, яружний, мітий · MARKTRANS';
+const description = 'Порівняння 3 видів будівельного піску: річковий (мітий), яружний (кар\u2019єрний), сіяний. Характеристики, ціна, застосування. Який обрати для бетону, кладки, стяжки.';
+
+const faq = [
+  { question: 'Який пісок краще для бетону?', answer: 'Річковий (мітий) — він не містить глини, яка знижує міцність бетону. Модуль крупності 1.8-2.5.' },
+  { question: 'Чи можна використовувати яружний пісок для кладки?', answer: 'Для кладки цегли — так, навіть рекомендується: глинисті частки покращують пластичність розчину. Для бетону — ні.' },
+  { question: 'Скільки коштує пісок?', answer: 'Річковий — від 230 ₴/т, яружний — від 150 ₴/т. Різниця через вартість промивки та транспортування з русла ріки.' },
+];
+---
+
+<PageLayout title={title} description={description} alternateUk="/uk/blog/vydy-pisku/">
+  <Breadcrumbs items={[{ label: 'Головна', href: '/uk/' }, { label: 'Блог', href: '/uk/blog/' }, { label: 'Види піску' }]} />
+
+  <article class="py-16 md:py-24">
+    <div class="max-w-[720px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-mt-accent/10 border border-mt-accent text-mt-accent font-mono text-[10px] uppercase tracking-widest rounded-xs">Матеріали</span>
+        <span class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">15.03.2026 · 9 хв</span>
+      </div>
+      <h1 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight leading-none mb-6">Види піску для будівництва</h1>
+      <div class="font-mono text-xs text-mt-tertiary uppercase tracking-widest mb-12">MARKTRANS · Технічний відділ</div>
+
+      <div class="border-l-4 border-mt-accent pl-6 mb-12">
+        <p class="text-lg font-medium text-mt-text leading-relaxed">Три основні види: <strong class="text-mt-accent">річковий</strong> (мітий, чистий, для бетону), <strong class="text-mt-accent">яружний</strong> (кар'єрний, з глиною, для підсипки), <strong class="text-mt-accent">сіяний</strong> (просіяний від великих фракцій). Вибір залежить від задачі.</p>
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Порівняння</h2>
+      <div class="border border-mt-divider divide-y divide-mt-divider mb-8 text-sm">
+        {[
+          ['Параметр', 'Річковий', 'Яружний', 'Сіяний'],
+          ['Джерело', 'Русло ріки', "Кар'єр", 'Обидва + сито'],
+          ['Глинисті частки', '≤0.5%', '3-10%', '≤1%'],
+          ['Модуль крупності', '1.8-2.5', '1.5-2.0', '2.0-3.0'],
+          ['Щільність', '1.5-1.6 т/м³', '1.4-1.5 т/м³', '1.5-1.6 т/м³'],
+          ['Для бетону', '✅ Ідеально', '❌ Ні', '✅ Добре'],
+          ['Для кладки', '✅', '✅ Навіть краще', '✅'],
+          ['Для підсипки', '✅ Дорого', '✅ Оптимально', '✅'],
+          ['Ціна', 'Від 230 ₴/т', 'Від 150 ₴/т', 'Від 200 ₴/т'],
+        ].map(([a, b, c, d], i) => (
+          <div class={`flex ${i === 0 ? 'font-bold bg-mt-bg-2' : ''}`}>
+            <div class="w-1/4 px-3 py-2.5 border-r border-mt-divider text-xs">{a}</div>
+            <div class="w-1/4 px-3 py-2.5 border-r border-mt-divider text-xs font-mono text-mt-accent">{b}</div>
+            <div class="w-1/4 px-3 py-2.5 border-r border-mt-divider text-xs font-mono">{c}</div>
+            <div class="w-1/4 px-3 py-2.5 text-xs font-mono">{d}</div>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Річковий пісок</h2>
+      <p class="text-mt-secondary leading-relaxed mb-4">Добувається з русла ріки драгою, промивається водою під тиском. Результат — чистий пісок без глинистих домішок, органіки та мулу. Це найякісніший пісок для будівництва, особливо для бетонних робіт.</p>
+      <p class="text-mt-secondary leading-relaxed mb-8"><strong class="text-mt-text">Коли обирати:</strong> виготовлення бетону будь-яких марок, штукатурні суміші, стяжки підлоги, бетонні вироби (тротуарна плитка, бордюри).</p>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Яружний (кар'єрний) пісок</h2>
+      <p class="text-mt-secondary leading-relaxed mb-4">Добувається відкритим способом з кар'єрів. Містить 3-10% глинистих частинок, що робить його непридатним для бетону, але ідеальним для робіт де потрібна пластичність або де якість не критична.</p>
+      <p class="text-mt-secondary leading-relaxed mb-8"><strong class="text-mt-text">Коли обирати:</strong> зворотня засипка фундаментів, підсипка під тротуарну плитку, кладочні розчини, планування ділянки, засипка траншей.</p>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Як ми доставляємо</h2>
+      <p class="text-mt-secondary leading-relaxed mb-8">MARKTRANS доставляє обидва види піску самоскидами ACTROS (20-25 тонн). Мінімальне замовлення — 1 тонна. Доставка по Києву та Київській області у день замовлення. <a href="/uk/materialy/pisok-richkovyy/" class="text-mt-accent">Річковий пісок від 230 ₴/т →</a></p>
+    </div>
+  </article>
+
+  <FAQ items={faq} title="Запитання про пісок" />
+</PageLayout>

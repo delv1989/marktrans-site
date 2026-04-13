@@ -1,0 +1,76 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+const title = 'Гранітний vs вапняковий щебінь: що краще? · MARKTRANS';
+const description = 'Порівняння гранітного і вапнякового щебеню: міцність М1200 vs М600, морозостійкість F300 vs F100, ціна, застосування. Таблиця для вибору.';
+
+const faq = [
+  { question: 'Чи можна використовувати вапняковий щебінь для фундаменту?', answer: 'Для легких конструкцій (паркан, гараж, одноповерховий будинок) — так. Для несучих фундаментів 2+ поверхи — рекомендуємо тільки гранітний М1200+.' },
+  { question: 'Який щебінь дешевший?', answer: 'Вапняковий дешевший на 20-30%. Але для відповідальних конструкцій економія на щебені може призвести до дорогого ремонту через 3-5 років.' },
+  { question: 'Чи змішують гранітний і вапняковий?', answer: 'Не рекомендується для відповідальних конструкцій — різна міцність дає нерівномірне навантаження. Для підсипки під дорогу — допустимо.' },
+];
+---
+
+<PageLayout title={title} description={description} alternateUk="/uk/blog/granitnyi-vs-vapnyakovyi/">
+  <Breadcrumbs items={[{ label: 'Головна', href: '/uk/' }, { label: 'Блог', href: '/uk/blog/' }, { label: 'Гранітний vs вапняковий' }]} />
+
+  <article class="py-16 md:py-24">
+    <div class="max-w-[720px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-mt-accent/10 border border-mt-accent text-mt-accent font-mono text-[10px] uppercase tracking-widest rounded-xs">Технології</span>
+        <span class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest">01.04.2026 · 7 хв</span>
+      </div>
+      <h1 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight leading-none mb-6">Гранітний vs вапняковий щебінь: що краще?</h1>
+      <div class="font-mono text-xs text-mt-tertiary uppercase tracking-widest mb-12">MARKTRANS · Технічний відділ</div>
+
+      <div class="border-l-4 border-mt-accent pl-6 mb-12">
+        <p class="text-lg font-medium text-mt-text leading-relaxed">Коротка відповідь: <strong class="text-mt-accent">гранітний</strong> — для несучих конструкцій (фундаменти, дороги з навантаженням). <strong class="text-mt-accent">Вапняковий</strong> — для легких робіт (тротуари, ландшафт, підсипка). Різниця у міцності вдвічі: М1200 проти М600.</p>
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Порівняльна таблиця</h2>
+      <div class="border border-mt-divider divide-y divide-mt-divider mb-8 text-sm">
+        {[
+          ['Параметр', 'Гранітний', 'Вапняковий'],
+          ['Порода', 'Магматична (граніт)', 'Осадова (вапняк)'],
+          ['Марка міцності', 'М1200-М1400', 'М400-М800'],
+          ['Морозостійкість', 'F300-F400', 'F50-F150'],
+          ['Лещадність', '≤15%', '≤25%'],
+          ['Водопоглинання', '0.5-0.8%', '2-4%'],
+          ['Радіоактивність', 'I клас (≤370 Бк/кг)', 'I клас'],
+          ['Колір', 'Сірий, рожевий', 'Білий, жовтуватий'],
+          ['Ціна (орієнтовно)', 'Від 170 ₴/т', 'Від 120 ₴/т'],
+        ].map(([a, b, c], i) => (
+          <div class={`flex ${i === 0 ? 'font-bold bg-mt-bg-2' : ''}`}>
+            <div class="w-1/3 px-4 py-3 border-r border-mt-divider">{a}</div>
+            <div class="w-1/3 px-4 py-3 border-r border-mt-divider text-mt-accent font-mono">{b}</div>
+            <div class="w-1/3 px-4 py-3">{c}</div>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Коли обирати гранітний</h2>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Фундаменти будинків 2+ поверхи</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Дорожнє покриття з інтенсивним рухом</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Бетон марок М300 і вище</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Залізничні насипи та промислові об\u2019єкти</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Будь-які конструкції в зоні промерзання</span></li>
+      </ul>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Коли підходить вапняковий</h2>
+      <ul class="space-y-3 text-sm text-mt-secondary mb-8">
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Тротуарна плитка та пішохідні зони</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Ландшафтний дизайн та декоративні роботи</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Підсипка під легкі споруди (паркан, альтанка)</span></li>
+        <li class="flex items-start gap-3"><span class="font-mono font-black text-mt-accent">→</span><span>Виробництво цементу (як сировина)</span></li>
+      </ul>
+
+      <h2 class="font-display font-black text-2xl uppercase tracking-tight mb-6 mt-12">Висновок</h2>
+      <p class="text-mt-secondary leading-relaxed mb-8">Не існує "кращого" щебеню — існує правильний вибір під задачу. Для більшості будівельних робіт в Україні оптимальний вибір — <strong class="text-mt-accent">гранітний щебінь</strong>, бо він витримує наш клімат (заморозки-відлиги) і навантаження від транспорту. Вапняковий варто розглядати тільки для легких робіт або коли бюджет обмежений і конструкція не несуча.</p>
+    </div>
+  </article>
+
+  <FAQ items={faq} title="Запитання" />
+</PageLayout>
