@@ -24,6 +24,10 @@ const {
   ctaSecondaryHref = '#materials',
   bgImage,
 } = Astro.props;
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
+const stats = locale === 'uk'
+  ? [{ val: '5', label: 'Самоскидів ACTROS' }, { val: '10+', label: 'Років досвіду' }, { val: '200км', label: 'Радіус доставки' }, { val: '24/7', label: 'Диспетчер' }]
+  : [{ val: '5', label: 'Самосвалов ACTROS' }, { val: '10+', label: 'Лет опыта' }, { val: '200км', label: 'Радиус доставки' }, { val: '24/7', label: 'Диспетчер' }];
 ---
 
 <section class="relative min-h-[88vh] md:min-h-[92vh] flex items-center py-20 md:py-32 overflow-hidden">
@@ -54,7 +58,7 @@ const {
       <!-- Huge headline -->
       <h1
         class="font-display font-black uppercase mb-8 md:mb-10"
-        style="font-size: clamp(48px, 9vw, 140px); line-height: 0.88; letter-spacing: -0.03em; text-shadow: 0 2px 40px rgba(0, 0, 0, 0.6);"
+        style="font-size: clamp(32px, 9vw, 140px); line-height: 0.88; letter-spacing: -0.03em; text-shadow: 0 2px 40px rgba(0, 0, 0, 0.6); overflow-wrap: break-word; word-break: break-word;"
       >
         {titleLine1}<br />
         {titleLine2}<br />
@@ -78,22 +82,12 @@ const {
 
       <!-- Mini stats -->
       <div class="mt-16 md:mt-20 flex flex-wrap justify-center gap-6 md:gap-16">
-        <div class="pl-4 border-l-2 border-mt-accent text-left">
-          <div class="font-mono font-black text-2xl md:text-3xl lg:text-4xl text-mt-text leading-none">5</div>
-          <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest mt-1.5">Самоскидів ACTROS</div>
-        </div>
-        <div class="pl-4 border-l-2 border-mt-accent text-left">
-          <div class="font-mono font-black text-2xl md:text-3xl lg:text-4xl text-mt-text leading-none">10+</div>
-          <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest mt-1.5">Років досвіду</div>
-        </div>
-        <div class="pl-4 border-l-2 border-mt-accent text-left">
-          <div class="font-mono font-black text-2xl md:text-3xl lg:text-4xl text-mt-text leading-none">200км</div>
-          <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest mt-1.5">Радіус доставки</div>
-        </div>
-        <div class="pl-4 border-l-2 border-mt-accent text-left">
-          <div class="font-mono font-black text-2xl md:text-3xl lg:text-4xl text-mt-text leading-none">24/7</div>
-          <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest mt-1.5">Диспетчер</div>
-        </div>
+        {stats.map(s => (
+          <div class="pl-4 border-l-2 border-mt-accent text-left">
+            <div class="font-mono font-black text-2xl md:text-3xl lg:text-4xl text-mt-text leading-none">{s.val}</div>
+            <div class="font-mono text-[10px] text-mt-tertiary uppercase tracking-widest mt-1.5">{s.label}</div>
+          </div>
+        ))}
       </div>
     </div>
   </div>

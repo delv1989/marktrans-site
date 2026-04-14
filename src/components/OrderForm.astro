@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  locale: 'uk' | 'ru';
+  prefilledMaterial?: string;
+}
+
+const { locale, prefilledMaterial } = Astro.props;
+const isUk = locale === 'uk';
+const materials = await getCollection('materials', ({ data }) => data.locale === locale);
+const sorted = materials.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<form id="order-form" class="bg-mt-bg-1 border border-mt-divider p-6 max-w-[480px]" novalidate>
+  <h3 class="font-display font-black text-2xl text-mt-text mb-1 tracking-tight">{isUk ? 'Замовити прорахунок' : 'Заказать просчёт'}</h3>
+  <p class="text-xs text-mt-secondary mb-5">{isUk ? 'Диспетчер передзвонить протягом години з точною ціною' : 'Диспетчер перезвонит в течение часа с точной ценой'}</p>
+
+  <div class="space-y-3">
+    <div>
+      <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1" for="of-name">{isUk ? "Ім'я" : 'Имя'} *</label>
+      <input type="text" id="of-name" name="name" required minlength="2" autocomplete="name" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+    </div>
+    <div>
+      <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1" for="of-phone">{isUk ? 'Телефон' : 'Телефон'} *</label>
+      <input type="tel" id="of-phone" name="phone" required placeholder="+38 050 ..." autocomplete="tel" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+    </div>
+    <div>
+      <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1" for="of-material">{isUk ? 'Матеріал' : 'Материал'}</label>
+      <select id="of-material" name="material" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors">
+        <option value="">{isUk ? '— Оберіть —' : '— Выберите —'}</option>
+        {sorted.map((m) => (
+          <option value={m.data.title} selected={prefilledMaterial && m.data.slug === prefilledMaterial}>{m.data.title}</option>
+        ))}
+      </select>
+    </div>
+    <div>
+      <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1" for="of-qty">{isUk ? 'Кількість (тонн)' : 'Количество (тонн)'}</label>
+      <input type="number" id="of-qty" name="quantity" min="1" placeholder="1" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+    </div>
+    <div>
+      <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1" for="of-msg">{isUk ? 'Повідомлення' : 'Сообщение'}</label>
+      <textarea id="of-msg" name="message" rows="2" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors resize-y"></textarea>
+    </div>
+  </div>
+
+  <input type="hidden" name="locale" value={locale} />
+
+  <button type="submit" class="w-full mt-4 py-3.5 bg-mt-accent text-mt-accent-contrast font-display font-black text-sm uppercase tracking-widest hover:bg-mt-accent-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+    {isUk ? 'ЗАМОВИТИ ПРОРАХУНОК' : 'ЗАКАЗАТЬ ПРОСЧЁТ'}
+  </button>
+
+  <p class="mt-3 text-xs text-mt-tertiary text-center">
+    {isUk ? 'Або зателефонуйте: ' : 'Или позвоните: '}
+    <a href="tel:+380504204229" class="text-mt-accent font-bold">+38 050 420 42 29</a>
+  </p>
+
+  <div id="of-status" class="mt-3 p-2.5 text-sm text-center hidden"></div>
+</form>
+
+<script>
+  const form = document.getElementById('order-form') as HTMLFormElement | null;
+  const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+  const status = document.getElementById('of-status');
+  if (form && btn && status) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      (data as Record<string, string>).source_url = window.location.href;
+      btn.disabled = true;
+      const orig = btn.textContent;
+      btn.textContent = '...';
+      status.hidden = true;
+      try {
+        const r = await fetch('/api/order/', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) });
+        const j = await r.json();
+        if (r.ok && j.ok) {
+          status.textContent = '\u2713 Заявка надіслана!';
+          status.className = 'mt-3 p-2.5 text-sm text-center bg-green-900/30 text-green-400 border border-green-800';
+          status.hidden = false;
+          form.reset();
+        } else { throw new Error(j.error || 'Error'); }
+      } catch(err: unknown) {
+        const msg = err instanceof Error ? err.message : 'Error';
+        status.textContent = msg;
+        status.className = 'mt-3 p-2.5 text-sm text-center bg-red-900/30 text-red-400 border border-red-800';
+        status.hidden = false;
+      } finally { btn.disabled = false; btn.textContent = orig; }
+    });
+  }
+</script>

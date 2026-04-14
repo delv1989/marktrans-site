@@ -8,7 +8,7 @@ category: kamen-but
 slug: kamin-but-siryy
 conceptId: kamen-but-seryy
 oldUrl: /sypuchi-materialy/kamin-but/kamin-but-siryy/
-priceFrom: 400
+priceFrom: 600
 image: /uploads/products/kb.jpg
 ---
 

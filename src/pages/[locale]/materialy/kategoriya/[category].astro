@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import CTABanner from '../../../../components/CTABanner.astro';
+import { getAllCategories, getCategoryLabel } from '../../../../lib/categories';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('materials');
+  const categories = getAllCategories();
+  const paths: { params: { locale: string; category: string }; props: { entries: typeof entries; categorySlug: string } }[] = [];
+
+  for (const locale of ['uk', 'ru'] as const) {
+    for (const cat of categories) {
+      const filtered = entries.filter((e) => e.data.locale === locale && e.data.category === cat);
+      if (filtered.length > 0) {
+        paths.push({
+          params: { locale, category: cat },
+          props: { entries: filtered, categorySlug: cat },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+type Entry = Awaited<ReturnType<typeof getCollection<'materials'>>>[number];
+const { entries, categorySlug } = Astro.props as { entries: Entry[]; categorySlug: string };
+const { locale } = Astro.params as { locale: 'uk' | 'ru' };
+const isUk = locale === 'uk';
+const catLabel = getCategoryLabel(categorySlug, locale);
+const sorted = entries.sort((a, b) => a.data.title.localeCompare(b.data.title, locale));
+
+const title = isUk
+  ? `${catLabel} — купити з доставкою по Києву | MARKTRANS`
+  : `${catLabel} — купить с доставкой по Киеву | MARKTRANS`;
+const description = isUk
+  ? `${catLabel} з доставкою самоскидом ACTROS по Києву та області. ${sorted.length} позицій від MARKTRANS.`
+  : `${catLabel} с доставкой самосвалом ACTROS по Киеву и области. ${sorted.length} позиций от MARKTRANS.`;
+---
+
+<PageLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },
+    { label: isUk ? 'Матеріали' : 'Материалы', href: `/${locale}/materialy/` },
+    { label: catLabel },
+  ]} />
+
+  <section class="py-16 md:py-24 border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="block w-8 h-0.5 bg-mt-accent"></span>
+        <span class="font-mono text-[11px] text-mt-accent uppercase tracking-[0.2em]">— {isUk ? 'Категорія' : 'Категория'}</span>
+      </div>
+      <h1 class="font-display font-black text-4xl md:text-6xl lg:text-7xl uppercase tracking-tight leading-none mb-4">
+        <span class="text-mt-accent">{catLabel}</span>
+      </h1>
+      <p class="text-base md:text-lg text-mt-secondary max-w-[800px] leading-relaxed">{description}</p>
+    </div>
+  </section>
+
+  <section class="border-b border-mt-divider">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-12 md:py-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
+        {sorted.map((entry) => (
+          <a href={`/${locale}/materialy/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">
+            {entry.data.image && (
+              <div class="h-48 md:h-56 overflow-hidden">
+                <img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06] group-hover:brightness-90 group-hover:grayscale-0" />
+              </div>
+            )}
+            <div class="p-6 md:p-8">
+              <h3 class="font-display font-black text-lg md:text-xl uppercase tracking-tight mb-2">{entry.data.title}</h3>
+              {entry.data.priceFrom && (
+                <div class="flex items-baseline gap-2">
+                  <span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom} ₴</span>
+                  <span class="font-mono text-[11px] text-mt-tertiary uppercase tracking-widest">/ {isUk ? 'тонна' : 'тонна'}</span>
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title={isUk ? `${catLabel} з доставкою` : `${catLabel} с доставкой`}
+    subtitle={isUk ? 'Подзвоніть або напишіть — розрахуємо вартість за 5 хвилин.' : 'Позвоните или напишите — рассчитаем стоимость за 5 минут.'}
+    buttonText={isUk ? 'Замовити →' : 'Заказать →'}
+    buttonHref={`/${locale}/kontakty/`}
+  />
+</PageLayout>

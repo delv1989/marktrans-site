@@ -1,0 +1,104 @@
+---
+import CalculatorShell from './CalculatorShell.astro';
+import { WASTE_TYPES, DUMP_TRUCKS } from '../lib/density';
+
+interface Props {
+  locale: 'uk' | 'ru';
+}
+const { locale } = Astro.props;
+const isUk = locale === 'uk';
+
+const wasteData = WASTE_TYPES.map(w => ({ id: w.id, label: w[locale], density: w.density }));
+const truckData = DUMP_TRUCKS.map(t => ({ capacity: t.capacity, volume: t.volume, label: t[locale] }));
+---
+<CalculatorShell
+  title={isUk ? 'Калькулятор вивозу сміття' : 'Калькулятор вывоза мусора'}
+  subtitle={isUk ? 'Розрахуйте обʼєм і потрібний самоскид' : 'Рассчитайте объём и нужный самосвал'}
+>
+  <div data-calc-c>
+    <div class="space-y-3">
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Тип сміття' : 'Тип мусора'}</label>
+        <select name="cc-type" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors">
+          <option value="">{isUk ? '— Оберіть тип —' : '— Выберите тип —'}</option>
+          {wasteData.map(w => (
+            <option value={w.id}>{w.label}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Обʼєм сміття (м³)' : 'Объём мусора (м³)'}</label>
+        <input type="number" name="cc-volume" min="1" step="1" placeholder="20" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+        <p class="text-[11px] text-mt-tertiary mt-1">{isUk ? 'Один стандартний контейнер ≈ 8 м³' : 'Один стандартный контейнер ≈ 8 м³'}</p>
+      </div>
+    </div>
+
+    <div data-cc-result class="mt-5 p-4 bg-mt-accent/5 border-l-[3px] border-mt-accent" hidden>
+      <div class="text-[11px] text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Рекомендований самоскид' : 'Рекомендуемый самосвал'}</div>
+      <div class="font-mono font-black text-2xl text-mt-accent leading-none mb-2" data-cc-truck>—</div>
+      <div class="text-sm text-mt-text mb-1">
+        {isUk ? 'Маса' : 'Масса'}: <span data-cc-mass>0</span> т ·
+        {isUk ? 'Рейсів' : 'Рейсов'}: <span data-cc-trips>1</span>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <button type="button" data-cc-order class="flex-1 min-w-[160px] py-3 bg-mt-accent text-mt-accent-contrast font-display font-black text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors">
+          {isUk ? 'Замовити вивіз' : 'Заказать вывоз'}
+        </button>
+      </div>
+      <p class="mt-3 text-[11px] text-mt-tertiary italic">{isUk ? 'Попередній розрахунок. Точна вартість — після заявки.' : 'Предварительный расчёт. Точная стоимость — после заявки.'}</p>
+    </div>
+  </div>
+</CalculatorShell>
+
+<script define:vars={{ wasteData, truckData }}>
+{
+  const root = document.querySelector('[data-calc-c]');
+  if (root) {
+    const result = root.querySelector('[data-cc-result]');
+    const truckEl = root.querySelector('[data-cc-truck]');
+    const massEl = root.querySelector('[data-cc-mass]');
+    const tripsEl = root.querySelector('[data-cc-trips]');
+    const orderBtn = root.querySelector('[data-cc-order]');
+
+    const wasteMap = Object.fromEntries(wasteData.map(w => [w.id, w]));
+
+    function calc() {
+      const typeId = root.querySelector('[name="cc-type"]').value;
+      const vol = parseFloat(root.querySelector('[name="cc-volume"]').value) || 0;
+      if (!typeId || vol <= 0) { result.hidden = true; return; }
+
+      const w = wasteMap[typeId];
+      const tons = Math.ceil(vol * w.density);
+
+      // Pick best truck
+      const opts = truckData.map(t => {
+        const byVol = Math.ceil(vol / t.volume);
+        const byMass = Math.ceil(tons / t.capacity);
+        return { truck: t, count: Math.max(byVol, byMass) };
+      });
+      opts.sort((a, b) => a.count - b.count || a.truck.capacity - b.truck.capacity);
+      const best = opts[0];
+
+      truckEl.textContent = best.truck.label;
+      massEl.textContent = tons;
+      tripsEl.textContent = best.count;
+      result.hidden = false;
+
+      // Fill OrderForm message
+      const of = document.getElementById('order-form');
+      if (of) {
+        const msg = of.querySelector('[name="message"]');
+        if (msg) msg.value = `${w.label}, ${vol} м³, ~${tons} т. ${best.truck.label}, ${best.count} рейс(ів).`;
+      }
+    }
+
+    root.addEventListener('input', calc);
+    root.addEventListener('change', calc);
+
+    orderBtn.addEventListener('click', () => {
+      const target = document.getElementById('order-form');
+      if (target) { target.scrollIntoView({ behavior: 'smooth' }); const inp = target.querySelector('input[name="name"]'); if (inp) setTimeout(() => inp.focus(), 400); }
+    });
+  }
+}
+</script>

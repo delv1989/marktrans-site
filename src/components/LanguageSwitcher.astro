@@ -1,0 +1,37 @@
+---
+import { getHreflangAlternatesByConcept, getHreflangAlternatesStatic, type CollectionName } from '../lib/hreflang';
+
+interface Props {
+  locale: 'uk' | 'ru';
+  conceptId?: string;
+  collection?: CollectionName;
+}
+
+const { locale, conceptId, collection } = Astro.props;
+
+let alternates;
+if (conceptId && collection) {
+  alternates = await getHreflangAlternatesByConcept(conceptId, collection);
+} else {
+  alternates = getHreflangAlternatesStatic(Astro.url.pathname);
+}
+
+const ukUrl = alternates.uk || '/uk/';
+const ruUrl = alternates.ru || '/ru/';
+---
+
+<div class="flex items-center gap-2 font-mono text-sm font-bold tracking-wider" role="navigation" aria-label="Language">
+  <a
+    href={ukUrl}
+    class:list={['py-1 px-1.5 transition-colors', locale === 'uk' ? 'text-mt-accent border-b-2 border-mt-accent' : 'text-mt-secondary hover:text-mt-accent']}
+    hreflang="uk"
+    aria-current={locale === 'uk' ? 'page' : undefined}
+  >UA</a>
+  <span class="text-mt-divider select-none">|</span>
+  <a
+    href={ruUrl}
+    class:list={['py-1 px-1.5 transition-colors', locale === 'ru' ? 'text-mt-accent border-b-2 border-mt-accent' : 'text-mt-secondary hover:text-mt-accent']}
+    hreflang="ru"
+    aria-current={locale === 'ru' ? 'page' : undefined}
+  >RU</a>
+</div>

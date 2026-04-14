@@ -8,7 +8,7 @@ category: shcheben
 slug: shcheben-fraktsii-5-10-mm
 conceptId: shcheben-5-10
 oldUrl: /sypuchie-materialy/shcheben/shcheben-fraktsii-5-10-mm/
-priceFrom: 265
+priceFrom: 700
 image: /uploads/products/shh1.jpg
 gallery:
   - /uploads/products/shh1.jpg

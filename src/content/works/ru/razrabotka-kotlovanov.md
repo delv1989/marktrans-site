@@ -40,7 +40,7 @@ gallery:
 
 * **🏗️ Тяжелые Экскаваторы [Caterpillar D320](/ru/orenda/jekskavator-caterpillar-d320/):** Для быстрого копания больших объемов грунта.
 
-* **🚛 Крупнотоннажные Самосвалы ([Scania](/ru/orenda/scania-r500-r560-prod/), [Volvo FH16](/ru/orenda/volvo-fh16-prod/)):** Для оперативного вывоза сотен кубометров грунта.
+* **Крупнотоннажные Самосвалы ([Scania](/ru/orenda/scania-r500-r560-prod/), [Volvo FH16](/ru/orenda/volvo-fh16-prod/)):** Для оперативного вывоза сотен кубометров грунта.
 
 ## Стоимость разработки котлована зависит от:👉
 

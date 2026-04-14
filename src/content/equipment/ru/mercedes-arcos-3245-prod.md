@@ -1,8 +1,8 @@
 ---
-title: Аренда самосвала Mercedes-Benz Arcos 3245
+title: Аренда самосвала Mercedes-Benz Arocs 3245
 h1: Аренда самосвала Mercedes-Benz Arocs 3245 с водителем в Киеве и области
 metaTitle: Аренда самосвала Mercedes-Benz Arocs 3245 в Киеве и области
-metaDescription: "Оренда самоскида Mercedes-Benz Arocs 3245 з водієм | потужний та економічний для перевезення вантажів | Замов зараз | 📞 +38(050) 420-42-29"
+metaDescription: "Аренда самосвала Mercedes-Benz Arocs 3245 с водителем | мощный и экономичный для перевозки грузов | Заказать сейчас | +38(050) 420-42-29"
 locale: ru
 category: mercedes
 slug: mercedes-arcos-3245-prod
@@ -16,7 +16,7 @@ image: /uploads/products/mercedes-arocs-3245.jpg
 
 ## Аренда самосвала Mercedes-Benz Arocs 3245
 
-Компания **Марктранс (MARKTRANS)** предлагает надежный самосвал 🚛 для тяжелых работ Mercedes-Benz Arocs 3245.
+Компания **Марктранс (MARKTRANS)** предлагает надежный самосвал для тяжелых работ Mercedes-Benz Arocs 3245.
 Прочный, мощный и экономичный — идеален для любых [строительных](/ru/roboty/) и промышленных задач!
 [Звоните нам сейчас!](tel:+38 050 420 4229)
 

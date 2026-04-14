@@ -3,9 +3,10 @@ interface Props {
   class?: string;
 }
 const { class: className = '' } = Astro.props;
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
 ---
 
-<a href="/uk/" class={`flex items-center gap-3 shrink-0 group ${className}`}>
+<a href={`/${locale}/`} class={`flex items-center gap-3 shrink-0 group ${className}`}>
   <span class="flex items-center gap-1.5">
     <span class="block w-1 h-7 bg-mt-accent transition-all group-hover:h-8"></span>
     <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

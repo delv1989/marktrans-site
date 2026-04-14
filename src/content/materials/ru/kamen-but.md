@@ -8,7 +8,7 @@ category: kamen-but
 slug: kamen-but
 conceptId: kamen-but-seryy
 oldUrl: /sypuchie-materialy/kamni-but/kamen-but/
-priceFrom: 400
+priceFrom: 600
 image: /uploads/products/kb.jpg
 gallery:
   - /uploads/products/kb.jpg

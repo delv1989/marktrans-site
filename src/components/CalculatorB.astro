@@ -1,0 +1,174 @@
+---
+import { getCollection } from 'astro:content';
+import CalculatorShell from './CalculatorShell.astro';
+import { MATERIAL_DENSITY, CALCULATOR_B_CATEGORIES } from '../lib/density';
+
+interface Props {
+  locale: 'uk' | 'ru';
+  prefilledMaterial?: string;
+}
+const { locale, prefilledMaterial } = Astro.props;
+const isUk = locale === 'uk';
+
+const allMaterials = await getCollection('materials', ({ data }) =>
+  data.locale === locale &&
+  CALCULATOR_B_CATEGORIES.includes(data.category) &&
+  MATERIAL_DENSITY[data.slug] !== undefined
+);
+const materials = allMaterials.sort((a, b) => a.data.title.localeCompare(b.data.title, locale));
+
+const materialsData = materials.map(m => ({
+  slug: m.data.slug,
+  title: m.data.title,
+  density: MATERIAL_DENSITY[m.data.slug],
+  price: m.data.priceFrom || 0,
+  url: `/${locale}/materialy/${m.data.slug}/`,
+}));
+---
+<CalculatorShell
+  title={isUk ? 'Калькулятор обʼєму матеріалу' : 'Калькулятор объёма материала'}
+  subtitle={isUk ? 'Розрахуйте скільки тонн потрібно для вашого обʼєкта' : 'Рассчитайте сколько тонн нужно для вашего объекта'}
+>
+  <div data-calc-b>
+    <!-- Mode toggle -->
+    <div class="flex gap-1 mb-4 p-1 bg-mt-bg border border-mt-divider">
+      <label class="flex-1 text-center cursor-pointer">
+        <input type="radio" name="cb-mode" value="dim" checked class="hidden peer" />
+        <span class="block py-2 text-[11px] uppercase tracking-widest text-mt-secondary peer-checked:text-mt-accent peer-checked:font-bold peer-checked:bg-mt-accent/10 transition-colors">
+          {isUk ? 'Довжина × ширина' : 'Длина × ширина'}
+        </span>
+      </label>
+      <label class="flex-1 text-center cursor-pointer">
+        <input type="radio" name="cb-mode" value="area" class="hidden peer" />
+        <span class="block py-2 text-[11px] uppercase tracking-widest text-mt-secondary peer-checked:text-mt-accent peer-checked:font-bold peer-checked:bg-mt-accent/10 transition-colors">
+          {isUk ? 'Площа напряму' : 'Площадь напрямую'}
+        </span>
+      </label>
+    </div>
+
+    <!-- Dim inputs -->
+    <div data-cb-dim class="space-y-3">
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Довжина (м)' : 'Длина (м)'}</label>
+        <input type="number" name="cb-length" min="0.1" step="0.1" placeholder="10" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Ширина (м)' : 'Ширина (м)'}</label>
+        <input type="number" name="cb-width" min="0.1" step="0.1" placeholder="5" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+      </div>
+    </div>
+
+    <!-- Area input -->
+    <div data-cb-area class="space-y-3" hidden>
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Площа (м²)' : 'Площадь (м²)'}</label>
+        <input type="number" name="cb-area" min="0.1" step="0.1" placeholder="50" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+      </div>
+    </div>
+
+    <div class="mt-3 space-y-3">
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Товщина шару (см)' : 'Толщина слоя (см)'}</label>
+        <input type="number" name="cb-thickness" min="1" step="1" placeholder="15" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors" />
+      </div>
+      <div>
+        <label class="block text-[11px] font-semibold text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Матеріал' : 'Материал'}</label>
+        <select name="cb-material" class="w-full px-3 py-2.5 bg-mt-bg border border-mt-divider text-mt-text text-sm focus:outline-none focus:border-mt-accent transition-colors">
+          <option value="">{isUk ? '— Оберіть —' : '— Выберите —'}</option>
+          {materialsData.map(m => (
+            <option value={m.slug} selected={prefilledMaterial === m.slug}>{m.title}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div data-cb-result class="mt-5 p-4 bg-mt-accent/5 border-l-[3px] border-mt-accent" hidden>
+      <div class="text-[11px] text-mt-secondary uppercase tracking-widest mb-1">{isUk ? 'Вам потрібно' : 'Вам нужно'}</div>
+      <div class="font-mono font-black text-4xl text-mt-accent leading-none mb-2">
+        <span data-cb-tons>0</span> <span class="text-lg">{isUk ? 'тонн' : 'тонн'}</span>
+      </div>
+      <div class="text-sm text-mt-text mb-1">
+        {isUk ? 'Обʼєм' : 'Объём'}: <span data-cb-vol>0</span> м³
+        <span data-cb-price-wrap hidden>
+          · {isUk ? 'Ціна' : 'Цена'}: <span data-cb-price>0</span> ₴/т
+        </span>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <button type="button" data-cb-order class="flex-1 min-w-[160px] py-3 bg-mt-accent text-mt-accent-contrast font-display font-black text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors">
+          {isUk ? 'Замовити' : 'Заказать'} <span data-cb-tons2>0</span> {isUk ? 'т' : 'т'}
+        </button>
+        <a data-cb-link href="#" class="py-3 px-4 text-mt-secondary text-xs border border-mt-divider uppercase tracking-widest hover:text-mt-accent hover:border-mt-accent transition-colors text-center">
+          {isUk ? 'Характеристики' : 'Характеристики'}
+        </a>
+      </div>
+      <p class="mt-3 text-[11px] text-mt-tertiary italic">{isUk ? 'Округлено вгору. Точна вартість з доставкою — після заявки.' : 'Округлено вверх. Точная стоимость с доставкой — после заявки.'}</p>
+    </div>
+  </div>
+</CalculatorShell>
+
+<script define:vars={{ materialsData }}>
+{
+  const root = document.querySelector('[data-calc-b]');
+  if (root) {
+    const result = root.querySelector('[data-cb-result]');
+    const tonsEl = root.querySelector('[data-cb-tons]');
+    const tons2El = root.querySelector('[data-cb-tons2]');
+    const volEl = root.querySelector('[data-cb-vol]');
+    const priceEl = root.querySelector('[data-cb-price]');
+    const priceWrap = root.querySelector('[data-cb-price-wrap]');
+    const orderBtn = root.querySelector('[data-cb-order]');
+    const linkEl = root.querySelector('[data-cb-link]');
+    const dimBlock = root.querySelector('[data-cb-dim]');
+    const areaBlock = root.querySelector('[data-cb-area]');
+
+    const map = Object.fromEntries(materialsData.map(m => [m.slug, m]));
+
+    function val(name) { return parseFloat(root.querySelector(`[name="${name}"]`)?.value) || 0; }
+
+    function calc() {
+      const mode = root.querySelector('input[name="cb-mode"]:checked')?.value || 'dim';
+      const thick = val('cb-thickness');
+      const slug = root.querySelector('[name="cb-material"]').value;
+      const area = mode === 'dim' ? val('cb-length') * val('cb-width') : val('cb-area');
+
+      if (area <= 0 || thick <= 0 || !slug || !map[slug]) { result.hidden = true; return; }
+
+      const m = map[slug];
+      const vol = (area * thick) / 100;
+      const tons = Math.ceil(vol * m.density);
+
+      tonsEl.textContent = tons;
+      tons2El.textContent = tons;
+      volEl.textContent = (Math.round(vol * 10) / 10).toFixed(1);
+      if (m.price > 0) { priceEl.textContent = m.price; priceWrap.hidden = false; }
+      else { priceWrap.hidden = true; }
+      linkEl.href = m.url;
+      result.hidden = false;
+
+      // Fill OrderForm on page
+      const of = document.getElementById('order-form');
+      if (of) {
+        const sel = of.querySelector('[name="material"]');
+        if (sel) { for (const o of sel.options) { if (o.value === m.title) { sel.value = m.title; break; } } }
+        const qty = of.querySelector('[name="quantity"]');
+        if (qty) qty.value = tons;
+      }
+    }
+
+    root.addEventListener('input', calc);
+    root.addEventListener('change', (e) => {
+      if (e.target.name === 'cb-mode') {
+        dimBlock.hidden = e.target.value !== 'dim';
+        areaBlock.hidden = e.target.value !== 'area';
+      }
+      calc();
+    });
+
+    orderBtn.addEventListener('click', () => {
+      const target = document.getElementById('order-form');
+      if (target) { target.scrollIntoView({ behavior: 'smooth' }); const inp = target.querySelector('input[name="name"]'); if (inp) setTimeout(() => inp.focus(), 400); }
+    });
+  }
+}
+</script>

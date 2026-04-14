@@ -22,7 +22,7 @@ const {
   ogImage,
 } = Astro.props;
 
-const locale = Astro.currentLocale ?? 'uk';
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 // Preview protection

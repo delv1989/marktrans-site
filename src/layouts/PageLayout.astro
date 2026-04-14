@@ -14,13 +14,15 @@ interface Props {
   alternateUk?: string;
   alternateRu?: string;
   ogImage?: string;
+  conceptId?: string;
+  collection?: 'materials' | 'equipment' | 'works' | 'info';
 }
 
-const { title, description, image, noindex, alternateUk, alternateRu, ogImage } = Astro.props;
+const { title, description, image, noindex, alternateUk, alternateRu, ogImage, conceptId, collection } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={image} noindex={noindex} alternateUk={alternateUk} alternateRu={alternateRu} ogImage={ogImage}>
-  <Header />
+  <Header conceptId={conceptId} collection={collection} />
   <main id="main">
     <slot />
   </main>

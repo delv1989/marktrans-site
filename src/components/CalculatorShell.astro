@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string
+  subtitle?: string
+  id?: string
+}
+const { title, subtitle, id } = Astro.props
+---
+<div class="bg-mt-bg-1 border border-mt-divider p-6 max-w-[560px]" id={id}>
+  <h3 class="font-display font-black text-xl text-mt-text mb-1 tracking-tight">{title}</h3>
+  {subtitle && <p class="text-xs text-mt-secondary mb-5">{subtitle}</p>}
+  <slot />
+</div>

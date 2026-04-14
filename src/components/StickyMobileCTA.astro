@@ -3,7 +3,7 @@
 // +20-40% конверсія для B2B за фідбеком
 import { contacts } from '../data/navigation';
 
-const locale = (Astro.currentLocale ?? 'uk') as 'uk' | 'ru';
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
 const label = locale === 'uk' ? 'Подзвонити · 050 420 42 29' : 'Позвонить · 050 420 42 29';
 ---
 

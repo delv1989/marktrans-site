@@ -1,41 +1,72 @@
 ---
-// AI Quick-Actions Assistant — static FAQ panel
-// Fixed bottom-left, opens as floating card (desktop) or bottom sheet (mobile)
+// AI Quick-Actions Assistant — static FAQ panel, bilingual
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
+const isUk = locale === 'uk';
 
-const faqData = [
+const faqUk = [
   { id: 'fraction-foundation', question: 'Яку фракцію щебеню обрати для фундаменту?', answer: [
-    { t: 'Для несучих фундаментів використовується ' }, { b: 'гранітний щебінь фракції 20-40 мм' },
-    { t: ' — він має оптимальну несучу здатність. Для підготовчої подушки підходить ' }, { b: 'фракція 20-40 або 40-70 мм' },
-    { t: ' товщиною 10-15 см. Для бетону самостійно — ' }, { b: '5-20 мм' }, { t: '.' }
+    { t: 'Для несучих фундаментів — ' }, { b: 'гранітний щебінь 20-40 мм' },
+    { t: '. Для подушки — ' }, { b: '20-40 або 40-70 мм' }, { t: ' (10-15 см). Для бетону — ' }, { b: '5-20 мм' }, { t: '.' }
   ]},
   { id: 'sand-tons-cubic', question: 'Скільки тонн в кубометрі піску?', answer: [
-    { t: 'Вага залежить від типу:' }, { br: true }, { br: true },
     { t: '• ' }, { b: 'Річковий' }, { t: ' — 1.5-1.6 т/м³' }, { br: true },
-    { t: '• ' }, { b: "Кар'єрний" }, { t: ' — 1.4-1.5 т/м³' }, { br: true },
-    { t: '• ' }, { b: 'Вологий' }, { t: ' — до 1.8 т/м³' }, { br: true }, { br: true },
-    { t: 'Середнє значення для розрахунків — ' }, { b: '1.5 т/м³' }, { t: '.' }
+    { t: '• ' }, { b: "Кар\u2019єрний" }, { t: ' — 1.4-1.5 т/м³' }, { br: true },
+    { t: '• ' }, { b: 'Вологий' }, { t: ' — до 1.8 т/м³' }, { br: true },
+    { t: 'Середнє — ' }, { b: '1.5 т/м³' }, { t: '.' }
   ]},
-  { id: 'delivery-speed', question: 'Як швидко ви доставляєте матеріал?', answer: [
-    { b: 'По Києву' }, { t: ' — у день замовлення, 4-8 годин. ' },
-    { b: 'По області' }, { t: ' — у день або наступного дня. ' },
-    { b: 'Терміново' }, { t: ' — від 2 годин. Працюємо 7/7, диспетчер 24/7.' }
+  { id: 'delivery-speed', question: 'Як швидко доставляєте?', answer: [
+    { b: 'Київ' }, { t: ' — у день замовлення (4-8 год). ' },
+    { b: 'Область' }, { t: ' — у день або наступного. ' },
+    { b: 'Терміново' }, { t: ' — від 2 год. 7/7, диспетчер 24/7.' }
   ]},
-  { id: 'volume-calculation', question: "Як розрахувати об'єм щебеню для дороги?", answer: [
-    { t: 'Формула: ' }, { b: 'довжина × ширина × товщина шару' }, { t: '.' }, { br: true }, { br: true },
-    { b: 'Приклад:' }, { t: ' дорога 20м × 4м × 0.2м = 16 м³ = ' }, { b: '24 тонни' },
-    { t: " (1 ACTROS). Не впевнені — запитайте в Telegram, розрахуємо під ваш об'єкт." }
+  { id: 'volume-calculation', question: "Як розрахувати об\u2019єм?", answer: [
+    { b: 'Довжина × ширина × товщина' }, { t: '.' }, { br: true },
+    { t: 'Приклад: 20м × 4м × 0.2м = 16 м³ = ' }, { b: '24 т' }, { t: ' (1 ACTROS).' }
   ]},
-  { id: 'payment', question: 'Чи можна оплатити після доставки?', answer: [
+  { id: 'payment', question: 'Оплата після доставки?', answer: [
     { t: 'Так. ' }, { b: 'Оплата після приймання' },
-    { t: ' та контролю ваги. Готівка та безготівка (рахунок для ТОВ/ФОП). Постійним — ' },
-    { b: 'відстрочка до 14 днів' }, { t: '.' }
+    { t: '. Готівка, безготівка. Постійним — ' }, { b: 'відстрочка 14 днів' }, { t: '.' }
   ]},
-  { id: 'min-order', question: "Який мінімальний об'єм замовлення?", answer: [
-    { t: 'Стандартний мінімум — ' }, { b: '1 повна машина (20 тонн ACTROS)' },
-    { t: '. Це найвигідніший варіант.' }, { br: true }, { br: true },
-    { t: "Менші об'єми (від 5 тонн) можливі за домовленістю. Звертайтеся в Telegram." }
+  { id: 'min-order', question: "Мінімальне замовлення?", answer: [
+    { b: '1 машина (20 т ACTROS)' }, { t: ' — найвигідніше.' }, { br: true },
+    { t: "Від 5 т — за домовленістю." }
   ]}
 ];
+
+const faqRu = [
+  { id: 'fraction-foundation', question: 'Какую фракцию щебня выбрать для фундамента?', answer: [
+    { t: 'Для несущих фундаментов — ' }, { b: 'гранитный щебень 20-40 мм' },
+    { t: '. Для подушки — ' }, { b: '20-40 или 40-70 мм' }, { t: ' (10-15 см). Для бетона — ' }, { b: '5-20 мм' }, { t: '.' }
+  ]},
+  { id: 'sand-tons-cubic', question: 'Сколько тонн в кубометре песка?', answer: [
+    { t: '• ' }, { b: 'Речной' }, { t: ' — 1.5-1.6 т/м³' }, { br: true },
+    { t: '• ' }, { b: 'Карьерный' }, { t: ' — 1.4-1.5 т/м³' }, { br: true },
+    { t: '• ' }, { b: 'Влажный' }, { t: ' — до 1.8 т/м³' }, { br: true },
+    { t: 'Среднее — ' }, { b: '1.5 т/м³' }, { t: '.' }
+  ]},
+  { id: 'delivery-speed', question: 'Как быстро доставляете?', answer: [
+    { b: 'Киев' }, { t: ' — в день заказа (4-8 ч). ' },
+    { b: 'Область' }, { t: ' — в день или на следующий. ' },
+    { b: 'Срочно' }, { t: ' — от 2 ч. 7/7, диспетчер 24/7.' }
+  ]},
+  { id: 'volume-calculation', question: 'Как рассчитать объём?', answer: [
+    { b: 'Длина × ширина × толщина' }, { t: '.' }, { br: true },
+    { t: 'Пример: 20м × 4м × 0.2м = 16 м³ = ' }, { b: '24 т' }, { t: ' (1 ACTROS).' }
+  ]},
+  { id: 'payment', question: 'Оплата после доставки?', answer: [
+    { t: 'Да. ' }, { b: 'Оплата после приёмки' },
+    { t: '. Наличные, безнал. Постоянным — ' }, { b: 'отсрочка 14 дней' }, { t: '.' }
+  ]},
+  { id: 'min-order', question: 'Минимальный заказ?', answer: [
+    { b: '1 машина (20 т ACTROS)' }, { t: ' — выгоднее всего.' }, { br: true },
+    { t: 'От 5 т — по договорённости.' }
+  ]}
+];
+
+const faqData = isUk ? faqUk : faqRu;
+const t = isUk
+  ? { btnLabel: 'Питання AI', ariaOpen: 'Відкрити AI-помічник', title: 'AI-помічник MARKTRANS', sub: 'Відповідає на типові питання', close: 'Закрити', quickQ: 'Швидкі питання', back: 'Повернутися', tg: 'Продовжити в Telegram →', call: 'Подзвонити', footer: 'AI на основі нашої бази знань' }
+  : { btnLabel: 'Вопросы AI', ariaOpen: 'Открыть AI-помощник', title: 'AI-помощник MARKTRANS', sub: 'Отвечает на типичные вопросы', close: 'Закрыть', quickQ: 'Быстрые вопросы', back: 'Вернуться', tg: 'Продолжить в Telegram →', call: 'Позвонить', footer: 'AI на основе нашей базы знаний' };
 ---
 
 <div class="fixed left-6 max-md:left-4 z-[200]" style="bottom: calc(24px + env(safe-area-inset-bottom, 0px))" id="aiAssistant" data-open="false">
@@ -46,10 +77,10 @@ const faqData = [
     type="button"
     id="aiToggle"
     aria-expanded="false"
-    aria-label="Відкрити AI-помічник"
+    aria-label={t.ariaOpen}
   >
     <span class="text-base leading-none" aria-hidden="true">🤖</span>
-    <span class="max-md:hidden">Питання AI</span>
+    <span class="max-md:hidden">{t.btnLabel}</span>
   </button>
 
   <!-- Backdrop -->
@@ -70,10 +101,10 @@ const faqData = [
     <!-- Header -->
     <div class="flex items-start justify-between gap-4 px-6 pt-5 pb-4 border-b-2 border-mt-accent">
       <div>
-        <div class="font-display font-black text-sm uppercase tracking-wider text-mt-text mb-1" id="aiTitle">AI-помічник MARKTRANS</div>
-        <div class="text-xs text-mt-secondary">Відповідає на типові питання</div>
+        <div class="font-display font-black text-sm uppercase tracking-wider text-mt-text mb-1" id="aiTitle">{t.title}</div>
+        <div class="text-xs text-mt-secondary">{t.sub}</div>
       </div>
-      <button class="w-8 h-8 flex items-center justify-center border border-mt-divider text-mt-secondary rounded-xs hover:border-mt-accent hover:text-mt-accent shrink-0" style="transition: all 150ms" type="button" id="aiClose" aria-label="Закрити">
+      <button class="w-8 h-8 flex items-center justify-center border border-mt-divider text-mt-secondary rounded-xs hover:border-mt-accent hover:text-mt-accent shrink-0" style="transition: all 150ms" type="button" id="aiClose" aria-label={t.close}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
@@ -82,23 +113,23 @@ const faqData = [
     <div class="flex-1 overflow-y-auto">
       <!-- List view -->
       <div id="aiListView" data-active="true">
-        <div class="font-mono text-[10px] text-mt-accent uppercase tracking-[0.15em] px-6 pt-4 pb-2.5">— Швидкі питання</div>
+        <div class="font-mono text-[10px] text-mt-accent uppercase tracking-[0.15em] px-6 pt-4 pb-2.5">— {t.quickQ}</div>
         <div id="aiQuestions" role="list"></div>
       </div>
       <!-- Answer view -->
       <div id="aiAnswerView" class="hidden">
-        <button class="inline-flex items-center gap-2 mx-6 mt-4 mb-2 px-3.5 py-2 border border-mt-divider text-mt-secondary font-display font-bold text-[11px] uppercase tracking-widest rounded-xs hover:border-mt-accent hover:text-mt-accent" style="transition:all 150ms" type="button" id="aiBack" aria-label="Повернутися">← Повернутися</button>
+        <button class="inline-flex items-center gap-2 mx-6 mt-4 mb-2 px-3.5 py-2 border border-mt-divider text-mt-secondary font-display font-bold text-[11px] uppercase tracking-widest rounded-xs hover:border-mt-accent hover:text-mt-accent" style="transition:all 150ms" type="button" id="aiBack" aria-label={t.back}>← {t.back}</button>
         <h3 class="font-display font-black text-lg uppercase tracking-tight leading-tight text-mt-text px-6 py-1" id="aiAnswerQ"></h3>
         <div class="text-sm leading-relaxed text-mt-secondary px-6 pb-5 border-b border-mt-divider" id="aiAnswerT"></div>
         <div class="flex flex-col gap-2 p-6">
-          <a href="https://t.me/marktrans_bot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-3.5 px-5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[13px] uppercase tracking-wider rounded-xs border-2 border-mt-accent hover:bg-mt-accent-hover hover:border-mt-accent-hover" style="transition:all 150ms">Продовжити в Telegram →</a>
-          <a href="tel:+380504204229" class="flex items-center justify-center gap-2 py-3.5 px-5 bg-transparent text-mt-text font-display font-black text-[13px] uppercase tracking-wider rounded-xs border-2 border-mt-divider hover:border-mt-accent hover:text-mt-accent" style="transition:all 150ms">Подзвонити</a>
+          <a href="https://t.me/marktrans_bot" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-3.5 px-5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[13px] uppercase tracking-wider rounded-xs border-2 border-mt-accent hover:bg-mt-accent-hover hover:border-mt-accent-hover" style="transition:all 150ms">{t.tg}</a>
+          <a href="tel:+380504204229" class="flex items-center justify-center gap-2 py-3.5 px-5 bg-transparent text-mt-text font-display font-black text-[13px] uppercase tracking-wider rounded-xs border-2 border-mt-divider hover:border-mt-accent hover:text-mt-accent" style="transition:all 150ms">{t.call}</a>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <div class="border-t border-mt-divider py-3 px-6 font-mono text-[10px] text-mt-tertiary text-center tracking-wide">⚡ AI на основі нашої бази знань</div>
+    <div class="border-t border-mt-divider py-3 px-6 font-mono text-[10px] text-mt-tertiary text-center tracking-wide">⚡ {t.footer}</div>
   </div>
 </div>
 

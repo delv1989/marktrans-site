@@ -4,6 +4,10 @@ import { getHreflangAlternatesByConcept } from '../../../lib/hreflang';
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CTABanner from '../../../components/CTABanner.astro';
+import OrderForm from '../../../components/OrderForm.astro';
+import CalculatorB from '../../../components/CalculatorB.astro';
+import { getCategoryLabel } from '../../../lib/categories';
+import { MATERIAL_DENSITY, CALCULATOR_B_CATEGORIES } from '../../../lib/density';
 
 export async function getStaticPaths() {
   const entries = await getCollection('materials');
@@ -17,6 +21,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const locale = entry.data.locale;
 const isUk = locale === 'uk';
+const showCalcB = CALCULATOR_B_CATEGORIES.includes(entry.data.category) && MATERIAL_DENSITY[entry.data.slug] !== undefined;
 const alternates = await getHreflangAlternatesByConcept(entry.data.conceptId, 'materials');
 const ogPath = `/og/${locale}/materialy/${entry.data.slug}.jpg`;
 
@@ -44,11 +49,12 @@ const productSchema = {
 };
 ---
 
-<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath}>
+<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath} conceptId={entry.data.conceptId} collection="materials">
   <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <Breadcrumbs items={[
     { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },
     { label: isUk ? 'Матеріали' : 'Материалы', href: `/${locale}/materialy/` },
+    ...(entry.data.category ? [{ label: getCategoryLabel(entry.data.category, locale as 'uk' | 'ru'), href: `/${locale}/materialy/kategoriya/${entry.data.category}/` }] : []),
     { label: entry.data.title },
   ]} />
 
@@ -97,6 +103,20 @@ const productSchema = {
       </div>
     </section>
   )}
+
+  {showCalcB && (
+    <section class="py-12 md:py-20 border-b border-mt-divider">
+      <div class="max-w-[880px] mx-auto px-6 md:px-12 flex justify-center">
+        <CalculatorB locale={locale as 'uk' | 'ru'} prefilledMaterial={entry.data.slug} />
+      </div>
+    </section>
+  )}
+
+  <section id="order-section" class="py-12 md:py-20 border-b border-mt-divider">
+    <div class="max-w-[880px] mx-auto px-6 md:px-12 flex justify-center">
+      <OrderForm locale={locale as 'uk' | 'ru'} prefilledMaterial={entry.data.slug} />
+    </div>
+  </section>
 
   <CTABanner
     title={isUk ? `${entry.data.title} з доставкою` : `${entry.data.title} с доставкой`}

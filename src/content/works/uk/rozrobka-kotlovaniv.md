@@ -36,7 +36,7 @@ image: /uploads/products/razrabotka_kotlovanov1.jpg
 
 * **🏗️ Важкі Екскаватори [Caterpillar D320](/uk/orenda/scania-r500/):** Для швидкого копання великих обсягів ґрунту.
 
-* **🚛 Великотоннажні Самоскиди ([Scania](/uk/orenda/scania-r500/), [Volvo FH16](/uk/orenda/volvo-fh16/)):** Для оперативного вивезення сотень кубометрів ґрунту.
+* **Великотоннажні Самоскиди ([Scania](/uk/orenda/scania-r500/), [Volvo FH16](/uk/orenda/volvo-fh16/)):** Для оперативного вивезення сотень кубометрів ґрунту.
 
 ## Вартість розробки котловану залежить від: 👉
 

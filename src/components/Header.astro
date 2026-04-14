@@ -1,8 +1,16 @@
 ---
 import Logo from './Logo.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 import { navItems } from '../data/navigation';
+import type { CollectionName } from '../lib/hreflang';
 
-const locale = (Astro.currentLocale ?? 'uk') as 'uk' | 'ru';
+interface Props {
+  conceptId?: string;
+  collection?: CollectionName;
+}
+
+const { conceptId, collection } = Astro.props;
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
 const items = navItems[locale];
 const ctaLabel = locale === 'uk' ? 'Замовити →' : 'Заказать →';
 ---
@@ -28,13 +36,16 @@ const ctaLabel = locale === 'uk' ? 'Замовити →' : 'Заказать �
         </ul>
       </nav>
 
-      <!-- CTA button -->
-      <a
-        href={`/${locale}/kontakty/`}
-        class="hidden sm:inline-flex px-5 md:px-7 py-3 md:py-3.5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[11px] md:text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors rounded-xs"
-      >
-        {ctaLabel}
-      </a>
+      <!-- Language + CTA -->
+      <div class="hidden sm:flex items-center gap-4">
+        <LanguageSwitcher locale={locale} conceptId={conceptId} collection={collection} />
+        <a
+          href={`/${locale}/kontakty/`}
+          class="inline-flex px-5 md:px-7 py-3 md:py-3.5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[11px] md:text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors rounded-xs"
+        >
+          {ctaLabel}
+        </a>
+      </div>
 
       <!-- Mobile menu toggle -->
       <button

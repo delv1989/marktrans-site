@@ -5,6 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import FAQ from '../../../components/FAQ.astro';
 import CTABanner from '../../../components/CTABanner.astro';
+import { getAllCategories, getCategoryLabel } from '../../../lib/categories';
 
 export async function getStaticPaths() {
   return [{ params: { locale: 'uk' } }, { params: { locale: 'ru' } }];
@@ -45,6 +46,16 @@ const faq = isUk ? [
   <section class="border-b border-mt-divider">
     <div class="max-w-[1440px] mx-auto px-6 md:px-12 py-16 md:py-24">
       <SectionHeader eyebrow={isUk ? 'КАТАЛОГ' : 'КАТАЛОГ'} titleLine1={isUk ? 'КАТЕГОРІЇ' : 'КАТЕГОРИИ'} titleAccent={isUk ? 'МАТЕРІАЛІВ' : 'МАТЕРИАЛОВ'} meta={[`${sorted.length} ${isUk ? 'ПОЗИЦІЙ' : 'ПОЗИЦИЙ'}`]} />
+      <div class="flex flex-wrap gap-2 mb-8">
+        {getAllCategories()
+          .filter((cat) => entries.some((e) => e.data.category === cat))
+          .map((cat) => (
+            <a href={`/${locale}/materialy/kategoriya/${cat}/`} class="px-4 py-2 border border-mt-divider font-mono text-xs uppercase tracking-widest text-mt-secondary hover:border-mt-accent hover:text-mt-accent transition-colors">
+              {getCategoryLabel(cat, locale)}
+            </a>
+          ))
+        }
+      </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-mt-divider">
         {sorted.map((entry) => (
           <a href={`/${locale}/materialy/${entry.data.slug}/`} class="group block bg-mt-bg-1 border-r border-b border-mt-divider transition-colors hover:bg-mt-bg-2 hover:border-mt-accent">

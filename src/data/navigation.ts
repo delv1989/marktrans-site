@@ -10,6 +10,7 @@ export const navItems: Record<'uk' | 'ru', NavItem[]> = {
     { label: 'Матеріали', href: '/uk/materialy/' },
     { label: 'Оренда', href: '/uk/orenda/' },
     { label: 'Роботи', href: '/uk/roboty/' },
+    { label: 'Калькулятор', href: '/uk/calculator/' },
     { label: 'Блог', href: '/uk/blog/' },
     { label: 'Про компанію', href: '/uk/pro-kompaniyu/' },
     { label: 'Контакти', href: '/uk/kontakty/' },
@@ -18,9 +19,9 @@ export const navItems: Record<'uk' | 'ru', NavItem[]> = {
     { label: 'Материалы', href: '/ru/materialy/' },
     { label: 'Аренда', href: '/ru/orenda/' },
     { label: 'Работы', href: '/ru/roboty/' },
-    { label: 'Блог', href: '/ru/blog/' },
-    { label: 'О компании', href: '/ru/pro-kompaniyu/' },
-    { label: 'Контакты', href: '/ru/kontakty/' },
+    { label: 'Калькулятор', href: '/ru/calculator/' },
+    { label: 'О компании', href: '/ru/o-kompanii/' },
+    { label: 'Контакты', href: '/ru/kontakti/' },
   ],
 };
 

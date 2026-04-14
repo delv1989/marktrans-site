@@ -55,7 +55,7 @@ const serviceSchema = {
 };
 ---
 
-<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath}>
+<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath} conceptId={entry.data.conceptId} collection="equipment">
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <Breadcrumbs items={[
     { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },

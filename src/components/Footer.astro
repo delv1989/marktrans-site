@@ -1,7 +1,7 @@
 ---
 import { contacts } from '../data/navigation';
 
-const locale = (Astro.currentLocale ?? 'uk') as 'uk' | 'ru';
+const locale = Astro.url.pathname.startsWith('/ru/') ? 'ru' : 'uk';
 const addr = contacts.address[locale];
 
 const labels = locale === 'uk'
@@ -137,12 +137,16 @@ const mapSrc = `https://maps.google.com/maps?q=${mapQuery}&t=&z=15&ie=UTF8&iwloc
     <!-- Footer bottom bar -->
     <div class="pt-8 border-t border-mt-divider flex flex-wrap justify-between items-center gap-4 font-mono text-[11px] text-mt-tertiary uppercase tracking-widest">
       <div>{labels.rights}</div>
-      <div class="flex gap-4">
+      <div class="flex flex-wrap gap-x-4 gap-y-1">
         <a href={locale === 'uk' ? '/uk/pro-kompaniyu/' : '/ru/o-kompanii/'} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Про компанію' : 'О компании'}</a>
         <span>·</span>
         <a href={locale === 'uk' ? '/uk/dostavka-i-oplata/' : '/ru/dostavka-i-oplata/'} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Доставка' : 'Доставка'}</a>
         <span>·</span>
         <a href={locale === 'uk' ? '/uk/kontakty/' : '/ru/kontakti/'} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Контакти' : 'Контакты'}</a>
+        <span>·</span>
+        <a href={`/${locale}/privacy/`} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Конфіденційність' : 'Конфиденциальность'}</a>
+        <span>·</span>
+        <a href={`/${locale}/terms/`} class="hover:text-mt-accent transition-colors">{locale === 'uk' ? 'Умови' : 'Условия'}</a>
         <span>·</span>
         <a href="/sitemap-index.xml" class="hover:text-mt-accent transition-colors">Sitemap</a>
       </div>

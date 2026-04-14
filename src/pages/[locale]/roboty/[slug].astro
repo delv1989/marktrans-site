@@ -4,6 +4,8 @@ import { getHreflangAlternatesByConcept } from '../../../lib/hreflang';
 import PageLayout from '../../../layouts/PageLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CTABanner from '../../../components/CTABanner.astro';
+import CalculatorC from '../../../components/CalculatorC.astro';
+import OrderForm from '../../../components/OrderForm.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('works');
@@ -19,6 +21,7 @@ const locale = entry.data.locale;
 const isUk = locale === 'uk';
 const alternates = await getHreflangAlternatesByConcept(entry.data.conceptId, 'works');
 const ogPath = `/og/${locale}/roboty/${entry.data.slug}.jpg`;
+const isWasteCalc = entry.data.slug.includes('vyviz') || entry.data.slug.includes('vyvoz');
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -49,7 +52,7 @@ const serviceSchema = {
 };
 ---
 
-<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath}>
+<PageLayout title={entry.data.metaTitle} description={entry.data.metaDescription} alternateUk={alternates.uk} alternateRu={alternates.ru} ogImage={ogPath} conceptId={entry.data.conceptId} collection="works">
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <Breadcrumbs items={[
     { label: isUk ? 'Головна' : 'Главная', href: `/${locale}/` },
@@ -99,6 +102,22 @@ const serviceSchema = {
             <img src={img} alt="" loading="lazy" class="w-full aspect-square object-cover rounded-sm border border-mt-divider" />
           ))}
         </div>
+      </div>
+    </section>
+  )}
+
+  {isWasteCalc && (
+    <section class="py-12 md:py-20 border-b border-mt-divider">
+      <div class="max-w-[880px] mx-auto px-6 md:px-12 flex justify-center">
+        <CalculatorC locale={locale as 'uk' | 'ru'} />
+      </div>
+    </section>
+  )}
+
+  {isWasteCalc && (
+    <section id="order-section" class="py-12 md:py-20 border-b border-mt-divider">
+      <div class="max-w-[880px] mx-auto px-6 md:px-12 flex justify-center">
+        <OrderForm locale={locale as 'uk' | 'ru'} />
       </div>
     </section>
   )}
