@@ -14,6 +14,22 @@ const faq = [
 ---
 
 <PageLayout title={title} description={description} alternateUk="/uk/blog/vydy-pisku/">
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title.replace(' · MARKTRANS', ''),
+    "description": description,
+    "image": [new URL('/og-default.jpg', 'https://marktrans.com.ua').href],
+    "datePublished": "2026-04-10",
+    "dateModified": "2026-04-10",
+    "author": { "@type": "Organization", "name": "MARKTRANS" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MARKTRANS",
+      "logo": { "@type": "ImageObject", "url": "https://marktrans.com.ua/og-default.jpg" }
+    },
+    "mainEntityOfPage": "https://marktrans.com.ua/uk/blog/vydy-pisku/"
+  })} />
   <Breadcrumbs items={[{ label: 'Головна', href: '/uk/' }, { label: 'Блог', href: '/uk/blog/' }, { label: 'Види піску' }]} />
 
   <article class="py-16 md:py-24">
