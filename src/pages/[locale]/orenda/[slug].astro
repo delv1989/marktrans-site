@@ -75,7 +75,7 @@ const serviceSchema = {
           <h1 class="font-display font-black text-3xl md:text-5xl uppercase tracking-tight leading-none mb-6">{entry.data.h1}</h1>
           {entry.data.priceFrom && (
             <div class="flex items-baseline gap-4 mb-8 pb-8 border-b border-mt-divider">
-              <span class="font-mono font-black text-5xl md:text-6xl text-mt-accent leading-none tracking-tight">{entry.data.priceFrom} ₴</span>
+              <span class="font-mono font-black text-5xl md:text-6xl text-mt-accent leading-none tracking-tight">{entry.data.priceFrom.toLocaleString('uk-UA')} ₴</span>
               <span class="font-mono text-sm text-mt-tertiary uppercase tracking-widest">/ {isUk ? 'тонна' : 'тонна'}</span>
             </div>
           )}
@@ -111,7 +111,7 @@ const serviceSchema = {
 
   <CTABanner
     title={isUk ? `${entry.data.title} з доставкою` : `${entry.data.title} с доставкой`}
-    subtitle={entry.data.priceFrom ? `${isUk ? 'Від' : 'От'} ${entry.data.priceFrom} ₴. ${isUk ? 'Доставка самоскидом ACTROS.' : 'Доставка самосвалом ACTROS.'}` : undefined}
+    subtitle={entry.data.priceFrom ? `${isUk ? 'Від' : 'От'} ${entry.data.priceFrom.toLocaleString('uk-UA')} ₴. ${isUk ? 'Доставка самоскидом ACTROS.' : 'Доставка самосвалом ACTROS.'}` : undefined}
     buttonText={isUk ? 'Замовити →' : 'Заказать →'}
     buttonHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`}
   />

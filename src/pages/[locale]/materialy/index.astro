@@ -62,7 +62,7 @@ const faq = isUk ? [
             {entry.data.image && (<div class="h-48 md:h-56 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06] group-hover:brightness-90 group-hover:grayscale-0" /></div>)}
             <div class="p-6 md:p-8">
               <h3 class="font-display font-black text-lg md:text-xl uppercase tracking-tight mb-2">{entry.data.title}</h3>
-              {entry.data.priceFrom && (<div class="flex items-baseline gap-2"><span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom} ₴</span><span class="font-mono text-[11px] text-mt-tertiary uppercase tracking-widest">/ {isUk ? 'тонна' : 'тонна'}</span></div>)}
+              {entry.data.priceFrom && (<div class="flex items-baseline gap-2"><span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom.toLocaleString('uk-UA')} ₴</span><span class="font-mono text-[11px] text-mt-tertiary uppercase tracking-widest">/ {isUk ? 'тонна' : 'тонна'}</span></div>)}
             </div>
           </a>
         ))}

@@ -49,7 +49,7 @@ const faq = isUk ? [
             {entry.data.image && (<div class="h-48 md:h-56 overflow-hidden"><img src={entry.data.image} alt={entry.data.title} loading="lazy" class="w-full h-full object-cover brightness-75 grayscale-[30%] transition-transform duration-700 group-hover:scale-[1.06]" /></div>)}
             <div class="p-6 md:p-8">
               <h3 class="font-display font-black text-lg uppercase tracking-tight mb-2">{entry.data.title}</h3>
-              {entry.data.priceFrom && (<span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom} ₴</span>)}
+              {entry.data.priceFrom && (<span class="font-mono font-black text-2xl text-mt-accent">{entry.data.priceFrom.toLocaleString('uk-UA')} ₴</span>)}
             </div>
           </a>
         ))}
