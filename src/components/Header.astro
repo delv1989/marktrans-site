@@ -40,7 +40,7 @@ const ctaLabel = locale === 'uk' ? 'Замовити →' : 'Заказать �
       <div class="hidden sm:flex items-center gap-4">
         <LanguageSwitcher locale={locale} conceptId={conceptId} collection={collection} />
         <a
-          href={`/${locale}/kontakty/`}
+          href={locale === 'ru' ? '/ru/kontakti/' : '/uk/kontakty/'}
           class="inline-flex px-5 md:px-7 py-3 md:py-3.5 bg-mt-accent text-mt-accent-contrast font-display font-black text-[11px] md:text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors rounded-xs"
         >
           {ctaLabel}
@@ -87,7 +87,7 @@ const ctaLabel = locale === 'uk' ? 'Замовити →' : 'Заказать �
     </ul>
     <div class="px-6 py-4 border-t border-mt-divider">
       <a
-        href={`/${locale}/kontakty/`}
+        href={locale === 'ru' ? '/ru/kontakti/' : '/uk/kontakty/'}
         class="block w-full text-center py-4 bg-mt-accent text-mt-accent-contrast font-display font-black text-sm uppercase tracking-widest rounded-xs"
       >
         {ctaLabel}

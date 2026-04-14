@@ -88,6 +88,6 @@ const description = isUk
     title={isUk ? `${catLabel} з доставкою` : `${catLabel} с доставкой`}
     subtitle={isUk ? 'Подзвоніть або напишіть — розрахуємо вартість за 5 хвилин.' : 'Позвоните или напишите — рассчитаем стоимость за 5 минут.'}
     buttonText={isUk ? 'Замовити →' : 'Заказать →'}
-    buttonHref={`/${locale}/kontakty/`}
+    buttonHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`}
   />
 </PageLayout>

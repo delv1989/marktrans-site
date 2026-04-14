@@ -58,5 +58,5 @@ const faq = isUk ? [
   </section>
 
   <FAQ items={faq} title={isUk ? 'Запитання про роботи' : 'Вопросы о работах'} />
-  <CTABanner title={isUk ? 'Потрібні будівельні роботи?' : 'Нужны строительные работы?'} subtitle={isUk ? 'Безкоштовний кошторис після огляду.' : 'Бесплатная смета после осмотра.'} buttonText={isUk ? 'Замовити огляд →' : 'Заказать осмотр →'} buttonHref={`/${locale}/kontakty/`} />
+  <CTABanner title={isUk ? 'Потрібні будівельні роботи?' : 'Нужны строительные работы?'} subtitle={isUk ? 'Безкоштовний кошторис після огляду.' : 'Бесплатная смета после осмотра.'} buttonText={isUk ? 'Замовити огляд →' : 'Заказать осмотр →'} buttonHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`} />
 </PageLayout>

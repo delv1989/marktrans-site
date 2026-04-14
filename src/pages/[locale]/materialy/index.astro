@@ -71,5 +71,5 @@ const faq = isUk ? [
   </section>
 
   <FAQ items={faq} />
-  <CTABanner title={isUk ? 'Потрібен матеріал?' : 'Нужен материал?'} subtitle={isUk ? 'Подзвоніть або напишіть в Telegram.' : 'Позвоните или напишите в Telegram.'} buttonText={isUk ? 'Замовити доставку →' : 'Заказать доставку →'} buttonHref={`/${locale}/kontakty/`} />
+  <CTABanner title={isUk ? 'Потрібен матеріал?' : 'Нужен материал?'} subtitle={isUk ? 'Подзвоніть або напишіть в Telegram.' : 'Позвоните или напишите в Telegram.'} buttonText={isUk ? 'Замовити доставку →' : 'Заказать доставку →'} buttonHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`} />
 </PageLayout>

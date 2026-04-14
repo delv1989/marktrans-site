@@ -80,7 +80,7 @@ const serviceSchema = {
             </div>
           )}
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href={`/${locale}/kontakty/`} class="btn-primary justify-center">{isUk ? 'Замовити доставку →' : 'Заказать доставку →'}</a>
+            <a href={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`} class="btn-primary justify-center">{isUk ? 'Замовити доставку →' : 'Заказать доставку →'}</a>
             <a href="tel:+380504204229" class="btn-secondary justify-center">{isUk ? 'Подзвонити' : 'Позвонить'}</a>
           </div>
         </div>
@@ -113,6 +113,6 @@ const serviceSchema = {
     title={isUk ? `${entry.data.title} з доставкою` : `${entry.data.title} с доставкой`}
     subtitle={entry.data.priceFrom ? `${isUk ? 'Від' : 'От'} ${entry.data.priceFrom} ₴. ${isUk ? 'Доставка самоскидом ACTROS.' : 'Доставка самосвалом ACTROS.'}` : undefined}
     buttonText={isUk ? 'Замовити →' : 'Заказать →'}
-    buttonHref={`/${locale}/kontakty/`}
+    buttonHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`}
   />
 </PageLayout>

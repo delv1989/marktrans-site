@@ -55,7 +55,7 @@ const t = isUk ? {
     lead={t.heroLead}
     ctaPrimary={t.ctaPrimary}
     ctaSecondary={t.ctaSecondary}
-    ctaPrimaryHref={`/${locale}/kontakty/`}
+    ctaPrimaryHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`}
     ctaSecondaryHref={`/${locale}/calculator/`}
     bgImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop&q=80"
   />
@@ -123,6 +123,6 @@ const t = isUk ? {
     title={isUk ? 'Потрібен матеріал або техніка?' : 'Нужен материал или техника?'}
     subtitle={isUk ? 'Подзвоніть або напишіть в Telegram — розрахуємо вартість за 5 хвилин.' : 'Позвоните или напишите в Telegram — рассчитаем стоимость за 5 минут.'}
     buttonText={isUk ? 'Замовити →' : 'Заказать →'}
-    buttonHref={`/${locale}/kontakty/`}
+    buttonHref={locale === 'ru' ? '/ru/kontakti/' : `/${locale}/kontakty/`}
   />
 </PageLayout>
