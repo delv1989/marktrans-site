@@ -98,7 +98,7 @@ const materialsData = materials.map(m => ({
         <button type="button" data-cb-order class="flex-1 min-w-[160px] py-3 bg-mt-accent text-mt-accent-contrast font-display font-black text-xs uppercase tracking-widest hover:bg-mt-accent-hover transition-colors">
           {isUk ? 'Замовити' : 'Заказать'} <span data-cb-tons2>0</span> {isUk ? 'т' : 'т'}
         </button>
-        <a data-cb-link href="#" class="py-3 px-4 text-mt-secondary text-xs border border-mt-divider uppercase tracking-widest hover:text-mt-accent hover:border-mt-accent transition-colors text-center">
+        <a data-cb-link href={`/${locale}/materialy/`} class="py-3 px-4 text-mt-secondary text-xs border border-mt-divider uppercase tracking-widest hover:text-mt-accent hover:border-mt-accent transition-colors text-center">
           {isUk ? 'Характеристики' : 'Характеристики'}
         </a>
       </div>

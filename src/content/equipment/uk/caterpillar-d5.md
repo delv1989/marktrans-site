@@ -1,8 +1,8 @@
 ---
 title: Оренда бульдозера Caterpillar D5
 h1: Оренда бульдозера Caterpillar D5
-metaTitle: "Оренда бульдозеру Caterpillar D5 | Київ та область | MARKTRANS"
-metaDescription: "Оренда бульдозера Caterpillar D5 | Київ та область | висока потужність на ряду з чудовою точністю управління і маневреністю | для  копання і навантаження | позмінна оплата | Замов зараз | Тел.: +38(050) 420-42-29"
+metaTitle: "Оренда бульдозера Caterpillar D5 · MARKTRANS"
+metaDescription: "Оренда бульдозера Caterpillar D5 у Києві та області. Водій і ПММ включено. Подача за 2-4 години. Від 12 000 ₴/зміна."
 locale: uk
 category: insha
 slug: caterpillar-d5

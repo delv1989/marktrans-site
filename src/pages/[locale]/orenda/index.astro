@@ -15,7 +15,7 @@ const isUk = locale === 'uk';
 const entries = await getCollection('equipment', ({ data }) => data.locale === locale);
 const sorted = entries.sort((a, b) => a.data.title.localeCompare(b.data.title, locale));
 
-const title = isUk ? 'Оренда спецтехніки Київ — самоскид, бульдозер, екскаватор · MARKTRANS' : 'Аренда спецтехники Киев — самосвал, бульдозер, экскаватор · MARKTRANS';
+const title = isUk ? 'Оренда спецтехніки Київ — ACTROS · MARKTRANS' : 'Аренда спецтехники Киев — ACTROS · MARKTRANS';
 const description = isUk ? 'Оренда самоскидів, бульдозерів, навантажувачів, екскаваторів, гідромолотів. Водій + ПММ включено.' : 'Аренда самосвалов, бульдозеров, погрузчиков, экскаваторов, гидромолотов. Водитель + ГСМ включено.';
 
 const faq = isUk ? [

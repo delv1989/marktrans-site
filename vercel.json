@@ -27,16 +27,6 @@
       "permanent": false
     },
     {
-      "source": "/ru/terms/",
-      "destination": "/uk/terms/",
-      "permanent": false
-    },
-    {
-      "source": "/ru/privacy/",
-      "destination": "/uk/privacy/",
-      "permanent": false
-    },
-    {
       "source": "/ru/pro-kompaniyu/",
       "destination": "/uk/pro-kompaniyu/",
       "permanent": false

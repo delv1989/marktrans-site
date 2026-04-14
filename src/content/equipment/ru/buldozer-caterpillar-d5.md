@@ -1,7 +1,7 @@
 ---
 title: Аренда бульдозера Caterpillar D5
 h1: Аренда бульдозера Caterpillar D5
-metaTitle: "Аренда бульдозера Caterpillar D5 | Киев и область | MARKTRANS"
+metaTitle: "Аренда бульдозера Caterpillar D5 · MARKTRANS"
 metaDescription: "Оренда бульдозера Caterpillar D5 | Київ та область | висока потужність на ряду з чудовою точністю управління і маневреністю | для  копання і навантаження | позмінна оплата | Замов зараз | Тел.: +38(050) 420-42-29"
 locale: ru
 category: insha
