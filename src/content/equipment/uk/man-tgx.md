@@ -41,4 +41,4 @@ image: /uploads/products/man-tgx.jpg
 Весь [автопарк](/uk/orenda/) у відмінному стані для забезпечення стабільної доставки та високої якості обслуговування.
 
 ![Оренда самоскиду MAN TGX в Киеве та області](/uploads/img/man-tgx/product-1-img-1.jpg)
-![Замовити оренду самоскида MAN TGX в Киеве и області](/uploads/img/man-tgx/product-1-img-2.jpg)
+![Замовити оренду самоскида MAN TGX в Києві та області](/uploads/img/man-tgx/product-1-img-2.jpg)

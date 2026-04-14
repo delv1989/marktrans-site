@@ -54,7 +54,7 @@ image: /uploads/products/mastic-asphalt-mixture-b-1.jpg
 
 Наша продукція відповідає всім сучасним [держстандартам](https://online.budstandart.com/ru/catalog/doc-page.html?id_doc=4053) якості і має відповідні сертифікати.
 
-Подивіться статтю [Що таке асфальтобетон?](/uk/blog/chto-takoe-asfaltobeton/) в нашем блоге
+Подивіться статтю [Що таке асфальтобетон?](/uk/blog/chto-takoe-asfaltobeton/) у нашому блозі
 
 ![Асфальтобетонна суміш Wetfix купити у Києві та Київській області с доставкой](/uploads/img/asfaltobetonnaja-smes-wetfix/product-1-img-1.jpg)
 ![Асфальтобетонна суміш Wetfix замовити у компанії Марктранс (MARKTRANS)](/uploads/img/asfaltobetonnaja-smes-wetfix/product-1-img-2.jpg)

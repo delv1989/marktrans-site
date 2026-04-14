@@ -1,6 +1,6 @@
 ---
 title: Асфальтобетонна суміш Selenizza
-h1: Асфальтобетонна суміш Selenizza – Інноваційний Холодний Асфальт
+h1: Асфальтобетонна суміш Selenizza — інноваційний холодний асфальт
 metaTitle: Selenizza – Преміальний Холодний Асфальт для Ямкового Ремонту
 metaDescription: Холодний асфальт Selenizza – рішення для цілорічного ремонту асфальту без нагрівання. Простота використання, висока адгезія та довговічність. Доставка по всій Україні.
 locale: uk
@@ -48,7 +48,7 @@ image: /uploads/products/selenizza1.jpg
 
 * **Київська Область:** Бровари, Ірпінь, Буча, Бориспіль, Вишгород та інші населені пункти.
 
-Подивіться статтю [Що таке асфальтобетон?](/uk/blog/chto-takoe-asfaltobeton/) в нашем блоге
+Подивіться статтю [Що таке асфальтобетон?](/uk/blog/chto-takoe-asfaltobeton/) у нашому блозі
 
 ![Асфальтобетонна суміш Selenizza купити у Києві та Київській області с доставкой](/uploads/img/asfaltobetonnaja-smes-selenizza/product-1-img-1.jpg)
 ![Асфальтобетонна суміш Selenizza замовити у компанії Марктранс (MARKTRANS)](/uploads/img/asfaltobetonnaja-smes-selenizza/product-1-img-2.jpg)
