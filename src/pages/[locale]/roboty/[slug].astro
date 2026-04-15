@@ -32,7 +32,7 @@ const serviceSchema = {
   image: entry.data.image ? new URL(entry.data.image, Astro.site).toString() : undefined,
   provider: {
     '@type': 'LocalBusiness',
-    '@id': new URL('/#localbusiness', Astro.site).toString(),
+    '@id': new URL('/#business', Astro.site).toString(),
     name: 'MARKTRANS',
     telephone: '+380504204229',
   },

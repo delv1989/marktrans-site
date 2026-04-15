@@ -26,13 +26,6 @@ const materialsSchema = {
       image: m.image,
       url: new URL(m.href, siteUrl).toString(),
       brand: { '@type': 'Brand', name: 'MARKTRANS' },
-      offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'UAH',
-        lowPrice: '150',
-        availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'MARKTRANS' },
-      },
     },
   })),
 };
@@ -87,7 +80,7 @@ const websiteSchema = {
   url: 'https://marktrans.com.ua/',
   name: 'MARKTRANS',
   inLanguage: 'uk-UA',
-  publisher: { '@id': 'https://marktrans.com.ua/#business' },
+  publisher: { '@id': 'https://marktrans.com.ua/#organization' },
 };
 ---
 

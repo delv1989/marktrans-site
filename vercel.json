@@ -3,10 +3,37 @@
   "headers": [
     {
       "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?<host>.*\\.vercel\\.app)"
+        }
+      ],
       "headers": [
         {
           "key": "X-Robots-Tag",
           "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
         }
       ]
     },
@@ -18,28 +45,37 @@
           "value": "public, max-age=0, s-maxage=60, stale-while-revalidate=600, must-revalidate"
         }
       ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "redirects": [
     {
       "source": "/ru/blog/",
       "destination": "/uk/blog/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ru/pro-kompaniyu/",
       "destination": "/uk/pro-kompaniyu/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ru/kontakty/",
       "destination": "/uk/kontakty/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/ru/blog/:path*",
       "destination": "/uk/blog/:path*",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/arenda-spetstehniki/arenda-samosvala-daf/daf-cf450-cf480-prod/",
