@@ -17,6 +17,14 @@ function escapeMd(s: string): string {
   return String(s).replace(/[_*[\]()~`>#+=|{}.!\\-]/g, (c) => '\\' + c);
 }
 
+function sanitizeSourceUrl(url: string): string | null {
+  try {
+    return escapeMd(new URL(url).toString());
+  } catch {
+    return null;
+  }
+}
+
 function validatePhone(phone: string): boolean {
   const cleaned = phone.replace(/[\s\-()]/g, '');
   return /^(\+?380|0)\d{9}$/.test(cleaned);
@@ -66,7 +74,8 @@ export const POST: APIRoute = async ({ request }) => {
   if (payload.material) lines.push(`📦 *Material:* ${escapeMd(payload.material)}`);
   if (payload.quantity) lines.push(`⚖️ *Qty:* ${escapeMd(payload.quantity)} t`);
   if (payload.message) lines.push('', `💬 ${escapeMd(payload.message)}`);
-  if (payload.source_url) lines.push('', `🔗 ${payload.source_url}`);
+  const safeSourceUrl = payload.source_url ? sanitizeSourceUrl(payload.source_url) : null;
+  if (safeSourceUrl) lines.push('', `🔗 ${safeSourceUrl}`);
 
   try {
     const resp = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
